@@ -1,0 +1,11 @@
+{
+  "name": "egundem-automation",
+  "version": "1.0.0",
+  "description": "E-gundem.com için Playwright test otomasyonu",
+  "scripts": {
+    "test": "npx playwright test"
+  },
+  "devDependencies": {
+    "playwright": "^1.43.1"
+  }
+}
