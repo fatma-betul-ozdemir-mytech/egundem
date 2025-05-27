@@ -15,8 +15,8 @@ test.describe('eGündem Test Suite', () => {
     await page.goto(BASE_URL, { timeout: 60000, waitUntil: 'domcontentloaded' });
     const pageTitle = await page.title();
     console.log(`Page Title: ${pageTitle}`);
-    await expect(pageTitle).toMatch(/gündem/i);
-  });
+    await expect(pageTitle).toMatch(/E-?Gündem/i);
+});
 
   // Form Gönderim Testi (Koşullu)
   test('Forms should submit correctly', async ({ page }) => {
