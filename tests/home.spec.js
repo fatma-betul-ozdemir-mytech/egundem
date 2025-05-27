@@ -15,14 +15,14 @@ test.describe('eGündem Test Suite', () => {
     await page.goto(BASE_URL, { timeout: 60000, waitUntil: 'domcontentloaded' });
     const pageTitle = await page.title();
     console.log(`Page Title: ${pageTitle}`);
-    await expect(pageTitle).toMatch(/E-?Gündem/i);
-});
+    expect(pageTitle).toMatch(/E-?Gündem/i); // toMatch string için doğru kullanım
+  });
 
   // Form Gönderim Testi (Koşullu)
   test('Forms should submit correctly', async ({ page }) => {
     await page.goto(BASE_URL, { timeout: 60000, waitUntil: 'domcontentloaded' });
 
-    const hasForm = await page.locator('input[name="username"]').count() > 0;
+    const hasForm = (await page.locator('input[name="username"]').count()) > 0;
     if (hasForm) {
       await page.fill('input[name="username"]', 'testuser');
       await page.fill('input[name="password"]', 'password');
@@ -37,21 +37,24 @@ test.describe('eGündem Test Suite', () => {
   // Performans Testi
   test('Page load time breakdown', async ({ page }) => {
     const start = Date.now();
-    await page.goto(BASE_URL, { timeout: 60000 });
+    await page.goto(BASE_URL, { timeout: 60000, waitUntil: 'load' }); // load event'i bekleniyor
     const loadTime = Date.now() - start;
 
-    const metrics = await page.evaluate(() => ({
-      domContentLoaded: performance.timing.domContentLoadedEventEnd - performance.timing.navigationStart,
-      load: performance.timing.loadEventEnd - performance.timing.navigationStart,
-      firstByte: performance.timing.responseStart - performance.timing.navigationStart
-    }));
+    const metrics = await page.evaluate(() => {
+      const timing = performance.timing;
+      return {
+        domContentLoaded: timing.domContentLoadedEventEnd - timing.navigationStart,
+        load: timing.loadEventEnd - timing.navigationStart,
+        firstByte: timing.responseStart - timing.navigationStart
+      };
+    });
 
     console.log(`Page Load Time: ${loadTime} ms`);
     console.log(`First Byte: ${metrics.firstByte} ms`);
     console.log(`DOM Content Loaded: ${metrics.domContentLoaded} ms`);
     console.log(`Full Load: ${metrics.load} ms`);
 
-    expect(loadTime).toBeLessThan(30000); // Sayfa 30 saniyeden kısa sürede yüklensin
+    expect(loadTime).toBeLessThan(30000);
   });
 
   // Konsol Hatası Testi
@@ -63,8 +66,45 @@ test.describe('eGündem Test Suite', () => {
     if (errors.length > 0) {
       console.error('Console Errors:', errors);
     }
-
     expect(errors.length).toBe(0);
+  });
+
+  // Haber detay sayfasına tıklama testi
+  test('Ana sayfadan bir habere tıklanınca detay sayfası açılır', async ({ page }) => {
+    await page.goto(BASE_URL, { waitUntil: 'domcontentloaded' });
+
+    const newsLinks = page.locator('a[href*="/haber/"]');
+    await newsLinks.first().waitFor({ state: 'visible', timeout: 10000 });
+    await newsLinks.first().click();
+
+    await page.waitForLoadState('networkidle');
+    await expect(page).toHaveURL(/\/haber\//);
+  });
+
+  // Arama kutusunda sonuç bulunuyor mu testi
+  test('Arama kutusunda sonuç bulunuyor mu', async ({ page }) => {
+    await page.goto(BASE_URL, { waitUntil: 'domcontentloaded' });
+
+    const searchInput = page.locator('input[type="search"], input[name="q"], input[placeholder*="Ara"]');
+    await expect(searchInput).toBeVisible();
+
+    await searchInput.fill('haber');
+    await searchInput.press('Enter');
+
+    await page.waitForLoadState('networkidle');
+
+    const results = await page.locator('article').count();
+    expect(results).toBeGreaterThan(0);
+  });
+
+  // Footer içinde İletişim linki testi
+  test('Footer içinde İletişim linki mevcut mu', async ({ page }) => {
+    await page.goto(BASE_URL, { waitUntil: 'domcontentloaded' });
+
+    await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+
+    const contactLink = page.locator('footer a[href*="iletisim"], footer a:has-text("İletişim")');
+    await expect(contactLink).toBeVisible({ timeout: 5000 });
   });
 
 });
