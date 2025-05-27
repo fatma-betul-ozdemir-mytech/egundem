@@ -10,19 +10,19 @@ test.describe('eGündem Test Suite', () => {
     await expect(page).toHaveURL(BASE_URL);
   });
 
-  // Başlık Kontrol Testi
+  // Başlık Kontrol Testi (Playwright bekleme mekanizması ile)
   test('Page should have correct title', async ({ page }) => {
     await page.goto(BASE_URL, { timeout: 60000, waitUntil: 'domcontentloaded' });
-    const pageTitle = await page.title();
-    console.log(`Page Title: ${pageTitle}`);
-    await expect(pageTitle).toMatch(/gündem/i);
+    await expect(page).toHaveTitle(/gündem/i);
   });
 
   // Form Gönderim Testi (Koşullu)
   test('Forms should submit correctly', async ({ page }) => {
     await page.goto(BASE_URL, { timeout: 60000, waitUntil: 'domcontentloaded' });
 
-    const hasForm = await page.locator('input[name="username"]').count() > 0;
+    const count = await page.locator('input[name="username"]').count();
+    const hasForm = count > 0;
+
     if (hasForm) {
       await page.fill('input[name="username"]', 'testuser');
       await page.fill('input[name="password"]', 'password');
