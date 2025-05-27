@@ -14,7 +14,7 @@ test.describe('eGündem Test Suite', () => {
   test('Page should have correct title', async ({ page }) => {
     await page.goto(BASE_URL, { timeout: 60000, waitUntil: 'domcontentloaded' });
     const pageTitle = await page.title();
-    console.log(Page Title: ${pageTitle});
+    console.log(`Page Title: ${pageTitle}`);
     await expect(pageTitle).toMatch(/gündem/i);
   });
 
@@ -46,10 +46,10 @@ test.describe('eGündem Test Suite', () => {
       firstByte: performance.timing.responseStart - performance.timing.navigationStart
     }));
 
-    console.log(Page Load Time: ${loadTime} ms);
-    console.log(First Byte: ${metrics.firstByte} ms);
-    console.log(DOM Content Loaded: ${metrics.domContentLoaded} ms);
-    console.log(Full Load: ${metrics.load} ms);
+    console.log(`Page Load Time: ${loadTime} ms`);
+    console.log(`First Byte: ${metrics.firstByte} ms`);
+    console.log(`DOM Content Loaded: ${metrics.domContentLoaded} ms`);
+    console.log(`Full Load: ${metrics.load} ms`);
 
     expect(loadTime).toBeLessThan(30000); // Sayfa 30 saniyeden kısa sürede yüklensin
   });
@@ -67,4 +67,4 @@ test.describe('eGündem Test Suite', () => {
     expect(errors.length).toBe(0);
   });
 
-});     
+});
