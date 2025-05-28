@@ -23,12 +23,7 @@ jobs:
         run: npm ci
 
       - name: Install Playwright Browsers
-        run: |
-          npx playwright install --with-deps
-          ls -la ~/.cache/ms-playwright/
-
-      - name: Wait before test
-        run: sleep 5
+        run: npx playwright install chromium
 
       - name: Run Playwright Tests
         run: npx playwright test
