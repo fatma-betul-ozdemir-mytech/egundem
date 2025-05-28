@@ -2,7 +2,7 @@ name: Run Playwright Tests and Report to Jira
 
 on:
   push:
-    branches: [main]
+    branches: [master]   # eğer repoda ana branch master ise
 
 jobs:
   test-and-report:
