@@ -1,9 +1,7 @@
-// Trigger workflow - test
-// jira-comment.js
 const axios = require('axios');
 const fs = require('fs');
 
-// Gerekli environment değişkenlerini al
+// Environment değişkenleri
 const jiraBaseUrl = process.env.JIRA_BASE_URL;
 const jiraEmail = process.env.JIRA_EMAIL;
 const jiraApiToken = process.env.JIRA_API_TOKEN;
@@ -13,7 +11,13 @@ const testResultPath = './playwright-report/results.json'; // Playwright JSON ç
 const auth = Buffer.from(`${jiraEmail}:${jiraApiToken}`).toString('base64');
 
 // Test sonuçlarını oku
-const testResults = JSON.parse(fs.readFileSync(testResultPath, 'utf8'));
+let testResults;
+try {
+  testResults = JSON.parse(fs.readFileSync(testResultPath, 'utf8'));
+} catch (err) {
+  console.error('❌ Test sonuç dosyası okunamadı:', err.message);
+  process.exit(1);
+}
 
 async function postComment(issueKey, message) {
   const url = `${jiraBaseUrl}/rest/api/3/issue/${issueKey}/comment`;
@@ -36,17 +40,36 @@ async function postComment(issueKey, message) {
   }
 }
 
-// Her bir testi bir Jira ticket ile eşle
 (async () => {
-  for (const result of testResults.suites.flatMap(s => s.specs)) {
-    const testTitle = result.tests[0].title;
-    const status = result.tests[0].results[0].status;
-    const jiraKeyMatch = testTitle.match(/\bEGT-\d+\b/); // Başlıkta EGT-1 gibi bir ID varsa
+  if (!testResults.suites || testResults.suites.length === 0) {
+    console.warn('⚠️ Test sonuçlarında suite bulunamadı.');
+    return;
+  }
 
-    if (jiraKeyMatch) {
-      const jiraKey = jiraKeyMatch[0];
-      const comment = `🔎 Otomasyon Test Sonucu:\n**${testTitle}** → ${status.toUpperCase()}`;
-      await postComment(jiraKey, comment);
+  for (const suite of testResults.suites) {
+    if (!suite.specs) continue;
+
+    for (const spec of suite.specs) {
+      if (!spec.tests || spec.tests.length === 0) continue;
+
+      for (const test of spec.tests) {
+        if (!test.results || test.results.length === 0) continue;
+
+        const testTitle = test.title || 'Başlıksız test';
+        const status = test.results[0].status || 'unknown';
+        const jiraKeyMatch = testTitle.match(new RegExp(`\\b${jiraProjectKey}-\\d+\\b`));
+
+        if (jiraKeyMatch) {
+          const jiraKey = jiraKeyMatch[0];
+          const comment = `🔎 Otomasyon Test Sonucu:\n**${testTitle}** → ${status.toUpperCase()}`;
+          console.log(`➡️ Jira biletine yorum gönderiliyor: ${jiraKey} - Durum: ${status}`);
+          await postComment(jiraKey, comment);
+        } else {
+          console.log(`⚠️ Jira bilet anahtarı bulunamadı test başlığında: "${testTitle}"`);
+        }
+      }
     }
   }
+
+  console.log('🎉 Tüm test sonuçları işlendi.');
 })();
