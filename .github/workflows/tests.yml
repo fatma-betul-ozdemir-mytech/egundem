@@ -22,11 +22,15 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Clear Playwright Cache
+      - name: Clear Playwright Cache (Optional but recommended)
         run: rm -rf ~/.cache/ms-playwright
 
-      - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
+      - name: Install Playwright and Browsers
+        run: |
+          npx playwright install --with-deps
+
+      - name: Show Installed Browsers (Debug step)
+        run: ls -R ~/.cache/ms-playwright || true
 
       - name: Run Playwright Tests
         run: npx playwright test
