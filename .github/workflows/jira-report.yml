@@ -1,3 +1,9 @@
+name: Run Playwright Tests and Report to Jira
+
+on:
+  push:
+    branches: [main]
+
 jobs:
   test-and-report:
     runs-on: ubuntu-latest
