@@ -1,30 +1,23 @@
-require('dotenv').config(); // .env kullanıyorsan
-
+require('dotenv').config();
 const axios = require('axios');
 const fs = require('fs');
-const path = require('path');
 
-const jiraBaseUrlRaw = process.env.JIRA_BASE_URL;
+const jiraBaseUrl = process.env.JIRA_BASE_URL;
 const jiraEmail = process.env.JIRA_EMAIL;
 const jiraApiToken = process.env.JIRA_API_TOKEN;
 const jiraProjectKey = process.env.JIRA_PROJECT_KEY || 'EGT';
+const testResultPath = './playwright-report/results.json';
+const auth = Buffer.from(`${jiraEmail}:${jiraApiToken}`).toString('base64');
 
-if (!jiraBaseUrlRaw || !jiraEmail || !jiraApiToken) {
+// Gerekli bilgiler var mı kontrol et
+if (!jiraBaseUrl || !jiraEmail || !jiraApiToken) {
   console.error('❌ Lütfen .env dosyasına JIRA_BASE_URL, JIRA_EMAIL ve JIRA_API_TOKEN bilgilerini giriniz!');
   process.exit(1);
 }
 
-// Jira base URL sonundaki slash'ları kaldırıyoruz (örnek: https://mytechteknoloji-team.atlassian.net)
-const jiraBaseUrl = jiraBaseUrlRaw.replace(/\/+$/, '');
-
-const testResultPath = path.resolve(__dirname, './playwright-report/results.json');
-
-const auth = Buffer.from(`${jiraEmail}:${jiraApiToken}`).toString('base64');
-
 let testResults;
 try {
-  const jsonData = fs.readFileSync(testResultPath, 'utf8');
-  testResults = JSON.parse(jsonData);
+  testResults = JSON.parse(fs.readFileSync(testResultPath, 'utf8'));
 } catch (err) {
   console.error('❌ Test sonuç dosyası okunamadı:', err.message);
   process.exit(1);
@@ -36,7 +29,7 @@ async function postComment(issueKey, message) {
   try {
     await axios.post(
       url,
-      { body: message },
+      { body: { type: "plain_text", content: message } },
       {
         headers: {
           Authorization: `Basic ${auth}`,
@@ -47,57 +40,34 @@ async function postComment(issueKey, message) {
     );
     console.log(`✅ Yorum başarıyla eklendi: ${issueKey}`);
   } catch (error) {
-    const errMsg = error.response?.data || error.message;
-    console.error(`❌ Yorum eklenemedi (${issueKey}):`, errMsg);
+    console.error(`❌ Yorum eklenemedi (${issueKey}):`, error.response?.data || error.message);
   }
 }
 
 (async () => {
-  if (!testResults.suites || testResults.suites.length === 0) {
+  const allSuites = testResults.suites || [];
+  if (allSuites.length === 0) {
     console.warn('⚠️ Test sonuçlarında suite bulunamadı.');
     return;
   }
 
-  for (const suite of testResults.suites) {
-    // Playwright JSON raporundaki yapıya göre:
-    // Suites içinde ya specs ya da alt suites olabilir, dolayısıyla recursive parse etmek gerekebilir.
+  for (const suite of allSuites) {
+    for (const spec of suite.specs || []) {
+      for (const test of spec.tests || []) {
+        const testTitle = test.title || 'Başlıksız test';
+        const status = test.results?.[0]?.status || 'unknown';
+        const match = testTitle.match(new RegExp(`\\b${jiraProjectKey}-\\d+\\b`));
 
-    // Burada recursive fonksiyonla parse edeceğiz:
-    async function processSuite(suite) {
-      if (suite.specs && suite.specs.length > 0) {
-        for (const spec of suite.specs) {
-          if (!spec.tests || spec.tests.length === 0) continue;
-
-          for (const test of spec.tests) {
-            if (!test.results || test.results.length === 0) continue;
-
-            const testTitle = test.title || 'Başlıksız test';
-            // Jira bilet anahtarı regex'i (örn: EGT-1, EGT-25)
-            const jiraKeyMatch = testTitle.match(new RegExp(`\\b${jiraProjectKey}-\\d+\\b`));
-
-            if (jiraKeyMatch) {
-              const jiraKey = jiraKeyMatch[0];
-              // Playwright test sonucu status bilgisi
-              const status = test.results[0].status || 'unknown';
-              const comment = `🔎 Otomasyon Test Sonucu:\n**${testTitle}** → ${status.toUpperCase()}`;
-
-              console.log(`➡️ Jira biletine yorum gönderiliyor: ${jiraKey} - Durum: ${status}`);
-              await postComment(jiraKey, comment);
-            } else {
-              console.log(`⚠️ Jira bilet anahtarı bulunamadı test başlığında: "${testTitle}"`);
-            }
-          }
-        }
-      }
-
-      if (suite.suites && suite.suites.length > 0) {
-        for (const innerSuite of suite.suites) {
-          await processSuite(innerSuite);
+        if (match) {
+          const issueKey = match[0];
+          const comment = `🔎 Otomasyon Test Sonucu:\n*${testTitle}* → **${status.toUpperCase()}**`;
+          console.log(`➡️ Jira biletine yorum gönderiliyor: ${issueKey} - Durum: ${status}`);
+          await postComment(issueKey, comment);
+        } else {
+          console.log(`⚠️ Jira bilet anahtarı bulunamadı test başlığında: "${testTitle}"`);
         }
       }
     }
-
-    await processSuite(suite);
   }
 
   console.log('🎉 Tüm test sonuçları işlendi.');
