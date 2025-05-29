@@ -39,12 +39,12 @@ async function postComment(issueKey, message) {
               content: [
                 {
                   type: "text",
-                  text: message
-                }
-              ]
-            }
-          ]
-        }
+                  text: message,
+                },
+              ],
+            },
+          ],
+        },
       },
       {
         headers: {
@@ -61,29 +61,32 @@ async function postComment(issueKey, message) {
 }
 
 (async () => {
-  const suites = testResults.suites || [];
-  if (suites.length === 0) {
+  const rootSuites = testResults.suites || [];
+
+  if (rootSuites.length === 0) {
     console.warn('⚠️ Test sonuçlarında suite bulunamadı.');
     return;
   }
 
-  for (const suite of suites) {
-    for (const spec of suite.specs || []) {
-      for (const test of spec.tests || []) {
-        const testTitle = test.title || 'Başlıksız test';
-        const status = test.results?.[0]?.status || 'unknown';
+  for (const suite1 of rootSuites) {
+    for (const suite2 of suite1.suites || []) {
+      for (const spec of suite2.specs || []) {
+        for (const test of spec.tests || []) {
+          const testTitle = test.title || spec.title || 'Başlıksız test';
+          const status = test.results?.[0]?.status || 'unknown';
 
-        const match = testTitle.match(new RegExp(`\\b${jiraProjectKey}-\\d+\\b`));
-        if (!match) {
-          console.log(`⚠️ Jira bilet anahtarı bulunamadı test başlığında: "${testTitle}"`);
-          continue;
+          const match = testTitle.match(new RegExp(`\\b${jiraProjectKey}-\\d+\\b`));
+          if (!match) {
+            console.log(`⚠️ Jira bilet anahtarı bulunamadı test başlığında: "${testTitle}"`);
+            continue;
+          }
+
+          const issueKey = match[0];
+          const comment = `Otomasyon Test Sonucu:\n${testTitle} → ${status.toUpperCase()}`;
+
+          console.log(`➡️ Jira biletine yorum gönderiliyor: ${issueKey} - Durum: ${status}`);
+          await postComment(issueKey, comment);
         }
-
-        const issueKey = match[0];
-        const comment = `Otomasyon Test Sonucu:\n${testTitle} → ${status.toUpperCase()}`;
-
-        console.log(`➡️ Jira biletine yorum gönderiliyor: ${issueKey} - Durum: ${status}`);
-        await postComment(issueKey, comment);
       }
     }
   }
