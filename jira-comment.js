@@ -46,30 +46,29 @@ async function postComment(issueKey, message) {
     return;
   }
 
-  for (const suite of testResults.suites) {
-    if (!suite.suites) continue;
+  for (const topSuite of testResults.suites) {
+    if (!topSuite.suites) continue;
 
-    for (const innerSuite of suite.suites) {
+    for (const innerSuite of topSuite.suites) {
       if (!innerSuite.specs) continue;
 
       for (const spec of innerSuite.specs) {
-        if (!spec.tests || spec.tests.length === 0) continue;
+        const testTitle = spec.title || 'Başlıksız test';
+        const jiraKeyMatch = testTitle.match(new RegExp(`\\b${jiraProjectKey}-\\d+\\b`, 'i'));
 
-        for (const test of spec.tests) {
-          if (!test.results || test.results.length === 0) continue;
-
-          const testTitle = test.title || 'Başlıksız test';
-          const status = test.results[0].status || 'unknown';
-          const jiraKeyMatch = testTitle.match(new RegExp(`\\b${jiraProjectKey}-\\d+\\b`, 'i'));
-
-          if (jiraKeyMatch) {
-            const jiraKey = jiraKeyMatch[0];
-            const comment = `🔎 Otomasyon Test Sonucu:\n**${testTitle}** → ${status.toUpperCase()}`;
-            console.log(`➡️ Jira biletine yorum gönderiliyor: ${jiraKey} - Durum: ${status}`);
-            await postComment(jiraKey, comment);
-          } else {
-            console.log(`⚠️ Jira bilet anahtarı bulunamadı test başlığında: "${testTitle}"`);
+        if (jiraKeyMatch) {
+          const jiraKey = jiraKeyMatch[0];
+          // Test sonucu alınır, varsa ilk testin ilk sonucuna bakılır
+          let status = 'unknown';
+          if (spec.tests && spec.tests.length > 0 && spec.tests[0].results && spec.tests[0].results.length > 0) {
+            status = spec.tests[0].results[0].status;
           }
+
+          const comment = `🔎 Otomasyon Test Sonucu:\n**${testTitle}** → ${status.toUpperCase()}`;
+          console.log(`➡️ Jira biletine yorum gönderiliyor: ${jiraKey} - Durum: ${status}`);
+          await postComment(jiraKey, comment);
+        } else {
+          console.log(`⚠️ Jira bilet anahtarı bulunamadı test başlığında: "${testTitle}"`);
         }
       }
     }
