@@ -4,20 +4,17 @@ const BASE_URL = 'https://egundem.com/';
 
 test.describe('eGündem Test Suite', () => {
 
-  // Sayfa Yüklenme Testi
-  test('Page should load successfully', async ({ page }) => {
+  test('EGT-1 - Page should load successfully', async ({ page }) => {
     await page.goto(BASE_URL, { timeout: 60000, waitUntil: 'domcontentloaded' });
     await expect(page).toHaveURL(BASE_URL);
   });
 
-  // Başlık Kontrol Testi (Playwright bekleme mekanizması ile)
-  test('Page should have correct title', async ({ page }) => {
+  test('EGT-2 - Page should have correct title', async ({ page }) => {
     await page.goto(BASE_URL, { timeout: 60000, waitUntil: 'domcontentloaded' });
     await expect(page).toHaveTitle(/gündem/i);
   });
 
-  // Form Gönderim Testi (Koşullu)
-  test('Forms should submit correctly', async ({ page }) => {
+  test('EGT-3 - Forms should submit correctly', async ({ page }) => {
     await page.goto(BASE_URL, { timeout: 60000, waitUntil: 'domcontentloaded' });
 
     const count = await page.locator('input[name="username"]').count();
@@ -34,8 +31,7 @@ test.describe('eGündem Test Suite', () => {
     }
   });
 
-  // Performans Testi
-  test('Page load time breakdown', async ({ page }) => {
+  test('EGT-4 - Page load time breakdown', async ({ page }) => {
     const start = Date.now();
     await page.goto(BASE_URL, { timeout: 60000 });
     const loadTime = Date.now() - start;
@@ -51,11 +47,10 @@ test.describe('eGündem Test Suite', () => {
     console.log(`DOM Content Loaded: ${metrics.domContentLoaded} ms`);
     console.log(`Full Load: ${metrics.load} ms`);
 
-    expect(loadTime).toBeLessThan(30000); // Sayfa 30 saniyeden kısa sürede yüklensin
+    expect(loadTime).toBeLessThan(30000);
   });
 
-  // Konsol Hatası Testi
-  test('Should not have console errors', async ({ page }) => {
+  test('EGT-5 - Should not have console errors', async ({ page }) => {
     const errors = [];
     page.on('pageerror', (err) => errors.push(err));
     await page.goto(BASE_URL, { timeout: 60000, waitUntil: 'domcontentloaded' });
