@@ -10,7 +10,6 @@ const reportUrl = process.env.REPORT_URL || 'https://fatma-betul-ozdemir-mytech.
 const testResultPath = './playwright-report/results.json';
 const auth = Buffer.from(`${jiraEmail}:${jiraApiToken}`).toString('base64');
 
-// Gerekli bilgiler var mı kontrol et
 if (!jiraBaseUrl || !jiraEmail || !jiraApiToken) {
   console.error('❌ Lütfen .env dosyasına JIRA_BASE_URL, JIRA_EMAIL ve JIRA_API_TOKEN bilgilerini giriniz!');
   process.exit(1);
@@ -30,26 +29,29 @@ async function postComment(issueKey, message) {
   try {
     await axios.post(
       url,
-      { body: { type: "doc", version: 1, content: [
-        {
-          type: "paragraph",
-          content: [{ type: "text", text: message }]
-        },
-        {
-          type: "paragraph",
+      {
+        body: {
+          type: 'doc',
+          version: 1,
           content: [
             {
-              type: "text",
-              text: "🔗 Detaylı rapor: "
+              type: 'paragraph',
+              content: [{ type: 'text', text: message }]
             },
             {
-              type: "text",
-              text: "Raporu Görüntüle",
-              marks: [{ type: "link", attrs: { href: reportUrl } }]
+              type: 'paragraph',
+              content: [
+                { type: 'text', text: '🔗 Detaylı rapor: ' },
+                {
+                  type: 'text',
+                  text: reportUrl,
+                  marks: [{ type: 'link', attrs: { href: reportUrl } }]
+                }
+              ]
             }
           ]
         }
-      ]}},
+      },
       {
         headers: {
           Authorization: `Basic ${auth}`,
