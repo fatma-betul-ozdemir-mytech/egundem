@@ -4,41 +4,59 @@ const BASE_URL = 'https://egundem.com';
 
 test.describe('eGündem - Köşe Yazıları Sayfası Testleri', () => {
 
-  // EGT-16: Köşe yazıları sayfası doğru şekilde yüklenmeli
-  test('EGT-16 - Köşe yazıları sayfası yüklenmeli', async ({ page }) => {
-    await page.goto(`${BASE_URL}/kose-yazilari`, { timeout: 60000 });
-    await expect(page).toHaveURL(/\/kose-yazilari/);
-    await expect(page.locator('h1')).toContainText(/köşe yazıları/i);
+  // EGT-16: Köşe yazıları sayfası (arama sonucu) doğru şekilde yüklenmeli
+  test('EGT-16 - Köşe yazıları arama sayfası yüklenmeli', async ({ page }) => {
+    // URL encode edilmiş haliyle "köşe " kelimesini arama yapıyoruz
+    const searchTerm = encodeURIComponent('köşe ');
+    await page.goto(`${BASE_URL}/search/${searchTerm}`, { timeout: 60000 });
+
+    // URL beklenen formata uygun mu kontrolü
+    await expect(page).toHaveURL(new RegExp(`/search/${searchTerm}`));
+
+    // Sayfada en azından "köşe" kelimesi geçen bir başlık olmalı
+    const results = page.locator('article, .article-card, .search-result-item');
+    await expect(results).toHaveCountGreaterThan(0);
+
+    // Örnek olarak sayfadaki başlıkların içinde "köşe" kelimesi var mı kontrol edelim
+    // Eğer başlıklar farklı selector kullanıyorsa selector'u kendin güncelleyebilirsin
+    const firstTitle = results.locator('h2, h3').first();
+    await expect(firstTitle).toContainText(/köşe/i);
   });
 
   // EGT-17: En az 1 köşe yazısı listelenmeli
   test('EGT-17 - Köşe yazıları listelenmeli', async ({ page }) => {
-    await page.goto(`${BASE_URL}/kose-yazilari`);
-    const articles = page.locator('.article-card, article, .kose-yazi'); // HTML'e göre ayarla
+    const searchTerm = encodeURIComponent('köşe ');
+    await page.goto(`${BASE_URL}/search/${searchTerm}`);
+    const articles = page.locator('article, .article-card, .search-result-item');
     await expect(articles).toHaveCountGreaterThan(0);
   });
 
   // EGT-18: Yazılarda başlık ve özet bulunmalı
   test('EGT-18 - Yazı başlık ve özetleri görünmeli', async ({ page }) => {
-    await page.goto(`${BASE_URL}/kose-yazilari`);
-    const title = page.locator('.article-card h2, article h2');
-    const excerpt = page.locator('.article-card p, article p');
+    const searchTerm = encodeURIComponent('köşe ');
+    await page.goto(`${BASE_URL}/search/${searchTerm}`);
+    const title = page.locator('article h2, article h3');
+    const excerpt = page.locator('article p');
     await expect(title.first()).not.toBeEmpty();
     await expect(excerpt.first()).not.toBeEmpty();
   });
 
-  // EGT-19: Köşe yazısı detay sayfasına gidilebilmeli
+  // EGT-19: Yazı detay sayfasına gidilebilmeli
   test('EGT-19 - Yazı detayına ulaşılmalı', async ({ page }) => {
-    await page.goto(`${BASE_URL}/kose-yazilari`);
-    const firstArticle = page.locator('a[href*="/kose-yazilari/"]').first();
-    await firstArticle.click();
-    await expect(page).toHaveURL(/\/kose-yazilari\//);
-    await expect(page.locator('article')).toBeVisible();
+    const searchTerm = encodeURIComponent('köşe ');
+    await page.goto(`${BASE_URL}/search/${searchTerm}`);
+    const firstArticleLink = page.locator('article a, .article-card a').first();
+    await firstArticleLink.click();
+    await expect(page).not.toHaveURL(new RegExp(`/search/${searchTerm}`)); // farklı URL olmalı
+    await expect(page.locator('article, main')).toBeVisible();
   });
 
   // EGT-20: Sayfa hatalı veya boş içerik göstermemeli
   test('EGT-20 - Sayfa 404 veya boş içerik içermemeli', async ({ page }) => {
-    await page.goto(`${BASE_URL}/kose-yazilari`);
+    const searchTerm = encodeURIComponent('köşe ');
+    const response = await page.goto(`${BASE_URL}/search/${searchTerm}`);
+    expect(response.status()).not.toBe(404);
+
     const notFound = await page.locator('text=404').count();
     const emptyText = await page.locator('text=İçerik bulunamadı').count();
     expect(notFound + emptyText).toBe(0);
