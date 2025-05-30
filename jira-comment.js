@@ -1,4 +1,5 @@
-require('dotenv').config();
+// jira-comment.js revize - derin suite taraması
+
 const axios = require('axios');
 const fs = require('fs');
 
@@ -7,7 +8,6 @@ const jiraEmail = process.env.JIRA_EMAIL;
 const jiraApiToken = process.env.JIRA_API_TOKEN;
 const jiraProjectKey = process.env.JIRA_PROJECT_KEY || 'EGT';
 
-// Playwright rapor dosyasının doğru yolu
 const testResultPath = './playwright-report/results.json';
 
 if (!jiraBaseUrl || !jiraEmail || !jiraApiToken) {
@@ -62,46 +62,42 @@ async function postComment(issueKey, message) {
   }
 }
 
-(async () => {
-  // Playwright raporundaki tüm test sonuçlarına ulaşmak için recursive ve flexible yapı
-  // testResults.suites -> root
-  // her suite içinde nested suite'ler ve specs olabilir
-  const processSuites = async (suites) => {
-    for (const suite of suites) {
-      if (suite.suites && suite.suites.length > 0) {
-        await processSuites(suite.suites);
-      }
-      if (suite.specs && suite.specs.length > 0) {
-        for (const spec of suite.specs) {
-          if (!spec.tests) continue;
-          for (const test of spec.tests) {
-            const testTitle = test.title || spec.title || 'Başlıksız test';
-            const status = test.results?.[0]?.status || 'unknown';
+// Recursive fonksiyon - suites içinde testleri tarar
+async function processSuites(suites) {
+  for (const suite of suites) {
+    if (suite.suites && suite.suites.length > 0) {
+      await processSuites(suite.suites);
+    }
 
-            const match = testTitle.match(new RegExp(`\\b${jiraProjectKey}-\\d+\\b`));
-            if (!match) {
-              console.log(`⚠️ Jira bilet anahtarı bulunamadı test başlığında: "${testTitle}"`);
-              continue;
-            }
+    // Tests varsa
+    if (suite.tests && suite.tests.length > 0) {
+      for (const test of suite.tests) {
+        const testTitle = test.title || 'Başlıksız test';
+        const status = test.results?.[0]?.status || 'unknown';
 
-            const issueKey = match[0];
-            const comment = `Otomasyon Test Sonucu:\n${testTitle} → ${status.toUpperCase()}`;
-
-            console.log(`➡️ Jira biletine yorum gönderiliyor: ${issueKey} - Durum: ${status}`);
-            await postComment(issueKey, comment);
-          }
+        const match = testTitle.match(new RegExp(`\\b${jiraProjectKey}-\\d+\\b`, 'i'));
+        if (!match) {
+          console.log(`⚠️ Jira bilet anahtarı bulunamadı test başlığında: "${testTitle}"`);
+          continue;
         }
+
+        const issueKey = match[0].toUpperCase();
+        const comment = `Otomasyon Test Sonucu:\n${testTitle} → ${status.toUpperCase()}`;
+
+        console.log(`➡️ Jira biletine yorum gönderiliyor: ${issueKey} - Durum: ${status}`);
+        await postComment(issueKey, comment);
       }
     }
-  };
+  }
+}
 
-  const rootSuites = testResults.suites || [];
-  if (rootSuites.length === 0) {
+(async () => {
+  if (!testResults.suites || testResults.suites.length === 0) {
     console.warn('⚠️ Test sonuçlarında suite bulunamadı.');
     return;
   }
 
-  await processSuites(rootSuites);
+  await processSuites(testResults.suites);
 
   console.log('🎉 Tüm test sonuçları işlendi.');
 })();
