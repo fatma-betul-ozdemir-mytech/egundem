@@ -3,7 +3,10 @@
 const config = {
   testDir: './tests',
   timeout: 60000,
-  reporter: [['list'], ['json', { outputFile: 'test-results.json' }]],
+  reporter: [
+    ['list'],
+    ['json', { outputFile: 'playwright-report/results.json' }]
+  ],
   use: {
     headless: true,
     viewport: { width: 1280, height: 720 },
@@ -11,4 +14,5 @@ const config = {
     screenshot: 'only-on-failure',
   },
 };
+
 module.exports = config;
