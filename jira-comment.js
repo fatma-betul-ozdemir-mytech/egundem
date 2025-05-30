@@ -61,11 +61,21 @@ async function postComment(issueKey, message) {
   }
 }
 
+function formatError(error) {
+  if (!error) return '';
+  let msg = `Hata Mesajı:\n${error.message || ''}\n`;
+  if (error.location) {
+    msg += `Konum: ${error.location.file || ''}:${error.location.line || ''}\n`;
+  }
+  if (error.stack) {
+    msg += `Stack Trace:\n${error.stack}\n`;
+  }
+  return msg;
+}
+
 async function processTest(test) {
   const testTitle = test.title || 'Başlıksız test';
-  // Durum bilgisini farklı yerlerden alabiliriz, kontrol et
   const status =
-    test.tests?.[0]?.results?.[0]?.status ||
     test.results?.[0]?.status ||
     test.status ||
     'unknown';
@@ -77,7 +87,15 @@ async function processTest(test) {
   }
 
   const issueKey = match[0].toUpperCase();
-  const comment = `Otomasyon Test Sonucu:\n${testTitle} → ${status.toUpperCase()}`;
+
+  let comment = `🔎 Otomasyon Test Sonucu:\n*${testTitle}* → **${status.toUpperCase()}**\n`;
+  if (status === 'failed' && test.results?.[0]?.error) {
+    comment += '\n' + formatError(test.results[0].error);
+  }
+
+  if (test.results?.[0]?.duration) {
+    comment += `Test Süresi: ${test.results[0].duration} ms\n`;
+  }
 
   console.log(`➡️ Jira biletine yorum gönderiliyor: ${issueKey} - Durum: ${status}`);
   await postComment(issueKey, comment);
