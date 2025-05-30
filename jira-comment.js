@@ -6,15 +6,17 @@ const jiraBaseUrl = process.env.JIRA_BASE_URL;
 const jiraEmail = process.env.JIRA_EMAIL;
 const jiraApiToken = process.env.JIRA_API_TOKEN;
 const jiraProjectKey = process.env.JIRA_PROJECT_KEY || 'EGT';
-const reportUrl = process.env.REPORT_URL || 'https://fatma-betul-ozdemir-mytech.github.io/docs/playwright-report/index.html';
 const testResultPath = './playwright-report/results.json';
+const reportUrl = 'https://fatma-betul-ozdemir-mytech.github.io'; // <- Rapor linkin burası
 const auth = Buffer.from(`${jiraEmail}:${jiraApiToken}`).toString('base64');
 
+// Gerekli bilgiler var mı kontrol et
 if (!jiraBaseUrl || !jiraEmail || !jiraApiToken) {
   console.error('❌ Lütfen .env dosyasına JIRA_BASE_URL, JIRA_EMAIL ve JIRA_API_TOKEN bilgilerini giriniz!');
   process.exit(1);
 }
 
+// Test sonuçlarını oku
 let testResults;
 try {
   testResults = JSON.parse(fs.readFileSync(testResultPath, 'utf8'));
@@ -23,35 +25,14 @@ try {
   process.exit(1);
 }
 
+// Jira yorum gönderme fonksiyonu
 async function postComment(issueKey, message) {
   const url = `${jiraBaseUrl}/rest/api/3/issue/${issueKey}/comment`;
 
   try {
     await axios.post(
       url,
-      {
-        body: {
-          type: 'doc',
-          version: 1,
-          content: [
-            {
-              type: 'paragraph',
-              content: [{ type: 'text', text: message }]
-            },
-            {
-              type: 'paragraph',
-              content: [
-                { type: 'text', text: '🔗 Detaylı rapor: ' },
-                {
-                  type: 'text',
-                  text: reportUrl,
-                  marks: [{ type: 'link', attrs: { href: reportUrl } }]
-                }
-              ]
-            }
-          ]
-        }
-      },
+      { body: message }, // düz metin
       {
         headers: {
           Authorization: `Basic ${auth}`,
@@ -66,6 +47,7 @@ async function postComment(issueKey, message) {
   }
 }
 
+// Test sonuçlarını işle
 (async () => {
   const allSuites = testResults.suites || [];
   if (allSuites.length === 0) {
@@ -82,7 +64,7 @@ async function postComment(issueKey, message) {
 
         if (match) {
           const issueKey = match[0];
-          const comment = `🔎 Otomasyon Test Sonucu:\n*${testTitle}* → **${status.toUpperCase()}**`;
+          const comment = `🔎 Otomasyon Test Sonucu\n📄 Test: ${testTitle}\n📊 Durum: ${status.toUpperCase()}\n🔗 Detaylı Rapor: ${reportUrl}`;
           console.log(`➡️ Jira biletine yorum gönderiliyor: ${issueKey} - Durum: ${status}`);
           await postComment(issueKey, comment);
         } else {
