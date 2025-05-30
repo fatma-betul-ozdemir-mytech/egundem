@@ -61,17 +61,18 @@ async function postComment(issueKey, message) {
   }
 }
 
-// Recursive fonksiyon - suites içinde testleri tarar
+// Yeni revize edilmiş processSuites fonksiyonu
 async function processSuites(suites) {
   for (const suite of suites) {
     if (suite.suites && suite.suites.length > 0) {
       await processSuites(suite.suites);
     }
 
-    if (suite.tests && suite.tests.length > 0) {
-      for (const test of suite.tests) {
+    if (suite.specs && suite.specs.length > 0) {
+      for (const test of suite.specs) {
         const testTitle = test.title || 'Başlıksız test';
-        const status = test.results?.[0]?.status || 'unknown';
+        // Test durumu: specs içindeki tests[0].results[0].status veya test.status kullanılabilir
+        const status = test.tests?.[0]?.results?.[0]?.status || test.status || 'unknown';
 
         const match = testTitle.match(new RegExp(`\\b${jiraProjectKey}-\\d+\\b`, 'i'));
         if (!match) {
