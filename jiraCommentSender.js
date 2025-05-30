@@ -1,7 +1,4 @@
-// jiraCommentSender.js
-
-const fetch = require('node-fetch');  // <-- Bunu ekle, fetch kullanımı için
-
+const fetch = require('node-fetch');
 const fs = require('fs');
 const path = require('path');
 
@@ -14,7 +11,6 @@ const resultsPath = path.join(__dirname, 'playwright-report', 'results.json');
 
 async function sendCommentToJira(issueKey, comment) {
   const url = `${JIRA_BASE_URL}/rest/api/3/issue/${issueKey}/comment`;
-
   const auth = Buffer.from(`${JIRA_EMAIL}:${JIRA_API_TOKEN}`).toString('base64');
 
   try {
@@ -22,22 +18,24 @@ async function sendCommentToJira(issueKey, comment) {
       method: 'POST',
       headers: {
         'Authorization': `Basic ${auth}`,
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({ body: comment }),
     });
 
+    const responseData = await response.json();
+
     if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status} - ${await response.text()}`);
+      throw new Error(`HTTP error! status: ${response.status} - ${JSON.stringify(responseData)}`);
     }
 
-    console.log(`Jira'ya yorum gönderildi: ${issueKey}`);
+    console.log(`Jira'ya yorum gönderildi: ${issueKey}`, responseData);
   } catch (error) {
     console.error(`Jira'ya yorum gönderirken hata: ${error.message}`);
   }
 }
 
-function parseAndSendComments() {
+async function parseAndSendComments() {
   if (!fs.existsSync(resultsPath)) {
     console.error(`Sonuç dosyası bulunamadı: ${resultsPath}`);
     return;
@@ -45,16 +43,16 @@ function parseAndSendComments() {
 
   const data = JSON.parse(fs.readFileSync(resultsPath, 'utf-8'));
 
-  // Burada, tüm test suite ve test sonuçları üzerinden geçerek bilet numarasına göre yorum gönderiyoruz
-  data.suites.forEach(suite => {
-    if (!suite.suites) return;
-    suite.suites.forEach(innerSuite => {
-      if (!innerSuite.specs) return;
-      innerSuite.specs.forEach(testCase => {
-        const issueKeyMatch = testCase.title.match(new RegExp(`(${JIRA_PROJECT_KEY}-\\d+)`));
-        if (!issueKeyMatch) return;
+  for (const suite of data.suites) {
+    if (!suite.suites) continue;
+    for (const innerSuite of suite.suites) {
+      if (!innerSuite.specs) continue;
+      for (const testCase of innerSuite.specs) {
+        const issueKeyMatch = testCase.title.match(new RegExp(`(${JIRA_PROJECT_KEY}-\\d+)`, 'i'));
+        if (!issueKeyMatch) continue;
 
         const issueKey = issueKeyMatch[1];
+        console.log('Issue Key bulundu:', issueKey);
 
         const testResult = testCase.tests[0];
         const status = testResult.status;
@@ -62,10 +60,13 @@ function parseAndSendComments() {
 
         const comment = `Test sonucu: ${status.toUpperCase()}\nTest süresi: ${duration} ms\nTest başlığı: ${testCase.title}`;
 
-        sendCommentToJira(issueKey, comment);
-      });
-    });
-  });
+        await sendCommentToJira(issueKey, comment);
+      }
+    }
+  }
 }
 
-parseAndSendComments();
+(async () => {
+  console.log('Jira bilgileri:', JIRA_BASE_URL, JIRA_EMAIL, JIRA_PROJECT_KEY);
+  await parseAndSendComments();
+})();
