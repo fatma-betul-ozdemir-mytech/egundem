@@ -61,7 +61,28 @@ async function postComment(issueKey, message) {
   }
 }
 
-// Yeni revize edilmiş processSuites fonksiyonu
+async function processTest(test) {
+  const testTitle = test.title || 'Başlıksız test';
+  // Durum bilgisini farklı yerlerden alabiliriz, kontrol et
+  const status =
+    test.tests?.[0]?.results?.[0]?.status ||
+    test.results?.[0]?.status ||
+    test.status ||
+    'unknown';
+
+  const match = testTitle.match(new RegExp(`\\b${jiraProjectKey}-\\d+\\b`, 'i'));
+  if (!match) {
+    console.log(`⚠️ Jira bilet anahtarı bulunamadı test başlığında: "${testTitle}"`);
+    return;
+  }
+
+  const issueKey = match[0].toUpperCase();
+  const comment = `Otomasyon Test Sonucu:\n${testTitle} → ${status.toUpperCase()}`;
+
+  console.log(`➡️ Jira biletine yorum gönderiliyor: ${issueKey} - Durum: ${status}`);
+  await postComment(issueKey, comment);
+}
+
 async function processSuites(suites) {
   for (const suite of suites) {
     if (suite.suites && suite.suites.length > 0) {
@@ -70,21 +91,13 @@ async function processSuites(suites) {
 
     if (suite.specs && suite.specs.length > 0) {
       for (const test of suite.specs) {
-        const testTitle = test.title || 'Başlıksız test';
-        // Test durumu: specs içindeki tests[0].results[0].status veya test.status kullanılabilir
-        const status = test.tests?.[0]?.results?.[0]?.status || test.status || 'unknown';
+        await processTest(test);
+      }
+    }
 
-        const match = testTitle.match(new RegExp(`\\b${jiraProjectKey}-\\d+\\b`, 'i'));
-        if (!match) {
-          console.log(`⚠️ Jira bilet anahtarı bulunamadı test başlığında: "${testTitle}"`);
-          continue;
-        }
-
-        const issueKey = match[0].toUpperCase();
-        const comment = `Otomasyon Test Sonucu:\n${testTitle} → ${status.toUpperCase()}`;
-
-        console.log(`➡️ Jira biletine yorum gönderiliyor: ${issueKey} - Durum: ${status}`);
-        await postComment(issueKey, comment);
+    if (suite.tests && suite.tests.length > 0) {
+      for (const test of suite.tests) {
+        await processTest(test);
       }
     }
   }
