@@ -1,11 +1,16 @@
 // playwright.config.js
-/** @type {import('@playwright/test').PlaywrightTestConfig} */
-const config = {
-  testDir: './tests',  // Test dosyalarının olduğu klasör
-  timeout: 30000,
+
+import { defineConfig } from '@playwright/test';
+
+export default defineConfig({
+  testDir: './tests', // Tüm test dosyaların bu klasörde
+  timeout: 60000,
+  retries: 0,
   use: {
     headless: true,
+    screenshot: 'only-on-failure',
+    video: 'retain-on-failure',
+    baseURL: 'https://egundem.com',
   },
-};
-
-module.exports = config;
+  reporter: [['json', { outputFile: 'playwright-report/results.json' }]], // JSON çıktısı üret
+});
