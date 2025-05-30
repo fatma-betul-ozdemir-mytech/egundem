@@ -1,5 +1,4 @@
-// jira-comment.js revize - derin suite taraması
-
+require('dotenv').config();
 const axios = require('axios');
 const fs = require('fs');
 
@@ -69,7 +68,6 @@ async function processSuites(suites) {
       await processSuites(suite.suites);
     }
 
-    // Tests varsa
     if (suite.tests && suite.tests.length > 0) {
       for (const test of suite.tests) {
         const testTitle = test.title || 'Başlıksız test';
