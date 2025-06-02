@@ -1,16 +1,18 @@
-// playwright.config.js
-
-import { defineConfig } from '@playwright/test';
-
-export default defineConfig({
-  testDir: './tests', // Tüm test dosyaların bu klasörde
+/** @type {import('@playwright/test').PlaywrightTestConfig} */
+const config = {
+  testDir: './tests',
   timeout: 60000,
-  retries: 0,
+  reporter: [
+    ['list'],
+    ['json', { outputFile: 'playwright-report/results.json' }],
+    ['html', { outputFolder: 'playwright-report/html-report', open: 'never' }],
+  ],
   use: {
     headless: true,
+    viewport: { width: 1280, height: 720 },
+    ignoreHTTPSErrors: true,
     screenshot: 'only-on-failure',
-    video: 'retain-on-failure',
-    baseURL: 'https://egundem.com',
   },
-  reporter: [['json', { outputFile: 'playwright-report/results.json' }]], // JSON çıktısı üret
-});
+};
+
+module.exports = config;
