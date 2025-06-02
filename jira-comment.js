@@ -6,16 +6,17 @@ const jiraBaseUrl = process.env.JIRA_BASE_URL;
 const jiraEmail = process.env.JIRA_EMAIL;
 const jiraApiToken = process.env.JIRA_API_TOKEN;
 const jiraProjectKey = process.env.JIRA_PROJECT_KEY || 'EGT';
+const reportUrl = process.env.REPORT_URL;
 const testResultPath = './playwright-report/results.json';
-const reportLink = 'https://fatma-betul-ozdemir-mytech.github.io/egundem/'; // GitHub Pages linkin
-
 const auth = Buffer.from(`${jiraEmail}:${jiraApiToken}`).toString('base64');
 
-if (!jiraBaseUrl || !jiraEmail || !jiraApiToken) {
-  console.error('❌ .env dosyasındaki bilgileri kontrol edin!');
+// Gerekli bilgiler var mı kontrol et
+if (!jiraBaseUrl || !jiraEmail || !jiraApiToken || !reportUrl) {
+  console.error('❌ .env dosyasında eksik bilgi var. Lütfen kontrol edin!');
   process.exit(1);
 }
 
+// Test sonuçlarını oku
 let testResults;
 try {
   testResults = JSON.parse(fs.readFileSync(testResultPath, 'utf8'));
@@ -30,18 +31,7 @@ async function postComment(issueKey, message) {
   try {
     await axios.post(
       url,
-      {
-        body: {
-          type: 'doc',
-          version: 1,
-          content: [
-            {
-              type: 'paragraph',
-              content: [{ type: 'text', text: message }],
-            },
-          ],
-        },
-      },
+      { body: { type: "plain_text", content: message } },
       {
         headers: {
           Authorization: `Basic ${auth}`,
@@ -52,7 +42,7 @@ async function postComment(issueKey, message) {
     );
     console.log(`✅ Yorum eklendi: ${issueKey}`);
   } catch (error) {
-    console.error(`❌ Yorum hatası (${issueKey}):`, error.response?.data || error.message);
+    console.error(`❌ Yorum eklenemedi (${issueKey}):`, error.response?.data || error.message);
   }
 }
 
@@ -72,15 +62,15 @@ async function postComment(issueKey, message) {
 
         if (match) {
           const issueKey = match[0];
-          const message = `🔍 *Otomasyon Test Sonucu*\n- Senaryo: ${testTitle}\n- Durum: **${status.toUpperCase()}**\n📄 Detaylı rapor: ${reportLink}`;
-          console.log(`➡️ Jira'ya gönderiliyor: ${issueKey}`);
-          await postComment(issueKey, message);
+          const comment = `🔎 *Otomasyon Test Sonucu:*\n📌 *${testTitle}* → **${status.toUpperCase()}**\n\n🧪 [Detaylı rapor için tıklayın](${reportUrl})`;
+          console.log(`➡️ Jira yorum gönderiliyor: ${issueKey} - Durum: ${status}`);
+          await postComment(issueKey, comment);
         } else {
-          console.log(`⚠️ Jira anahtarı bulunamadı: "${testTitle}"`);
+          console.log(`⚠️ Jira bilet anahtarı bulunamadı: "${testTitle}"`);
         }
       }
     }
   }
 
-  console.log('🎉 Tüm yorumlar gönderildi.');
+  console.log('🎉 Tüm test sonuçları işlendi.');
 })();
