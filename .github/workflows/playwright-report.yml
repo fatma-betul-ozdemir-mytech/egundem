@@ -2,7 +2,7 @@ name: Run Playwright Tests and Publish Report
 
 on:
   push:
-    branches: [main]  # ya da 'master' hangisini kullanıyorsan
+    branches: [main]  # Ana dalınızın adı (main veya master)
 
 jobs:
   test-and-deploy:
@@ -26,8 +26,8 @@ jobs:
     - name: Copy report to docs folder
       run: |
         rm -rf docs/playwright-report
-        mkdir -p docs
-        cp -r playwright-report docs/playwright-report
+        mkdir -p docs/playwright-report
+        cp -r playwright-report/* docs/playwright-report/
 
     - name: Commit and push report
       run: |
