@@ -2,6 +2,7 @@
 const config = {
   testDir: './tests',
   timeout: 60000,
+  failFast: false,  // Hatalı testlerde durma, tüm testleri çalıştır
   reporter: [
     ['list'],
     ['json', { outputFile: 'playwright-report/results.json' }],
