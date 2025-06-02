@@ -1,4 +1,4 @@
-name: Playwright Tests with Jira Reporting
+name: Playwright Tests and Report to Jira
 
 on:
   push:
@@ -36,17 +36,16 @@ jobs:
         run: npx playwright test
         continue-on-error: true  # Testler başarısız olsa bile devam et
 
-      - name: Upload Playwright report artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: playwright-report
-          path: playwright-report
+      - name: Generate Playwright HTML Report
+        run: |
+          mkdir -p playwright-report/html-report
+          cp -r playwright-report/* playwright-report/html-report/
 
-      - name: Deploy Playwright report to GitHub Pages
+      - name: Deploy HTML Report to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./playwright-report
+          publish_dir: ./playwright-report/html-report
 
-      - name: Add Jira comment with report link
+      - name: Comment Test Results on Jira
         run: node jira-comment.js
