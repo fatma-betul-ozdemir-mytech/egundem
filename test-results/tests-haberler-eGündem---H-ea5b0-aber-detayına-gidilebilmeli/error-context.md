@@ -27,8 +27,8 @@ Call log:
   - /url: /
   - text: E-Gündem Haberleri & Son Dakika Haberleri
   - img "E-Gündem Logo"
-- link "Cumhurbaşkanı Erdoğan’dan flaş açıklamalar - CANLI -":
-  - /url: /gundem/cumhurbaskani-erdogandan-flas-aciklamalar-canli-4638a220
+- link "Sinan Oğan uzun süre sonra ortaya çıktı":
+  - /url: https://www.sozcu.com.tr/sinan-ogan-uzun-sure-sonra-ortaya-cikti-p180181
 - button "Toggle dark mode"
 - link "eGündem Instagram":
   - /url: https://www.instagram.com/egundemapp/

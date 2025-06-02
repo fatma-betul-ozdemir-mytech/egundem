@@ -14,7 +14,7 @@ Received string:  "404"
 Call log:
   - expect.toContainText with timeout 5000ms
   - waiting for locator('h1')
-    9 × locator resolved to <h1 class="text-4xl font-bold">404</h1>
+    8 × locator resolved to <h1 class="text-4xl font-bold">404</h1>
       - unexpected value "404"
 
     at C:\Users\Kasa\Documents\egundem\tests\koseyazilari.spec.js:11:38

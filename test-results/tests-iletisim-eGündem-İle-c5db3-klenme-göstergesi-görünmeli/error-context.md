@@ -20,8 +20,8 @@ Call log:
   - /url: /
   - text: E-Gündem Haberleri & Son Dakika Haberleri
   - img "E-Gündem Logo"
-- link "Google Haritalar, Almanya’da trafik kaosu yarattı!":
-  - /url: /bilim-and-teknoloji/google-haritalar-almanyada-trafik-kaosu-yaratti-b9772b4b
+- link "Bir tost için bu rezalete değer mi? Tostun yarısını yedi, saçından kopardığı kılı içine koyarak yenisi aldı!":
+  - /url: /gundem/bir-tost-icin-bu-rezalete-deger-mi-tostun-yarisini-yedi-sacindan-kopardigi-kili-icine-koyarak-yenisi-aldi-11b3eb70
 - button "Toggle dark mode"
 - link "eGündem Instagram":
   - /url: https://www.instagram.com/egundemapp/

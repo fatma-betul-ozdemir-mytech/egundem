@@ -53,6 +53,38 @@ Received:   0
 - button "Ara"
 - button "Giriş Yap veya Üye Ol": Giriş Yap / Üye Ol
 - text: video ile ilgili arama sonuçları
+- link "Alvaro Morata'dan kafa karıştıran transfer açıklaması! 'İspanya'ya dönmek hoşuma gider!'":
+  - /url: /undefined/alvaro-moratadan-kafa-karistiran-transfer-aciklamasi-ispanyaya-donmek-hosuma-gider-02d97594
+  - img "Alvaro Morata'dan kafa karıştıran transfer açıklaması! 'İspanya'ya dönmek hoşuma gider!'"
+- text: Spor Arena
+- link "Alvaro Morata'dan kafa karıştıran transfer açıklaması! 'İspanya'ya dönmek hoşuma gider!'":
+  - /url: undefined/alvaro-moratadan-kafa-karistiran-transfer-aciklamasi-ispanyaya-donmek-hosuma-gider-02d97594
+- img
+- text: Son Dakika Etiketler Spor
+- 'link "Mide bulandıran plan: Güvenlik kamerası gerçeği ifşa etti"':
+  - /url: /undefined/mide-bulandiran-plan-guvenlik-kamerasi-gercegi-ifsa-etti-86588cdb
+  - 'img "Mide bulandıran plan: Güvenlik kamerası gerçeği ifşa etti"'
+- text: Cumhuriyet
+- 'link "Mide bulandıran plan: Güvenlik kamerası gerçeği ifşa etti"':
+  - /url: undefined/mide-bulandiran-plan-guvenlik-kamerasi-gercegi-ifsa-etti-86588cdb
+- img
+- text: Son Dakika Etiketler Gündem
+- link "İnci Taneleri'nde TT olan Gaziantep ve nohut dürümü muhabbeti! ViDEO":
+  - /url: /undefined/inci-tanelerinde-tt-olan-gaziantep-ve-nohut-durumu-muhabbeti-video-9070e1d3
+  - img "İnci Taneleri'nde TT olan Gaziantep ve nohut dürümü muhabbeti! ViDEO"
+- text: Gaziantep Oluşum Gazetesi
+- link "İnci Taneleri'nde TT olan Gaziantep ve nohut dürümü muhabbeti! ViDEO":
+  - /url: undefined/inci-tanelerinde-tt-olan-gaziantep-ve-nohut-durumu-muhabbeti-video-9070e1d3
+- img
+- text: Son Dakika Etiketler Yerel
+- 'link "Mide bulandıran \"saç çıktı\" planı: Güvenlik kamerası gerçeği ifşa etti"':
+  - /url: /undefined/mide-bulandiran-sac-cikti-plani-guvenlik-kamerasi-gercegi-ifsa-etti-75714a3c
+  - 'img "Mide bulandıran \"saç çıktı\" planı: Güvenlik kamerası gerçeği ifşa etti"'
+- text: Özgür Kocaeli
+- 'link "Mide bulandıran \"saç çıktı\" planı: Güvenlik kamerası gerçeği ifşa etti"':
+  - /url: undefined/mide-bulandiran-sac-cikti-plani-guvenlik-kamerasi-gercegi-ifsa-etti-75714a3c
+- img
+- text: Son Dakika Etiketler Yerel
 - 'link "Böyle plan düşman başına: Güvenlik kamerası gerçeği ifşa etti"':
   - /url: /undefined/boyle-plan-dusman-basina-guvenlik-kamerasi-gercegi-ifsa-etti-83e5c174
   - 'img "Böyle plan düşman başına: Güvenlik kamerası gerçeği ifşa etti"'
@@ -92,7 +124,7 @@ Received:   0
 - 'link "İzmir Otoyolu''nda araç arızası trafiği kilitledi: Yola çıkacak İzmirliler dikkat, 1,5 kilometrelik yoğunluk oluştu"':
   - /url: undefined/izmir-otoyolunda-arac-arizasi-trafigi-kilitledi-yola-cikacak-izmirliler-dikkat-15-kilometrelik-yogunluk-olustu-daec9ab5
 - img
-- text: Son Dakika Etiketler Yerel
+- text: 2 Haziran 2025 Etiketler Yerel
 - link "Eren Erdem'den bomba iddia! Kılıçdaroğlu'na küfür ettirebilmek için...":
   - /url: /undefined/eren-erdemden-bomba-iddia-kilicdarogluna-kufur-ettirebilmek-icin-36ede1f8
   - img "Eren Erdem'den bomba iddia! Kılıçdaroğlu'na küfür ettirebilmek için..."
@@ -100,39 +132,7 @@ Received:   0
 - link "Eren Erdem'den bomba iddia! Kılıçdaroğlu'na küfür ettirebilmek için...":
   - /url: undefined/eren-erdemden-bomba-iddia-kilicdarogluna-kufur-ettirebilmek-icin-36ede1f8
 - img
-- text: Son Dakika Etiketler Gündem
-- link "Çubuk'ta ata tohumundan üretilen organik fideler ülke geneline gönderiliyor":
-  - /url: /undefined/cubukta-ata-tohumundan-uretilen-organik-fideler-ulke-geneline-gonderiliyor-dfc2b8b2
-  - img "Çubuk'ta ata tohumundan üretilen organik fideler ülke geneline gönderiliyor"
-- text: Başkent Gazetesi
-- link "Çubuk'ta ata tohumundan üretilen organik fideler ülke geneline gönderiliyor":
-  - /url: undefined/cubukta-ata-tohumundan-uretilen-organik-fideler-ulke-geneline-gonderiliyor-dfc2b8b2
-- img
-- text: Son Dakika Etiketler Yerel
-- 'link "Cumhurbaşkanı Erdoğan: Türkiye’nin hiçbir sorunu çözümsüz değildir"':
-  - /url: /undefined/cumhurbaskani-erdogan-turkiyenin-hicbir-sorunu-cozumsuz-degildir-c36a1db9
-  - 'img "Cumhurbaşkanı Erdoğan: Türkiye’nin hiçbir sorunu çözümsüz değildir"'
-- text: Independent Türkçe
-- 'link "Cumhurbaşkanı Erdoğan: Türkiye’nin hiçbir sorunu çözümsüz değildir"':
-  - /url: undefined/cumhurbaskani-erdogan-turkiyenin-hicbir-sorunu-cozumsuz-degildir-c36a1db9
-- img
 - text: 2 Haziran 2025 Etiketler Gündem
-- 'link "Cumhurbaşkanı Erdoğan Kabine Toplantısı sonrası konuştu: Türkiye’nin hiçbir sorunu çözümsüz değildir"':
-  - /url: /undefined/cumhurbaskani-erdogan-kabine-toplantisi-sonrasi-konustu-turkiyenin-hicbir-sorunu-cozumsuz-degildir-2fcc6e2c
-  - 'img "Cumhurbaşkanı Erdoğan Kabine Toplantısı sonrası konuştu: Türkiye’nin hiçbir sorunu çözümsüz değildir"'
-- text: Independent Türkçe
-- 'link "Cumhurbaşkanı Erdoğan Kabine Toplantısı sonrası konuştu: Türkiye’nin hiçbir sorunu çözümsüz değildir"':
-  - /url: undefined/cumhurbaskani-erdogan-kabine-toplantisi-sonrasi-konustu-turkiyenin-hicbir-sorunu-cozumsuz-degildir-2fcc6e2c
-- img
-- text: 2 Haziran 2025 Etiketler Gündem
-- link "Uygun fiyatlı 4K kamera arayanlara Lenovo C55 güçlü bir alternatif sunuyor":
-  - /url: /undefined/uygun-fiyatli-4k-kamera-arayanlara-lenovo-c55-guclu-bir-alternatif-sunuyor-b639c7d6
-  - img "Uygun fiyatlı 4K kamera arayanlara Lenovo C55 güçlü bir alternatif sunuyor"
-- text: Donanım Haber
-- link "Uygun fiyatlı 4K kamera arayanlara Lenovo C55 güçlü bir alternatif sunuyor":
-  - /url: undefined/uygun-fiyatli-4k-kamera-arayanlara-lenovo-c55-guclu-bir-alternatif-sunuyor-b639c7d6
-- img
-- text: 2 Haziran 2025 Etiketler Bilim & Teknoloji
 - button "Daha Fazla Göster": Daha çok sonuç
 - textbox "Haber Ara": video
 - text: Kaynakları Filtrele
@@ -3108,6 +3108,8 @@ Received:   0
 - text: 92pF2mAp
 - checkbox "Pw_wSLT9"
 - text: Pw_wSLT9
+- checkbox "JCAFDuf9"
+- text: JCAFDuf9
 - dialog:
   - img "E-Gündem Logo"
   - button "Kapat"

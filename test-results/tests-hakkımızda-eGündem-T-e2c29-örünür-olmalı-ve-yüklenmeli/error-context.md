@@ -6,239 +6,17 @@
 # Error details
 
 ```
-Error: Timed out 5000ms waiting for expect(locator).toBeVisible()
+Error: expect(received).toBeGreaterThan(expected)
 
-Locator: locator('img').nth(4)
-Expected: visible
-Received: hidden
-Call log:
-  - expect.toBeVisible with timeout 5000ms
-  - waiting for locator('img').nth(4)
-    9 × locator resolved to <img sizes="100vw" decoding="async" data-nimg="fill" alt="E-Gündem Logo" fetchpriority="high" class="object-contain" src="/_next/image?url=%2Fimages%2Flogo.png&w=3840&q=75" srcset="/_next/image?url=%2Fimages%2Flogo.png&w=640&q=75 640w, /_next/image?url=%2Fimages%2Flogo.png&w=750&q=75 750w, /_next/image?url=%2Fimages%2Flogo.png&w=828&q=75 828w, /_next/image?url=%2Fimages%2Flogo.png&w=1080&q=75 1080w, /_next/image?url=%2Fimages%2Flogo.png&w=1200&q=75 1200w, /_next/image?url=%2Fimages%2Flogo.png&w=192…/>
-      - unexpected value "hidden"
-
-    at C:\Users\Kasa\Documents\egundem\tests\hakkımızda.spec.js:29:25
+Expected: > 0
+Received:   0
+    at C:\Users\Kasa\Documents\egundem\tests\hakkımızda.spec.js:25:19
 ```
 
 # Page snapshot
 
 ```yaml
-- link "E-Gündem Haberleri & Son Dakika Haberleri E-Gündem Logo":
-  - /url: /
-  - text: E-Gündem Haberleri & Son Dakika Haberleri
-  - img "E-Gündem Logo"
-- link "Cumhurbaşkanı Erdoğan’dan flaş açıklamalar - CANLI -":
-  - /url: /gundem/cumhurbaskani-erdogandan-flas-aciklamalar-canli-4638a220
-- button "Toggle dark mode"
-- link "eGündem Instagram":
-  - /url: https://www.instagram.com/egundemapp/
-  - img
-- link "eGündem Facebook":
-  - /url: https://www.facebook.com/
-  - img
-- link "eGündem Twitter":
-  - /url: https://x.com/egundemapp/
-  - img
-- link "eGündem TikTok":
-  - /url: https://www.tiktok.com/@egundem
-  - img
-- link "eGündem Youtube":
-  - /url: https://www.youtube.com/
-  - img
-- button "Menüyü Aç":
-  - img
-- link "GÜNDEM":
-  - /url: /gundem
-- link "SPOR":
-  - /url: /spor
-- link "FİNANS":
-  - /url: /finans
-- link "BİLİM & TEKNOLOJİ":
-  - /url: /bilim-and-teknoloji
-- link "YAŞAM":
-  - /url: /yasam
-- button "Ara"
-- button "Giriş Yap veya Üye Ol": Giriş Yap / Üye Ol
-- heading "404" [level=1]
-- heading "Not Found" [level=2]
-- dialog:
-  - img "E-Gündem Logo"
-  - button "Kapat"
-  - text: BİZİ TAKİP EDİN
-  - link "eGündem Instagram":
-    - /url: https://www.instagram.com/egundemapp/
-    - img
-  - link "eGündem Facebook":
-    - /url: https://www.facebook.com/
-    - img
-  - link "eGündem Twitter":
-    - /url: https://x.com/egundemapp/
-    - img
-  - link "eGündem TikTok":
-    - /url: https://www.tiktok.com/@egundem
-    - img
-  - link "eGündem Youtube":
-    - /url: https://www.youtube.com/
-    - img
-  - button "Giriş Yap veya Üye Ol": Giriş Yap / Üye Ol
-  - textbox "Ara"
-  - link "Son Dakika":
-    - /url: /son-dakika
-  - link "Gündem":
-    - /url: /gundem
-  - link "Spor":
-    - /url: /spor
-  - link "Finans":
-    - /url: /finans
-  - link "Dedikodu":
-    - /url: /dedikodu
-  - link "Yaşam":
-    - /url: /yasam
-  - link "Yemek":
-    - /url: /yemek
-  - link "Astroloji":
-    - /url: /astroloji
-  - link "Bilim & Teknoloji":
-    - /url: /bilim-and-teknoloji
-  - link "YouTube":
-    - /url: /youtube
-  - link "Twitter":
-    - /url: /twitter
-  - link "Yerel":
-    - /url: /yerel
-  - link "Hakkımızda":
-    - /url: /about
-  - link "Künye":
-    - /url: /tag
-  - text: Mobil uygulama indir
-  - link "AppGallery":
-    - /url: "#"
-    - img
-    - text: AppGallery
-  - link "AppStore":
-    - /url: "#"
-    - img
-    - text: AppStore
-  - link "GooglePlay":
-    - /url: "#"
-    - img
-    - text: GooglePlay
-- img "E-Gündem Logo"
-- text: Copyright © 2024 eGündem Medya AŞ. Tüm Hakları Saklıdır.
-- link "eGündem Instagram":
-  - /url: https://www.instagram.com/egundemapp/
-  - img
-- link "eGündem Facebook":
-  - /url: https://www.facebook.com/
-  - img
-- link "eGündem Twitter":
-  - /url: https://x.com/egundemapp/
-  - img
-- link "eGündem TikTok":
-  - /url: https://www.tiktok.com/@egundem
-  - img
-- link "eGündem Youtube":
-  - /url: https://www.youtube.com/
-  - img
-- link "HABERLER":
-  - /url: /
-- link "Gündem":
-  - /url: "#"
-- link "Politika":
-  - /url: "#"
-- link "Finans":
-  - /url: "#"
-- link "Dünya":
-  - /url: "#"
-- link "Sağlık":
-  - /url: "#"
-- link "Otomobil":
-  - /url: "#"
-- link "Bilgi":
-  - /url: "#"
-- link "Teknoloji":
-  - /url: "#"
-- link "Medya":
-  - /url: "#"
-- link "Yaşam":
-  - /url: "#"
-- link "Spor":
-  - /url: "#"
-- link "3. Sayfa":
-  - /url: "#"
-- link "Magazin":
-  - /url: "#"
-- link "Emlak":
-  - /url: "#"
-- link "Kadın":
-  - /url: "#"
-- link "İpucu":
-  - /url: "#"
-- link "Biyografi":
-  - /url: "#"
-- link "Eğitim":
-  - /url: "#"
-- link "Tarih":
-  - /url: "#"
-- link "Seyahat":
-  - /url: "#"
-- link "Kitap":
-  - /url: "#"
-- link "Kültür Sanat":
-  - /url: "#"
-- link "Astroloji":
-  - /url: "#"
-- link "Fatiha Suresi":
-  - /url: "#"
-- link "Ayetel Kürsi":
-  - /url: "#"
-- link "Fetih suresi":
-  - /url: "#"
-- link "Namaz Vakitleri":
-  - /url: "#"
-- link "İhlas Suresi":
-  - /url: "#"
-- link "Dualar":
-  - /url: "#"
-- paragraph: © 2024 e-Gündem. Her hakkı saklıdır
-- link "App Store HEMEN İNDİRİN":
-  - /url: "#"
-  - img
-  - text: App Store HEMEN İNDİRİN
-- link "Google Play HEMEN İNDİRİN":
-  - /url: "#"
-  - img
-  - text: Google Play HEMEN İNDİRİN
-- link "App Gallery HEMEN İNDİRİN":
-  - /url: "#"
-  - img
-  - text: App Gallery HEMEN İNDİRİN
-- link "Hakkımızda":
-  - /url: /about
-- link "KVKK Politikası":
-  - /url: /kvkk
-- link "Gizlilik Politikası":
-  - /url: /gizlilik-politikasi
-- link "Bize Ulaşın":
-  - /url: "#"
-- link "Künye":
-  - /url: /tag
-- alert
-- img
-- text: Gizliliğinize önem veriyoruz
-- button "Reddet":
-  - img
-- paragraph: Websitemiz, haber alma deneyiminizi iyileştirmek ve daha iyi reklam içeriği sunabilmek için çerezler kullanmaktadır.
-- paragraph: Kabul Et butonuna tıklayarak çerez kullanımını kabul etmiş olursunuz.
-- img "E-Gündem Logo"
-- link "Çerezler":
-  - /url: /cerez-politikasi
-- link "Gizlilik":
-  - /url: /gizlilik-politikasi
-- link "Hakkımızda":
-  - /url: /about
-- button "Kabul Et"
-- button "Reddet"
+- 'heading "Application error: a client-side exception has occurred while loading egundem.com (see the browser console for more information)." [level=2]'
 ```
 
 # Test source
@@ -268,12 +46,12 @@ Call log:
   22 |     await page.goto(`${BASE_URL}/hakkimizda`);
   23 |     const images = page.locator('img');
   24 |     const count = await images.count();
-  25 |     expect(count).toBeGreaterThan(0);
+> 25 |     expect(count).toBeGreaterThan(0);
+     |                   ^ Error: expect(received).toBeGreaterThan(expected)
   26 |
   27 |     for (let i = 0; i < count; i++) {
   28 |       const img = images.nth(i);
-> 29 |       await expect(img).toBeVisible();
-     |                         ^ Error: Timed out 5000ms waiting for expect(locator).toBeVisible()
+  29 |       await expect(img).toBeVisible();
   30 |       const naturalWidth = await img.evaluate((node) => node.naturalWidth);
   31 |       expect(naturalWidth).toBeGreaterThan(0);
   32 |     }

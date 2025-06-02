@@ -25,6 +25,8 @@ Call log:
   - /url: /
   - text: E-Gündem Haberleri & Son Dakika Haberleri
   - img "E-Gündem Logo"
+- link "Rusya heyeti İstanbul'a geldi":
+  - /url: https://www.trthaber.com/haber/dunya/rusya-heyeti-istanbula-geldi-909180.html
 - button "Toggle dark mode"
 - link "eGündem Instagram":
   - /url: https://www.instagram.com/egundemapp/
@@ -78,6 +80,30 @@ Call log:
     - img
   - button "Giriş Yap veya Üye Ol": Giriş Yap / Üye Ol
   - textbox "Ara"
+  - link "Son Dakika":
+    - /url: /son-dakika
+  - link "Gündem":
+    - /url: /gundem
+  - link "Spor":
+    - /url: /spor
+  - link "Finans":
+    - /url: /finans
+  - link "Dedikodu":
+    - /url: /dedikodu
+  - link "Yaşam":
+    - /url: /yasam
+  - link "Yemek":
+    - /url: /yemek
+  - link "Astroloji":
+    - /url: /astroloji
+  - link "Bilim & Teknoloji":
+    - /url: /bilim-and-teknoloji
+  - link "YouTube":
+    - /url: /youtube
+  - link "Twitter":
+    - /url: /twitter
+  - link "Yerel":
+    - /url: /yerel
   - link "Hakkımızda":
     - /url: /about
   - link "Künye":
