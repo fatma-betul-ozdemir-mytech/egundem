@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import fs from 'fs';
 import fetch from 'node-fetch';
 
@@ -16,6 +17,24 @@ const auth = Buffer.from(`${jiraEmail}:${jiraApiToken}`).toString('base64');
 
 function jiraAddComment(issueKey, comment) {
   const url = `${jiraBaseUrl}/rest/api/3/issue/${issueKey}/comment`;
+  const body = {
+    body: {
+      type: "doc",
+      version: 1,
+      content: [
+        {
+          type: "paragraph",
+          content: [
+            {
+              type: "text",
+              text: comment
+            }
+          ]
+        }
+      ]
+    }
+  };
+
   return fetch(url, {
     method: 'POST',
     headers: {
@@ -23,10 +42,12 @@ function jiraAddComment(issueKey, comment) {
       'Accept': 'application/json',
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ body: comment })
+    body: JSON.stringify(body)
   }).then(res => {
     if (!res.ok) {
-      throw new Error(`Jira API hata: ${res.status} ${res.statusText}`);
+      return res.text().then(text => {
+        throw new Error(`Jira API hata: ${res.status} ${res.statusText} - ${text}`);
+      });
     }
     return res.json();
   });
@@ -41,7 +62,6 @@ function jiraAddComment(issueKey, comment) {
 
     const regex = new RegExp(`\\b${jiraProjectKey}-\\d+\\b`);
 
-    // data.suites içinde dolaş, test başlıklarını bul
     for (const suite of data.suites) {
       if (!suite.suites) continue;
       for (const subsuite of suite.suites) {
@@ -53,7 +73,6 @@ function jiraAddComment(issueKey, comment) {
             const issueKey = match[0];
             console.log(`➡️ Jira bilet bulundu: ${issueKey} için yorum gönderiliyor...`);
 
-            // Başarılı mı başarısız mı? spec.tests[0].results[0].status var mı?
             let testStatus = 'Bilinmiyor';
             if (spec.tests && spec.tests.length > 0) {
               const results = spec.tests[0].results;
