@@ -1,0 +1,147 @@
+{
+  "config": {
+    "configFile": "C:\\Users\\Kasa\\Documents\\egundem\\playwright.config.js",
+    "rootDir": "C:/Users/Kasa/Documents/egundem",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {},
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "html",
+        {
+          "outputFolder": "playwright-report",
+          "open": "never"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "playwright-report/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "C:/Users/Kasa/Documents/egundem/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "id": "",
+        "name": "",
+        "testDir": "C:/Users/Kasa/Documents/egundem",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.52.0",
+    "workers": 8,
+    "webServer": null
+  },
+  "suites": [],
+  "errors": [
+    {
+      "message": "ReferenceError: require is not defined in ES module scope, you can use import instead\nThis file is being treated as an ES module because it has a '.js' file extension and 'C:\\Users\\Kasa\\Documents\\egundem\\package.json' contains \"type\": \"module\". To treat it as a CommonJS script, rename it to use the '.cjs' file extension.",
+      "stack": "ReferenceError: require is not defined in ES module scope, you can use import instead\nThis file is being treated as an ES module because it has a '.js' file extension and 'C:\\Users\\Kasa\\Documents\\egundem\\package.json' contains \"type\": \"module\". To treat it as a CommonJS script, rename it to use the '.cjs' file extension.\n    at C:\\Users\\Kasa\\Documents\\egundem\\tests\\gundem.spec.js:1:26",
+      "location": {
+        "file": "C:\\Users\\Kasa\\Documents\\egundem\\tests\\gundem.spec.js",
+        "column": 26,
+        "line": 1
+      },
+      "snippet": "\u001b[90m   at \u001b[39mtests\\gundem.spec.js:1\n\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 1 |\u001b[39m \u001b[36mconst\u001b[39m { test\u001b[33m,\u001b[39m expect } \u001b[33m=\u001b[39m require(\u001b[32m'@playwright/test'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m                          \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 2 |\u001b[39m\n \u001b[90m 3 |\u001b[39m \u001b[36mconst\u001b[39m \u001b[33mBASE_URL\u001b[39m \u001b[33m=\u001b[39m \u001b[32m'https://egundem.com'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 4 |\u001b[39m\u001b[0m"
+    },
+    {
+      "message": "ReferenceError: require is not defined in ES module scope, you can use import instead\nThis file is being treated as an ES module because it has a '.js' file extension and 'C:\\Users\\Kasa\\Documents\\egundem\\package.json' contains \"type\": \"module\". To treat it as a CommonJS script, rename it to use the '.cjs' file extension.",
+      "stack": "ReferenceError: require is not defined in ES module scope, you can use import instead\nThis file is being treated as an ES module because it has a '.js' file extension and 'C:\\Users\\Kasa\\Documents\\egundem\\package.json' contains \"type\": \"module\". To treat it as a CommonJS script, rename it to use the '.cjs' file extension.\n    at C:\\Users\\Kasa\\Documents\\egundem\\tests\\haberler.spec.js:1:26",
+      "location": {
+        "file": "C:\\Users\\Kasa\\Documents\\egundem\\tests\\haberler.spec.js",
+        "column": 26,
+        "line": 1
+      },
+      "snippet": "\u001b[90m   at \u001b[39mtests\\haberler.spec.js:1\n\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 1 |\u001b[39m \u001b[36mconst\u001b[39m { test\u001b[33m,\u001b[39m expect } \u001b[33m=\u001b[39m require(\u001b[32m'@playwright/test'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m                          \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 2 |\u001b[39m\n \u001b[90m 3 |\u001b[39m \u001b[36mconst\u001b[39m \u001b[33mBASE_URL\u001b[39m \u001b[33m=\u001b[39m \u001b[32m'https://egundem.com'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 4 |\u001b[39m\u001b[0m"
+    },
+    {
+      "message": "ReferenceError: require is not defined in ES module scope, you can use import instead\nThis file is being treated as an ES module because it has a '.js' file extension and 'C:\\Users\\Kasa\\Documents\\egundem\\package.json' contains \"type\": \"module\". To treat it as a CommonJS script, rename it to use the '.cjs' file extension.",
+      "stack": "ReferenceError: require is not defined in ES module scope, you can use import instead\nThis file is being treated as an ES module because it has a '.js' file extension and 'C:\\Users\\Kasa\\Documents\\egundem\\package.json' contains \"type\": \"module\". To treat it as a CommonJS script, rename it to use the '.cjs' file extension.\n    at C:\\Users\\Kasa\\Documents\\egundem\\tests\\haberleri.spec.js:1:26",
+      "location": {
+        "file": "C:\\Users\\Kasa\\Documents\\egundem\\tests\\haberleri.spec.js",
+        "column": 26,
+        "line": 1
+      },
+      "snippet": "\u001b[90m   at \u001b[39mtests\\haberleri.spec.js:1\n\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 1 |\u001b[39m \u001b[36mconst\u001b[39m { test\u001b[33m,\u001b[39m expect } \u001b[33m=\u001b[39m require(\u001b[32m'@playwright/test'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m                          \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 2 |\u001b[39m\n \u001b[90m 3 |\u001b[39m \u001b[36mconst\u001b[39m \u001b[33mBASE_URL\u001b[39m \u001b[33m=\u001b[39m \u001b[32m'https://egundem.com'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 4 |\u001b[39m\u001b[0m"
+    },
+    {
+      "message": "ReferenceError: require is not defined in ES module scope, you can use import instead\nThis file is being treated as an ES module because it has a '.js' file extension and 'C:\\Users\\Kasa\\Documents\\egundem\\package.json' contains \"type\": \"module\". To treat it as a CommonJS script, rename it to use the '.cjs' file extension.",
+      "stack": "ReferenceError: require is not defined in ES module scope, you can use import instead\nThis file is being treated as an ES module because it has a '.js' file extension and 'C:\\Users\\Kasa\\Documents\\egundem\\package.json' contains \"type\": \"module\". To treat it as a CommonJS script, rename it to use the '.cjs' file extension.\n    at C:\\Users\\Kasa\\Documents\\egundem\\tests\\home.spec.js:1:26",
+      "location": {
+        "file": "C:\\Users\\Kasa\\Documents\\egundem\\tests\\home.spec.js",
+        "column": 26,
+        "line": 1
+      },
+      "snippet": "\u001b[90m   at \u001b[39mtests\\home.spec.js:1\n\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 1 |\u001b[39m \u001b[36mconst\u001b[39m { test\u001b[33m,\u001b[39m expect } \u001b[33m=\u001b[39m require(\u001b[32m'@playwright/test'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m                          \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 2 |\u001b[39m\n \u001b[90m 3 |\u001b[39m \u001b[36mconst\u001b[39m \u001b[33mBASE_URL\u001b[39m \u001b[33m=\u001b[39m \u001b[32m'https://egundem.com/'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 4 |\u001b[39m\u001b[0m"
+    },
+    {
+      "message": "ReferenceError: require is not defined in ES module scope, you can use import instead\nThis file is being treated as an ES module because it has a '.js' file extension and 'C:\\Users\\Kasa\\Documents\\egundem\\package.json' contains \"type\": \"module\". To treat it as a CommonJS script, rename it to use the '.cjs' file extension.",
+      "stack": "ReferenceError: require is not defined in ES module scope, you can use import instead\nThis file is being treated as an ES module because it has a '.js' file extension and 'C:\\Users\\Kasa\\Documents\\egundem\\package.json' contains \"type\": \"module\". To treat it as a CommonJS script, rename it to use the '.cjs' file extension.\n    at C:\\Users\\Kasa\\Documents\\egundem\\tests\\koseyazilari.spec.js:1:26",
+      "location": {
+        "file": "C:\\Users\\Kasa\\Documents\\egundem\\tests\\koseyazilari.spec.js",
+        "column": 26,
+        "line": 1
+      },
+      "snippet": "\u001b[90m   at \u001b[39mtests\\koseyazilari.spec.js:1\n\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 1 |\u001b[39m \u001b[36mconst\u001b[39m { test\u001b[33m,\u001b[39m expect } \u001b[33m=\u001b[39m require(\u001b[32m'@playwright/test'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m                          \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 2 |\u001b[39m\n \u001b[90m 3 |\u001b[39m \u001b[36mconst\u001b[39m \u001b[33mBASE_URL\u001b[39m \u001b[33m=\u001b[39m \u001b[32m'https://egundem.com'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 4 |\u001b[39m\u001b[0m"
+    },
+    {
+      "message": "ReferenceError: require is not defined in ES module scope, you can use import instead\nThis file is being treated as an ES module because it has a '.js' file extension and 'C:\\Users\\Kasa\\Documents\\egundem\\package.json' contains \"type\": \"module\". To treat it as a CommonJS script, rename it to use the '.cjs' file extension.",
+      "stack": "ReferenceError: require is not defined in ES module scope, you can use import instead\nThis file is being treated as an ES module because it has a '.js' file extension and 'C:\\Users\\Kasa\\Documents\\egundem\\package.json' contains \"type\": \"module\". To treat it as a CommonJS script, rename it to use the '.cjs' file extension.\n    at C:\\Users\\Kasa\\Documents\\egundem\\tests\\video.spec.js:1:26",
+      "location": {
+        "file": "C:\\Users\\Kasa\\Documents\\egundem\\tests\\video.spec.js",
+        "column": 26,
+        "line": 1
+      },
+      "snippet": "\u001b[90m   at \u001b[39mtests\\video.spec.js:1\n\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 1 |\u001b[39m \u001b[36mconst\u001b[39m { test\u001b[33m,\u001b[39m expect } \u001b[33m=\u001b[39m require(\u001b[32m'@playwright/test'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m                          \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 2 |\u001b[39m\n \u001b[90m 3 |\u001b[39m \u001b[36mconst\u001b[39m \u001b[33mBASE_URL\u001b[39m \u001b[33m=\u001b[39m \u001b[32m'https://egundem.com'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 4 |\u001b[39m\u001b[0m"
+    },
+    {
+      "message": "ReferenceError: require is not defined in ES module scope, you can use import instead\nThis file is being treated as an ES module because it has a '.js' file extension and 'C:\\Users\\Kasa\\Documents\\egundem\\package.json' contains \"type\": \"module\". To treat it as a CommonJS script, rename it to use the '.cjs' file extension.",
+      "stack": "ReferenceError: require is not defined in ES module scope, you can use import instead\nThis file is being treated as an ES module because it has a '.js' file extension and 'C:\\Users\\Kasa\\Documents\\egundem\\package.json' contains \"type\": \"module\". To treat it as a CommonJS script, rename it to use the '.cjs' file extension.\n    at C:\\Users\\Kasa\\Documents\\egundem\\tests\\yazarlar.spec.js:1:26",
+      "location": {
+        "file": "C:\\Users\\Kasa\\Documents\\egundem\\tests\\yazarlar.spec.js",
+        "column": 26,
+        "line": 1
+      },
+      "snippet": "\u001b[90m   at \u001b[39mtests\\yazarlar.spec.js:1\n\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 1 |\u001b[39m \u001b[36mconst\u001b[39m { test\u001b[33m,\u001b[39m expect } \u001b[33m=\u001b[39m require(\u001b[32m'@playwright/test'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m                          \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 2 |\u001b[39m\n \u001b[90m 3 |\u001b[39m \u001b[36mconst\u001b[39m \u001b[33mBASE_URL\u001b[39m \u001b[33m=\u001b[39m \u001b[32m'https://egundem.com'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 4 |\u001b[39m\u001b[0m"
+    },
+    {
+      "message": "Error: No tests found",
+      "stack": "Error: No tests found"
+    }
+  ],
+  "stats": {
+    "startTime": "2025-06-02T13:17:39.251Z",
+    "duration": 93.91300000000001,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}
