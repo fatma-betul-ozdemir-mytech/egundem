@@ -2,12 +2,22 @@ const axios = require('axios');
 const fs = require('fs');
 const path = require('path');
 
-// Env değişkenlerini al
+// Ortam değişkenlerini al
 const jiraBaseUrl = process.env.JIRA_BASE_URL;
 const jiraEmail = process.env.JIRA_EMAIL;
 const jiraApiToken = process.env.JIRA_API_TOKEN;
 const jiraProjectKey = process.env.JIRA_PROJECT_KEY || 'EGT';
 const reportUrl = process.env.REPORT_URL || 'Rapor linki belirtilmedi';
+
+// Ortam değişkenlerini kontrol et ve logla
+console.log('🌟 Ortam Değişkenleri Durumu:');
+console.log({
+  jiraBaseUrl: jiraBaseUrl ? jiraBaseUrl : 'MISSING!',
+  jiraEmail: jiraEmail ? 'OK' : 'MISSING!',
+  jiraApiToken: jiraApiToken ? 'OK' : 'MISSING!',
+  jiraProjectKey,
+  reportUrl,
+});
 
 const testResultPath = path.resolve('./playwright-report/results.json');
 const auth = Buffer.from(`${jiraEmail}:${jiraApiToken}`).toString('base64');
@@ -16,11 +26,13 @@ const auth = Buffer.from(`${jiraEmail}:${jiraApiToken}`).toString('base64');
 let testResults;
 try {
   testResults = JSON.parse(fs.readFileSync(testResultPath, 'utf8'));
+  console.log(`📂 Test sonuç dosyası başarıyla okundu: ${testResultPath}`);
 } catch (err) {
   console.error('❌ Test sonucu dosyası okunamadı:', err.message);
   process.exit(1);
 }
 
+// Jira’ya yorum gönderme fonksiyonu
 async function postComment(issueKey, message) {
   const url = `${jiraBaseUrl}/rest/api/3/issue/${issueKey}/comment`;
 
@@ -36,7 +48,7 @@ async function postComment(issueKey, message) {
         },
       }
     );
-    console.log(`✅ ${issueKey} için yorum eklendi.`);
+    console.log(`✅ ${issueKey} için yorum başarıyla eklendi.`);
   } catch (error) {
     console.error(`❌ ${issueKey} için yorum eklenemedi:`, error.response?.data || error.message);
   }
@@ -49,25 +61,33 @@ async function postComment(issueKey, message) {
   }
 
   for (const suite of testResults.suites) {
-    if (!suite.specs) continue;
+    if (!suite.specs) {
+      console.log('⚠️ Suite içinde specs bulunamadı.');
+      continue;
+    }
 
     for (const spec of suite.specs) {
-      if (!spec.tests) continue;
+      if (!spec.tests) {
+        console.log('⚠️ Spec içinde tests bulunamadı.');
+        continue;
+      }
 
       for (const test of spec.tests) {
         const testTitle = Array.isArray(test.title) ? test.title.join(' ') : test.title || '';
         const status = test.results?.[0]?.status || 'unknown';
 
+        console.log(`🔍 Test Başlığı: "${testTitle}" | Durum: ${status}`);
+
         const match = testTitle.match(new RegExp(`\\b${jiraProjectKey}-\\d+\\b`));
         if (!match) {
-          console.log(`⚠️ Jira bileti bulunamadı: ${testTitle}`);
+          console.log(`⚠️ Jira bileti bulunamadı test başlığında: "${testTitle}"`);
           continue;
         }
 
         const issueKey = match[0];
         const comment = `🔍 **Test Sonucu**\n\n- Başlık: *${testTitle}*\n- Durum: **${status.toUpperCase()}**\n- [📄 Raporu Görüntüle](${reportUrl})`;
 
-        console.log(`💬 Yorum gönderiliyor: ${issueKey}`);
+        console.log(`💬 Jira biletine yorum gönderiliyor: ${issueKey}`);
         await postComment(issueKey, comment);
       }
     }
