@@ -20,8 +20,8 @@ Received:   0
   - /url: /
   - text: E-Gündem Haberleri & Son Dakika Haberleri
   - img "E-Gündem Logo"
-- link "Eşini öldürüp intihar süsü vermiş! Mektupta parmak izi çıkan koca için rekor hapis istemi":
-  - /url: /gundem/esini-oldurup-intihar-susu-vermis-mektupta-parmak-izi-cikan-koca-icin-rekor-hapis-istemi-b1a7242a
+- link "Rusya heyeti İstanbul'a geldi":
+  - /url: https://www.trthaber.com/haber/dunya/rusya-heyeti-istanbula-geldi-909180.html
 - button "Toggle dark mode"
 - link "eGündem Instagram":
   - /url: https://www.instagram.com/egundemapp/
@@ -53,6 +53,62 @@ Received:   0
 - button "Ara"
 - button "Giriş Yap veya Üye Ol": Giriş Yap / Üye Ol
 - text: video ile ilgili arama sonuçları
+- 'link "Böyle plan düşman başına: Güvenlik kamerası gerçeği ifşa etti"':
+  - /url: /undefined/boyle-plan-dusman-basina-guvenlik-kamerasi-gercegi-ifsa-etti-83e5c174
+  - 'img "Böyle plan düşman başına: Güvenlik kamerası gerçeği ifşa etti"'
+- text: Kocaeli Gazetesi
+- 'link "Böyle plan düşman başına: Güvenlik kamerası gerçeği ifşa etti"':
+  - /url: undefined/boyle-plan-dusman-basina-guvenlik-kamerasi-gercegi-ifsa-etti-83e5c174
+- img
+- text: Son Dakika Etiketler Yerel
+- 'link "vivo X Fold 5 için geri sayım: Önemli bir eşiği aştı!"':
+  - /url: /undefined/vivo-x-fold-5-icin-geri-sayim-onemli-bir-esigi-asti-65ca5864
+  - 'img "vivo X Fold 5 için geri sayım: Önemli bir eşiği aştı!"'
+- text: ShiftDelete.Net
+- 'link "vivo X Fold 5 için geri sayım: Önemli bir eşiği aştı!"':
+  - /url: undefined/vivo-x-fold-5-icin-geri-sayim-onemli-bir-esigi-asti-65ca5864
+- img
+- text: Son Dakika Etiketler Bilim & Teknoloji
+- link "Bir tost için bu rezalete değer mi? Tostun yarısını yedi, saçından kopardığı kılı içine koyarak yenisi aldı!":
+  - /url: /undefined/bir-tost-icin-bu-rezalete-deger-mi-tostun-yarisini-yedi-sacindan-kopardigi-kili-icine-koyarak-yenisi-aldi-11b3eb70
+  - img "Bir tost için bu rezalete değer mi? Tostun yarısını yedi, saçından kopardığı kılı içine koyarak yenisi aldı!"
+- text: Yeni Akit
+- link "Bir tost için bu rezalete değer mi? Tostun yarısını yedi, saçından kopardığı kılı içine koyarak yenisi aldı!":
+  - /url: undefined/bir-tost-icin-bu-rezalete-deger-mi-tostun-yarisini-yedi-sacindan-kopardigi-kili-icine-koyarak-yenisi-aldi-11b3eb70
+- img
+- text: Son Dakika Etiketler Gündem
+- 'link "Komşuda mide bulandıran plan: Güvenlik kamerası ifşa etti"':
+  - /url: /undefined/komsuda-mide-bulandiran-plan-guvenlik-kamerasi-ifsa-etti-eef2e4fb
+  - 'img "Komşuda mide bulandıran plan: Güvenlik kamerası ifşa etti"'
+- text: En Kocaeli Gazetesi
+- 'link "Komşuda mide bulandıran plan: Güvenlik kamerası ifşa etti"':
+  - /url: undefined/komsuda-mide-bulandiran-plan-guvenlik-kamerasi-ifsa-etti-eef2e4fb
+- img
+- text: Son Dakika Etiketler Yerel
+- 'link "İzmir Otoyolu''nda araç arızası trafiği kilitledi: Yola çıkacak İzmirliler dikkat, 1,5 kilometrelik yoğunluk oluştu"':
+  - /url: /undefined/izmir-otoyolunda-arac-arizasi-trafigi-kilitledi-yola-cikacak-izmirliler-dikkat-15-kilometrelik-yogunluk-olustu-daec9ab5
+  - 'img "İzmir Otoyolu''nda araç arızası trafiği kilitledi: Yola çıkacak İzmirliler dikkat, 1,5 kilometrelik yoğunluk oluştu"'
+- text: İzmir İz Gazete
+- 'link "İzmir Otoyolu''nda araç arızası trafiği kilitledi: Yola çıkacak İzmirliler dikkat, 1,5 kilometrelik yoğunluk oluştu"':
+  - /url: undefined/izmir-otoyolunda-arac-arizasi-trafigi-kilitledi-yola-cikacak-izmirliler-dikkat-15-kilometrelik-yogunluk-olustu-daec9ab5
+- img
+- text: Son Dakika Etiketler Yerel
+- link "Eren Erdem'den bomba iddia! Kılıçdaroğlu'na küfür ettirebilmek için...":
+  - /url: /undefined/eren-erdemden-bomba-iddia-kilicdarogluna-kufur-ettirebilmek-icin-36ede1f8
+  - img "Eren Erdem'den bomba iddia! Kılıçdaroğlu'na küfür ettirebilmek için..."
+- text: İnternetHaber
+- link "Eren Erdem'den bomba iddia! Kılıçdaroğlu'na küfür ettirebilmek için...":
+  - /url: undefined/eren-erdemden-bomba-iddia-kilicdarogluna-kufur-ettirebilmek-icin-36ede1f8
+- img
+- text: Son Dakika Etiketler Gündem
+- link "Çubuk'ta ata tohumundan üretilen organik fideler ülke geneline gönderiliyor":
+  - /url: /undefined/cubukta-ata-tohumundan-uretilen-organik-fideler-ulke-geneline-gonderiliyor-dfc2b8b2
+  - img "Çubuk'ta ata tohumundan üretilen organik fideler ülke geneline gönderiliyor"
+- text: Başkent Gazetesi
+- link "Çubuk'ta ata tohumundan üretilen organik fideler ülke geneline gönderiliyor":
+  - /url: undefined/cubukta-ata-tohumundan-uretilen-organik-fideler-ulke-geneline-gonderiliyor-dfc2b8b2
+- img
+- text: Son Dakika Etiketler Yerel
 - 'link "Cumhurbaşkanı Erdoğan: Türkiye’nin hiçbir sorunu çözümsüz değildir"':
   - /url: /undefined/cumhurbaskani-erdogan-turkiyenin-hicbir-sorunu-cozumsuz-degildir-c36a1db9
   - 'img "Cumhurbaşkanı Erdoğan: Türkiye’nin hiçbir sorunu çözümsüz değildir"'
@@ -60,7 +116,7 @@ Received:   0
 - 'link "Cumhurbaşkanı Erdoğan: Türkiye’nin hiçbir sorunu çözümsüz değildir"':
   - /url: undefined/cumhurbaskani-erdogan-turkiyenin-hicbir-sorunu-cozumsuz-degildir-c36a1db9
 - img
-- text: Son Dakika Etiketler Gündem
+- text: 2 Haziran 2025 Etiketler Gündem
 - 'link "Cumhurbaşkanı Erdoğan Kabine Toplantısı sonrası konuştu: Türkiye’nin hiçbir sorunu çözümsüz değildir"':
   - /url: /undefined/cumhurbaskani-erdogan-kabine-toplantisi-sonrasi-konustu-turkiyenin-hicbir-sorunu-cozumsuz-degildir-2fcc6e2c
   - 'img "Cumhurbaşkanı Erdoğan Kabine Toplantısı sonrası konuştu: Türkiye’nin hiçbir sorunu çözümsüz değildir"'
@@ -68,7 +124,7 @@ Received:   0
 - 'link "Cumhurbaşkanı Erdoğan Kabine Toplantısı sonrası konuştu: Türkiye’nin hiçbir sorunu çözümsüz değildir"':
   - /url: undefined/cumhurbaskani-erdogan-kabine-toplantisi-sonrasi-konustu-turkiyenin-hicbir-sorunu-cozumsuz-degildir-2fcc6e2c
 - img
-- text: Son Dakika Etiketler Gündem
+- text: 2 Haziran 2025 Etiketler Gündem
 - link "Uygun fiyatlı 4K kamera arayanlara Lenovo C55 güçlü bir alternatif sunuyor":
   - /url: /undefined/uygun-fiyatli-4k-kamera-arayanlara-lenovo-c55-guclu-bir-alternatif-sunuyor-b639c7d6
   - img "Uygun fiyatlı 4K kamera arayanlara Lenovo C55 güçlü bir alternatif sunuyor"
@@ -76,63 +132,7 @@ Received:   0
 - link "Uygun fiyatlı 4K kamera arayanlara Lenovo C55 güçlü bir alternatif sunuyor":
   - /url: undefined/uygun-fiyatli-4k-kamera-arayanlara-lenovo-c55-guclu-bir-alternatif-sunuyor-b639c7d6
 - img
-- text: Son Dakika Etiketler Bilim & Teknoloji
-- link "Kendisini çeken adama hayatının şokunu yaşattı!":
-  - /url: /undefined/kendisini-ceken-adama-hayatinin-sokunu-yasatti-d1b65b80
-  - img "Kendisini çeken adama hayatının şokunu yaşattı!"
-- text: En Kocaeli Gazetesi
-- link "Kendisini çeken adama hayatının şokunu yaşattı!":
-  - /url: undefined/kendisini-ceken-adama-hayatinin-sokunu-yasatti-d1b65b80
-- img
-- text: Son Dakika Etiketler Yerel
-- link "Diyarbakır’daki kız yurdunda neler oluyor? Milletvekili orada, öğrenciler ayakta!":
-  - /url: /undefined/diyarbakirdaki-kiz-yurdunda-neler-oluyor-milletvekili-orada-ogrenciler-ayakta-1f44f697
-  - img "Diyarbakır’daki kız yurdunda neler oluyor? Milletvekili orada, öğrenciler ayakta!"
-- text: Güneydoğu Ekspres Haber
-- link "Diyarbakır’daki kız yurdunda neler oluyor? Milletvekili orada, öğrenciler ayakta!":
-  - /url: undefined/diyarbakirdaki-kiz-yurdunda-neler-oluyor-milletvekili-orada-ogrenciler-ayakta-1f44f697
-- img
-- text: Son Dakika Etiketler Yerel
-- link "Harvard Üniversitesi, ÇKP için \"parti okulu\" vazifesi mi görüyor?":
-  - /url: /undefined/harvard-universitesi-ckp-icin-parti-okulu-vazifesi-mi-goruyor-33f896f2
-  - img "Harvard Üniversitesi, ÇKP için \"parti okulu\" vazifesi mi görüyor?"
-- text: Independent Türkçe
-- link "Harvard Üniversitesi, ÇKP için \"parti okulu\" vazifesi mi görüyor?":
-  - /url: undefined/harvard-universitesi-ckp-icin-parti-okulu-vazifesi-mi-goruyor-33f896f2
-- img
-- text: Son Dakika Etiketler Gündem
-- link "İsrail'in Refah'ta yardım dağıtım noktasına düzenlediği saldırıda 30 Filistinli öldü":
-  - /url: /undefined/israilin-refahta-yardim-dagitim-noktasina-duzenledigi-saldirida-30-filistinli-oldu-887d582e
-  - img "İsrail'in Refah'ta yardım dağıtım noktasına düzenlediği saldırıda 30 Filistinli öldü"
-- text: Independent Türkçe
-- link "İsrail'in Refah'ta yardım dağıtım noktasına düzenlediği saldırıda 30 Filistinli öldü":
-  - /url: undefined/israilin-refahta-yardim-dagitim-noktasina-duzenledigi-saldirida-30-filistinli-oldu-887d582e
-- img
-- text: Son Dakika Etiketler Gündem
-- link "Manisa’da 18 yıllık bekleyiş bitiyor":
-  - /url: /undefined/manisada-18-yillik-bekleyis-bitiyor-714259c2
-  - img "Manisa’da 18 yıllık bekleyiş bitiyor"
-- text: Manisa Meydan Gazetesi
-- link "Manisa’da 18 yıllık bekleyiş bitiyor":
-  - /url: undefined/manisada-18-yillik-bekleyis-bitiyor-714259c2
-- img
-- text: Son Dakika Etiketler Yerel
-- 'link "Şera bir Yahudi gazetesine ilk röportajını verdi: İstikrarlı bir Suriye nutuk ve sloganlarla inşa edilmeyecek"':
-  - /url: /undefined/sera-bir-yahudi-gazetesine-ilk-roportajini-verdi-istikrarli-bir-suriye-nutuk-ve-sloganlarla-insa-edilmeyecek-fb6538b8
-  - 'img "Şera bir Yahudi gazetesine ilk röportajını verdi: İstikrarlı bir Suriye nutuk ve sloganlarla inşa edilmeyecek"'
-- text: Independent Türkçe
-- 'link "Şera bir Yahudi gazetesine ilk röportajını verdi: İstikrarlı bir Suriye nutuk ve sloganlarla inşa edilmeyecek"':
-  - /url: undefined/sera-bir-yahudi-gazetesine-ilk-roportajini-verdi-istikrarli-bir-suriye-nutuk-ve-sloganlarla-insa-edilmeyecek-fb6538b8
-- img
-- text: 2 Haziran 2025 Etiketler Gündem
-- 'link "Mide bulandıran görüntüler: Kopardığı saçını tostunun içine koydu"':
-  - /url: /undefined/mide-bulandiran-goruntuler-kopardigi-sacini-tostunun-icine-koydu-63247a55
-  - 'img "Mide bulandıran görüntüler: Kopardığı saçını tostunun içine koydu"'
-- text: Cumhuriyet
-- 'link "Mide bulandıran görüntüler: Kopardığı saçını tostunun içine koydu"':
-  - /url: undefined/mide-bulandiran-goruntuler-kopardigi-sacini-tostunun-icine-koydu-63247a55
-- img
-- text: 2 Haziran 2025 Etiketler Gündem
+- text: 2 Haziran 2025 Etiketler Bilim & Teknoloji
 - button "Daha Fazla Göster": Daha çok sonuç
 - textbox "Haber Ara": video
 - text: Kaynakları Filtrele

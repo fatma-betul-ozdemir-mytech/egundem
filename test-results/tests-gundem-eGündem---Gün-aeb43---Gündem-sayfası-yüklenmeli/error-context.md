@@ -25,8 +25,8 @@ Call log:
   - /url: /
   - text: E-Gündem Haberleri & Son Dakika Haberleri
   - img "E-Gündem Logo"
-- link "Eşini öldürüp intihar süsü vermiş! Mektupta parmak izi çıkan koca için rekor hapis istemi":
-  - /url: /gundem/esini-oldurup-intihar-susu-vermis-mektupta-parmak-izi-cikan-koca-icin-rekor-hapis-istemi-b1a7242a
+- link "Rusya heyeti İstanbul'a geldi":
+  - /url: https://www.trthaber.com/haber/dunya/rusya-heyeti-istanbula-geldi-909180.html
 - button "Toggle dark mode"
 - link "eGündem Instagram":
   - /url: https://www.instagram.com/egundemapp/
@@ -62,6 +62,20 @@ Call log:
 - button "Sonraki Slayt": Tümünü Gör
 - link "Gündem":
   - /url: /gundem
+- link "Cumhurbaşkanı Erdoğan’dan flaş açıklamalar - CANLI -":
+  - /url: https://egundem.com/gundem/cumhurbaskani-erdogandan-flas-aciklamalar-canli-4638a220
+  - img "Cumhurbaşkanı Erdoğan’dan flaş açıklamalar - CANLI -"
+- button:
+  - img
+- link "Yeni Akit":
+  - /url: /yeni-akit-g
+- text: 1 sa.
+- heading "Cumhurbaşkanı Erdoğan’dan flaş açıklamalar - CANLI -" [level=3]:
+  - link "Cumhurbaşkanı Erdoğan’dan flaş açıklamalar - CANLI -":
+    - /url: https://egundem.com/gundem/cumhurbaskani-erdogandan-flas-aciklamalar-canli-4638a220
+- paragraph: Cumhurbaşkanı Recep Tayyip Erdoğan başkanlığında yapılan Kabine Toplantısı açıklamalarda bulunuyor.
+- link "Gündem":
+  - /url: /gundem
 - link "Eşini öldürüp intihar süsü vermiş! Mektupta parmak izi çıkan koca için rekor hapis istemi":
   - /url: https://egundem.com/gundem/esini-oldurup-intihar-susu-vermis-mektupta-parmak-izi-cikan-koca-icin-rekor-hapis-istemi-b1a7242a
   - img "Eşini öldürüp intihar süsü vermiş! Mektupta parmak izi çıkan koca için rekor hapis istemi"
@@ -69,39 +83,25 @@ Call log:
   - img
 - link "Hürriyet":
   - /url: /hurriyet-gundem
-- text: 1 sa.
+- text: 2 sa.
 - heading "Eşini öldürüp intihar süsü vermiş! Mektupta parmak izi çıkan koca için rekor hapis istemi" [level=3]:
   - link "Eşini öldürüp intihar süsü vermiş! Mektupta parmak izi çıkan koca için rekor hapis istemi":
     - /url: https://egundem.com/gundem/esini-oldurup-intihar-susu-vermis-mektupta-parmak-izi-cikan-koca-icin-rekor-hapis-istemi-b1a7242a
 - paragraph: Antalya'da evinde cansız bedeni bulunan Düriye Çiğdem Keklik'i (33) tüfekle vurup, intihar süsü verdiği ileri sürülen eşi Hüsamettin Keklik'in (30), ağırlaştırılmış ömür boyu hapsi istendi. Mektubun Düriye Çiğdem Keklik'e eşi tarafından zorla yazdırılmış olabileceği belirtildi.
 - link "Gündem":
   - /url: /gundem
-- link "CHP’li belediyelere yönelik soruşturmada gözaltı sayısı yükseldi":
-  - /url: https://egundem.com/gundem/chpli-belediyelere-yonelik-sorusturmada-gozalti-sayisi-yukseldi-6b08e920
-  - img "CHP’li belediyelere yönelik soruşturmada gözaltı sayısı yükseldi"
+- link "Sinan Oğan uzun süre sonra ortaya çıktı":
+  - /url: https://www.sozcu.com.tr/sinan-ogan-uzun-sure-sonra-ortaya-cikti-p180181
+  - img "Sinan Oğan uzun süre sonra ortaya çıktı"
 - button:
   - img
-- link "Hürriyet":
-  - /url: /hurriyet-gundem
-- text: 2 sa.
-- heading "CHP’li belediyelere yönelik soruşturmada gözaltı sayısı yükseldi" [level=3]:
-  - link "CHP’li belediyelere yönelik soruşturmada gözaltı sayısı yükseldi":
-    - /url: https://egundem.com/gundem/chpli-belediyelere-yonelik-sorusturmada-gozalti-sayisi-yukseldi-6b08e920
-- paragraph: CHP’li belediyelere yönelik soruşturmada şüpheli sayısı 49’a gözaltı sayısı 38’e yükseldi.
-- link "Gündem":
-  - /url: /gundem
-- 'link "Yozgat''ta cenaze töreninden dönenleri taşıyan midibüs devrildi: 2 kişi öldü, 15 kişi yaralandı"':
-  - /url: https://egundem.com/gundem/yozgatta-cenaze-toreninden-donenleri-tasiyan-midibus-devrildi-2-kisi-oldu-15-kisi-yaralandi-d1cbfefd
-  - 'img "Yozgat''ta cenaze töreninden dönenleri taşıyan midibüs devrildi: 2 kişi öldü, 15 kişi yaralandı"'
-- button:
-  - img
-- link "Anadolu Ajansı":
-  - /url: /anadolu-ajans
-- text: 2 sa.
-- 'heading "Yozgat''ta cenaze töreninden dönenleri taşıyan midibüs devrildi: 2 kişi öldü, 15 kişi yaralandı" [level=3]':
-  - 'link "Yozgat''ta cenaze töreninden dönenleri taşıyan midibüs devrildi: 2 kişi öldü, 15 kişi yaralandı"':
-    - /url: https://egundem.com/gundem/yozgatta-cenaze-toreninden-donenleri-tasiyan-midibus-devrildi-2-kisi-oldu-15-kisi-yaralandi-d1cbfefd
-- paragraph: Yozgat'ın Akdağmadeni ilçesinde, cenaze töreninden dönenleri taşıyan midibüsün devrilmesi sonucu 2 kişi hayatını kaybetti, 15 kişi yaralandı.
+- link "Sözcü":
+  - /url: /sozcu-gazetesi
+- text: 1 sa.
+- heading "Sinan Oğan uzun süre sonra ortaya çıktı" [level=3]:
+  - link "Sinan Oğan uzun süre sonra ortaya çıktı":
+    - /url: https://www.sozcu.com.tr/sinan-ogan-uzun-sure-sonra-ortaya-cikti-p180181
+- paragraph: 28 Mayıs seçimleri öncesinde Cumhurbaşkanı Erdoğan lehine adaylıktan çekilen Sinan Oğan, uzun süre sonra yeniden ortaya çıktı. Oğan, Azerbaycan'da oldukça popüler olan bir restoranda görüldü.
 - list:
   - listitem
   - listitem
@@ -113,6 +113,257 @@ Call log:
 - heading "Gündem" [level=1]
 - link "Gündem":
   - /url: /gundem
+- link "7 ile sarı kodlu uyarı! Bakanlık'tan sağanak açıklaması":
+  - /url: https://www.sozcu.com.tr/7-ile-sari-kodlu-uyari-bakanlik-tan-saganak-aciklamasi-p180190
+  - img "7 ile sarı kodlu uyarı! Bakanlık'tan sağanak açıklaması"
+- button:
+  - img
+- link "Sözcü":
+  - /url: /sozcu-gazetesi
+- text: 34 dk.
+- heading "7 ile sarı kodlu uyarı! Bakanlık'tan sağanak açıklaması" [level=3]:
+  - link "7 ile sarı kodlu uyarı! Bakanlık'tan sağanak açıklaması":
+    - /url: https://www.sozcu.com.tr/7-ile-sari-kodlu-uyari-bakanlik-tan-saganak-aciklamasi-p180190
+- paragraph: İçişleri Bakanlığı, Meteoroloji Genel Müdürlüğü'nden alınan verilere göre sağanak yağış uyarısında bulundu. Yağışların etkili olacağı 7 il için sarı uyarı verildi.
+- link "Gündem":
+  - /url: /gundem
+- 'link "KYK’de isyan eden öğrencilere pişkin savunma: ‘Babanızın evinde klima mı vardı?’"':
+  - /url: https://www.cumhuriyet.com.tr/turkiye/kyk-de-isyan-eden-ogrencilere-piskin-savunma-babanizi-evinde-klima-mi-vardi-2406316
+  - 'img "KYK’de isyan eden öğrencilere pişkin savunma: ‘Babanızın evinde klima mı vardı?’"'
+- button:
+  - img
+- link "Cumhuriyet":
+  - /url: /cumhuriyet-gazetesi
+- text: 35 dk.
+- 'heading "KYK’de isyan eden öğrencilere pişkin savunma: ‘Babanızın evinde klima mı vardı?’" [level=3]':
+  - 'link "KYK’de isyan eden öğrencilere pişkin savunma: ‘Babanızın evinde klima mı vardı?’"':
+    - /url: https://www.cumhuriyet.com.tr/turkiye/kyk-de-isyan-eden-ogrencilere-piskin-savunma-babanizi-evinde-klima-mi-vardi-2406316
+- paragraph: CHP Diyarbakır Milletvekili Sezgin Tanrıkulu, Dicle Üniversitesi’ndeki kız öğrenci yurdu önünde yaptığı açıklamada, öğrencilerin yaşadığı hijyen, yemek ve ulaşım sorunlarına dikkat çekerek, yetkilileri göreve çağırdı. Tanrıkulu, öğrencilerin şikayetlerine verilen pişkin yanıtı da “‘Babanızın evinde klima mı vardı, doğalgaz mı vardı?’ şeklinde aşağılayıcı ifadeler kullanılmış” şeklinde aktardı.
+- link "Gündem":
+  - /url: /gundem
+- 'link "DİSK Ege Bölge Temsilcisi Memiş Sarı SÖZCÜ''ye konuştu: 65 bin liralık net maaş teklifine dünden razıyız"':
+  - /url: https://www.sozcu.com.tr/disk-ege-bolge-temsilcisi-memis-sari-sozcu-ye-konustu-65-bin-liralik-net-maas-teklifine-dunden-p180189
+  - 'img "DİSK Ege Bölge Temsilcisi Memiş Sarı SÖZCÜ''ye konuştu: 65 bin liralık net maaş teklifine dünden razıyız"'
+- button:
+  - img
+- link "Sözcü":
+  - /url: /sozcu-gazetesi
+- text: 35 dk.
+- 'heading "DİSK Ege Bölge Temsilcisi Memiş Sarı SÖZCÜ''ye konuştu: 65 bin liralık net maaş teklifine dünden razıyız" [level=3]':
+  - 'link "DİSK Ege Bölge Temsilcisi Memiş Sarı SÖZCÜ''ye konuştu: 65 bin liralık net maaş teklifine dünden razıyız"':
+    - /url: https://www.sozcu.com.tr/disk-ege-bolge-temsilcisi-memis-sari-sozcu-ye-konustu-65-bin-liralik-net-maas-teklifine-dunden-p180189
+- paragraph: İzmir Büyükşehir Belediyesi'nde çalışan yaklaşık 23 bin işçinin grevi beşinci gününde. İşçiler eylem ve miting yaparken, DİSK Ege Bölge Temsilcisi Memiş Sarı Sözcü TV'ye konuştu. Sendika hakkındaki eleştirilere yanıt veren Sarı, kendilerinin ne talep ettiğini anlattı, "Belediye yönetiminin 65 bin liralık net maaş teklifine dünden razıyız" dedi.
+- link "Gündem":
+  - /url: /gundem
+- link "Sırrı Süreyya Önder'in yerine geçecek isim belli oldu":
+  - /url: https://www.sozcu.com.tr/sirri-sureyya-onder-in-yerine-gececek-isim-belli-oldu-p180187
+  - img "Sırrı Süreyya Önder'in yerine geçecek isim belli oldu"
+- button:
+  - img
+- link "Sözcü":
+  - /url: /sozcu-gazetesi
+- text: 45 dk.
+- heading "Sırrı Süreyya Önder'in yerine geçecek isim belli oldu" [level=3]:
+  - link "Sırrı Süreyya Önder'in yerine geçecek isim belli oldu":
+    - /url: https://www.sozcu.com.tr/sirri-sureyya-onder-in-yerine-gececek-isim-belli-oldu-p180187
+- paragraph: DEM Partili TBMM Başkanvekili Sırrı Süreyya Önder'in hayatını kaybetmesinin ardından DEM Parti adına Başkanvekilliği yapacak isim belli oldu
+- link "Gündem":
+  - /url: /gundem
+- link "Morata, gidebileceği muhtemel takımların başında Getafe'yi gösterdi":
+  - /url: https://egundem.com/gundem/morata-gidebilecegi-muhtemel-takimlarin-basinda-getafeyi-gosterdi-7bcbc9f8
+  - img "Morata, gidebileceği muhtemel takımların başında Getafe'yi gösterdi"
+- button:
+  - img
+- link "Anadolu Ajansı":
+  - /url: /anadolu-ajans
+- text: 51 dk.
+- heading "Morata, gidebileceği muhtemel takımların başında Getafe'yi gösterdi" [level=3]:
+  - link "Morata, gidebileceği muhtemel takımların başında Getafe'yi gösterdi":
+    - /url: https://egundem.com/gundem/morata-gidebilecegi-muhtemel-takimlarin-basinda-getafeyi-gosterdi-7bcbc9f8
+- paragraph: Galatasaray'da forma giyen İspanyol futbolcu Alvaro Morata, gelecekte Getafe'de oynamak istediğini söyledi.
+- link "Gündem":
+  - /url: /gundem
+- link "Suriye ile ilgili yeni gelişmeyi Erdoğan duyurdu":
+  - /url: https://www.sozcu.com.tr/suriye-ile-ilgili-yeni-gelismeyi-erdogan-duyurdu-p180184
+  - img "Suriye ile ilgili yeni gelişmeyi Erdoğan duyurdu"
+- button:
+  - img
+- link "Sözcü":
+  - /url: /sozcu-gazetesi
+- text: 57 dk.
+- heading "Suriye ile ilgili yeni gelişmeyi Erdoğan duyurdu" [level=3]:
+  - link "Suriye ile ilgili yeni gelişmeyi Erdoğan duyurdu":
+    - /url: https://www.sozcu.com.tr/suriye-ile-ilgili-yeni-gelismeyi-erdogan-duyurdu-p180184
+- paragraph: AKP'li Cumhurbaşkanı Erdoğan Kabine toplantısının ardından basının karşısına geçti. Suriye-Türkiye ilişkilerinin yeni rotasına dair konuşan Erdoğan, Suriye'ye sivil havacılık uçuşlarının da başlayacağını duyurdu
+- link "Gündem":
+  - /url: /gundem
+- link "MHP bayramda DEM'e gidecek CHP yok!":
+  - /url: https://www.sozcu.com.tr/mhp-bayramda-dem-e-gidecek-chp-yok-p180183
+  - img "MHP bayramda DEM'e gidecek CHP yok!"
+- button:
+  - img
+- link "Sözcü":
+  - /url: /sozcu-gazetesi
+- text: 1 sa.
+- heading "MHP bayramda DEM'e gidecek CHP yok!" [level=3]:
+  - link "MHP bayramda DEM'e gidecek CHP yok!":
+    - /url: https://www.sozcu.com.tr/mhp-bayramda-dem-e-gidecek-chp-yok-p180183
+- paragraph: MHP'nin Kurban Bayramı için tebrik programı belli oldu. Programda DEM Parti ikinci kez yeralırken CHP ile görüşmeye yer verilmedi
+- link "Gündem":
+  - /url: /gundem
+- link "Sporda haftanın özeti":
+  - /url: https://egundem.com/gundem/sporda-haftanin-ozeti-6b2b27e5
+  - img "Sporda haftanın özeti"
+- button:
+  - img
+- link "Anadolu Ajansı":
+  - /url: /anadolu-ajans
+- text: 1 sa.
+- heading "Sporda haftanın özeti" [level=3]:
+  - link "Sporda haftanın özeti":
+    - /url: https://egundem.com/gundem/sporda-haftanin-ozeti-6b2b27e5
+- link "Gündem":
+  - /url: /gundem
+- 'link "Anneden bebeğe darp iddiası: Akıl sağlığı raporu istendi!"':
+  - /url: https://www.cumhuriyet.com.tr/turkiye/anneden-bebege-darp-iddiasi-akil-sagligi-raporu-istendi-2406312
+  - 'img "Anneden bebeğe darp iddiası: Akıl sağlığı raporu istendi!"'
+- button:
+  - img
+- link "Cumhuriyet":
+  - /url: /cumhuriyet-gazetesi
+- text: 1 sa.
+- 'heading "Anneden bebeğe darp iddiası: Akıl sağlığı raporu istendi!" [level=3]':
+  - 'link "Anneden bebeğe darp iddiası: Akıl sağlığı raporu istendi!"':
+    - /url: https://www.cumhuriyet.com.tr/turkiye/anneden-bebege-darp-iddiasi-akil-sagligi-raporu-istendi-2406312
+- paragraph: Muğla’nın Bodrum ilçesinde A.U. (34), boşanma aşamasındaki eşi Kırgızistan uyruklu D.O. (29) hakkında bebekleri M.A.U.'ya şiddet uyguladığı iddiasıyla şikayette bulunuldu. Bebeğin geçici velayeti baba A.U.'ya verilirken, D.O. hakkında akıl sağlığı raporu istendi.
+- link "Gündem":
+  - /url: /gundem
+- link "Sinan Oğan uzun süre sonra ortaya çıktı":
+  - /url: https://www.sozcu.com.tr/sinan-ogan-uzun-sure-sonra-ortaya-cikti-p180181
+  - img "Sinan Oğan uzun süre sonra ortaya çıktı"
+- button:
+  - img
+- link "Sözcü":
+  - /url: /sozcu-gazetesi
+- text: 1 sa.
+- heading "Sinan Oğan uzun süre sonra ortaya çıktı" [level=3]:
+  - link "Sinan Oğan uzun süre sonra ortaya çıktı":
+    - /url: https://www.sozcu.com.tr/sinan-ogan-uzun-sure-sonra-ortaya-cikti-p180181
+- paragraph: 28 Mayıs seçimleri öncesinde Cumhurbaşkanı Erdoğan lehine adaylıktan çekilen Sinan Oğan, uzun süre sonra yeniden ortaya çıktı. Oğan, Azerbaycan'da oldukça popüler olan bir restoranda görüldü.
+- link "Gündem":
+  - /url: /gundem
+- link "Mustafa Denizli'nin kızı CHP belediyeciliğini öğrendi! Yangından mal kaçırır gibi gizli gizli satıyorlar!":
+  - /url: https://egundem.com/gundem/mustafa-denizlinin-kizi-chp-belediyeciligini-ogrendi-yangindan-mal-kacirir-gibi-gizli-gizli-satiyorlar-687e7340
+  - img "Mustafa Denizli'nin kızı CHP belediyeciliğini öğrendi! Yangından mal kaçırır gibi gizli gizli satıyorlar!"
+- button:
+  - img
+- link "Yeni Akit":
+  - /url: /yeni-akit-g
+- text: 1 sa.
+- heading "Mustafa Denizli'nin kızı CHP belediyeciliğini öğrendi! Yangından mal kaçırır gibi gizli gizli satıyorlar!" [level=3]:
+  - link "Mustafa Denizli'nin kızı CHP belediyeciliğini öğrendi! Yangından mal kaçırır gibi gizli gizli satıyorlar!":
+    - /url: https://egundem.com/gundem/mustafa-denizlinin-kizi-chp-belediyeciligini-ogrendi-yangindan-mal-kacirir-gibi-gizli-gizli-satiyorlar-687e7340
+- paragraph: İzmir'de futbol adamı olarak bilinen Mustafa Denizli'nin kızı da 1 yıl içerisinde CHP belediyeciliğini öğrendi! Yangından mal kaçırır gibi gizli gizli satıyorlar!
+- link "Gündem":
+  - /url: /gundem
+- 'link "''En büyük arzum...'' diyerek açıkladı: Erdoğan kabine sonrası konuştu"':
+  - /url: https://www.cumhuriyet.com.tr/turkiye/en-buyuk-arzum-diyerek-acikladi-erdogan-kabine-sonrasi-konustu-2406309
+  - 'img "''En büyük arzum...'' diyerek açıkladı: Erdoğan kabine sonrası konuştu"'
+- button:
+  - img
+- link "Cumhuriyet":
+  - /url: /cumhuriyet-gazetesi
+- text: 1 sa.
+- 'heading "''En büyük arzum...'' diyerek açıkladı: Erdoğan kabine sonrası konuştu" [level=3]':
+  - 'link "''En büyük arzum...'' diyerek açıkladı: Erdoğan kabine sonrası konuştu"':
+    - /url: https://www.cumhuriyet.com.tr/turkiye/en-buyuk-arzum-diyerek-acikladi-erdogan-kabine-sonrasi-konustu-2406309
+- paragraph: AKP'li Cumhurbaşkanı Erdoğan, Kabine toplantısı sonrası yaptığı açıklamada, "Her iki taraf için de benim en büyük arzum gerek Sayın Vladimir Putin'i gerekse Zelenski'yi aynı şekilde İstanbul veya Ankara'da bir araya getirmek, hatta hatta Sayın Trump'ı da bunların yanına almak, eğer kabul buyururlarsa ben de kendileriyle bu buluşmada bir araya gelir ve böylece İstanbul'u adeta bir barış merkezi haline getirelim istiyorum" ifadelerini kullandı.
+- link "Gündem":
+  - /url: /gundem
+- 'link "Etkin pişmanlıkçı İhsan Aktaş ‘Araç verildi’ demişti: CHP İstanbul İl Başkanı Özgür Çelik yalanladı"':
+  - /url: https://www.cumhuriyet.com.tr/turkiye/etkin-pismanlikci-ihsan-aktas-arac-verildi-demisti-chp-istanbul-il-baskani-ozgur-celik-yalanladi-2406307
+  - 'img "Etkin pişmanlıkçı İhsan Aktaş ‘Araç verildi’ demişti: CHP İstanbul İl Başkanı Özgür Çelik yalanladı"'
+- button:
+  - img
+- link "Cumhuriyet":
+  - /url: /cumhuriyet-gazetesi
+- text: 1 sa.
+- 'heading "Etkin pişmanlıkçı İhsan Aktaş ‘Araç verildi’ demişti: CHP İstanbul İl Başkanı Özgür Çelik yalanladı" [level=3]':
+  - 'link "Etkin pişmanlıkçı İhsan Aktaş ‘Araç verildi’ demişti: CHP İstanbul İl Başkanı Özgür Çelik yalanladı"':
+    - /url: https://www.cumhuriyet.com.tr/turkiye/etkin-pismanlikci-ihsan-aktas-arac-verildi-demisti-chp-istanbul-il-baskani-ozgur-celik-yalanladi-2406307
+- paragraph: İBB ve CHP'li belediyelere yönelik son gözaltılar öncesi ‘etkin pişmanlık’ ifadesi veren iş insanı Aziz İhsan Aktaş, verdiği son ifadede CHP İstanbul İl Başkanı Özgür Çelik'in usulsüz tahsis edilen bir aracı kullandığını öne sürdü. Çelik, söz konusu iddia hakkında Cumhuriyet’e belgeleriyle açıklamalarda bulundu.
+- link "Gündem":
+  - /url: /gundem
+- 'link "Abdulkadir Selvi: Kılıçdaroğlu dönüyor! CHP’yi zor günler bekliyor"':
+  - /url: https://egundem.com/gundem/abdulkadir-selvi-kilicdaroglu-donuyor-chpyi-zor-gunler-bekliyor-ee3f014a
+  - 'img "Abdulkadir Selvi: Kılıçdaroğlu dönüyor! CHP’yi zor günler bekliyor"'
+- button:
+  - img
+- link "Yeni Akit":
+  - /url: /yeni-akit-g
+- text: 1 sa.
+- 'heading "Abdulkadir Selvi: Kılıçdaroğlu dönüyor! CHP’yi zor günler bekliyor" [level=3]':
+  - 'link "Abdulkadir Selvi: Kılıçdaroğlu dönüyor! CHP’yi zor günler bekliyor"':
+    - /url: https://egundem.com/gundem/abdulkadir-selvi-kilicdaroglu-donuyor-chpyi-zor-gunler-bekliyor-ee3f014a
+- paragraph: CHP'den ihraç edilen eski Hatay Belediye Başkanı Lütfü Savaş ve delegelerin açtığı kurultay iptal davası 30 Haziran’a ertelenirken Hürriyet yazarı Abdulkadir Selvi yaşanacak süreci değerlendirdi. Selvi, mahkemeden ‘mutlak butlan’ kararı çıkarsa Kılıçdaroğlu’nun yeniden CHP’nin başına geleceğini yazdı.
+- link "Gündem":
+  - /url: /gundem
+- link "Emine Erdoğan'dan Türk Kızılay'a kurban bağışı":
+  - /url: https://egundem.com/gundem/emine-erdogandan-turk-kizilaya-kurban-bagisi-064869a6
+  - img "Emine Erdoğan'dan Türk Kızılay'a kurban bağışı"
+- button:
+  - img
+- link "Hürriyet":
+  - /url: /hurriyet-gundem
+- text: 1 sa.
+- heading "Emine Erdoğan'dan Türk Kızılay'a kurban bağışı" [level=3]:
+  - link "Emine Erdoğan'dan Türk Kızılay'a kurban bağışı":
+    - /url: https://egundem.com/gundem/emine-erdogandan-turk-kizilaya-kurban-bagisi-064869a6
+- paragraph: Cumhurbaşkanı Recep Tayyip Erdoğan'ın eşi Emine Erdoğan, Türk Kızılay'ına kurban bağışında bulunarak "Mazlum coğrafyalara yapılan her bir yardım umut olmaya devam ediyor" ifadesini kullandı.
+- link "Gündem":
+  - /url: /gundem
+- link "DEVA Partisi'nden Metin Gürcan açıklaması":
+  - /url: https://www.sozcu.com.tr/deva-partisi-nden-metin-gurcan-aciklamasi-p180178
+  - img "DEVA Partisi'nden Metin Gürcan açıklaması"
+- button:
+  - img
+- link "Sözcü":
+  - /url: /sozcu-gazetesi
+- text: 1 sa.
+- heading "DEVA Partisi'nden Metin Gürcan açıklaması" [level=3]:
+  - link "DEVA Partisi'nden Metin Gürcan açıklaması":
+    - /url: https://www.sozcu.com.tr/deva-partisi-nden-metin-gurcan-aciklamasi-p180178
+- paragraph: DEVA Partisi Kurucu Üyesi Metin Gürcan'ın yargılandığı davada karar açıklandı. Mahkeme, Gürcan'ı gizli belge temininden 16 yıl 8 ay hapis cezasına çarptırdı.
+- link "Gündem":
+  - /url: /gundem
+- 'link "BBC Farsça çalışanlarına yönelik tacizler artıyor: ''Her zamankinden daha yoğun ve yaygın''"':
+  - /url: https://egundem.com/gundem/bbc-farsca-calisanlarina-yonelik-tacizler-artiyor-her-zamankinden-daha-yogun-ve-yaygin-f4c349c4
+  - 'img "BBC Farsça çalışanlarına yönelik tacizler artıyor: ''Her zamankinden daha yoğun ve yaygın''"'
+- button:
+  - img
+- link "BBC Türkçe":
+  - /url: /bbc-turkce-g
+- text: 1 sa.
+- 'heading "BBC Farsça çalışanlarına yönelik tacizler artıyor: ''Her zamankinden daha yoğun ve yaygın''" [level=3]':
+  - 'link "BBC Farsça çalışanlarına yönelik tacizler artıyor: ''Her zamankinden daha yoğun ve yaygın''"':
+    - /url: https://egundem.com/gundem/bbc-farsca-calisanlarina-yonelik-tacizler-artiyor-her-zamankinden-daha-yogun-ve-yaygin-f4c349c4
+- paragraph: BBC Farsça Servisi'nin Londra'daki çalışanları ve onların İran'daki yakınlarına yönelik tacizlerde büyük bir artış yaşandı. BBC durumu Birleşmiş Milletler'e şikayet edecek.
+- link "Gündem":
+  - /url: /gundem
+- link "Dolandırıcılık operasyonuna 13 tutuklama":
+  - /url: https://egundem.com/gundem/dolandiricilik-operasyonuna-13-tutuklama-c7d43293
+  - img "Dolandırıcılık operasyonuna 13 tutuklama"
+- button:
+  - img
+- link "Hürriyet":
+  - /url: /hurriyet-gundem
+- text: 1 sa.
+- heading "Dolandırıcılık operasyonuna 13 tutuklama" [level=3]:
+  - link "Dolandırıcılık operasyonuna 13 tutuklama":
+    - /url: https://egundem.com/gundem/dolandiricilik-operasyonuna-13-tutuklama-c7d43293
+- paragraph: Afyonkarahisar merkezli 9 ilde yürütülen dolandırıcılık operasyonunda gözaltına alınan 22 şüpheliden 13'ü tutuklandı.
+- link "Gündem":
+  - /url: /gundem
 - link "Emekliler bir kez daha ikramiyelere isyan etti":
   - /url: https://www.sozcu.com.tr/emekliler-bir-kez-daha-ikramiyelere-isyan-etti-p180174
   - img "Emekliler bir kez daha ikramiyelere isyan etti"
@@ -120,7 +371,7 @@ Call log:
   - img
 - link "Sözcü":
   - /url: /sozcu-gazetesi
-- text: 38 dk.
+- text: 1 sa.
 - heading "Emekliler bir kez daha ikramiyelere isyan etti" [level=3]:
   - link "Emekliler bir kez daha ikramiyelere isyan etti":
     - /url: https://www.sozcu.com.tr/emekliler-bir-kez-daha-ikramiyelere-isyan-etti-p180174
@@ -134,294 +385,42 @@ Call log:
   - img
 - link "Sözcü":
   - /url: /sozcu-gazetesi
-- text: 38 dk.
+- text: 1 sa.
 - heading "Afyonkarahisar merkezli 9 ilde dolandırıcılık operasyonu" [level=3]:
   - link "Afyonkarahisar merkezli 9 ilde dolandırıcılık operasyonu":
     - /url: https://www.sozcu.com.tr/afyonkarahisar-merkezli-9-ilde-dolandiricilik-operasyonu-p180176
 - paragraph: Afyonkarahisar İl Emniyet Müdürlüğü’nün koordinesinde yürütülen geniş çaplı dolandırıcılık operasyonunda, internet üzerinden “yatırım, yüksek kâr, halka arz” vaadiyle vatandaşları dolandırdıkları belirlenen 13 kişi tutuklandı. Operasyon, 9 ilde eş zamanlı olarak gerçekleştirildi.
-- link "Gündem":
-  - /url: /gundem
-- link "Cumhurbaşkanı Erdoğan’dan flaş açıklamalar - CANLI -":
-  - /url: https://egundem.com/gundem/cumhurbaskani-erdogandan-flas-aciklamalar-canli-4638a220
-  - img "Cumhurbaşkanı Erdoğan’dan flaş açıklamalar - CANLI -"
-- button:
-  - img
-- link "Yeni Akit":
-  - /url: /yeni-akit-g
-- text: 39 dk.
-- heading "Cumhurbaşkanı Erdoğan’dan flaş açıklamalar - CANLI -" [level=3]:
-  - link "Cumhurbaşkanı Erdoğan’dan flaş açıklamalar - CANLI -":
-    - /url: https://egundem.com/gundem/cumhurbaskani-erdogandan-flas-aciklamalar-canli-4638a220
-- paragraph: Cumhurbaşkanı Recep Tayyip Erdoğan başkanlığında yapılan Kabine Toplantısı açıklamalarda bulunuyor.
-- link "Gündem":
-  - /url: /gundem
-- 'link "İngiliz Müslüman politikacı: Müslümanlar yanlış tasvir edildi diyerek sert tepki gösterdi!"':
-  - /url: https://egundem.com/gundem/ingiliz-musluman-politikaci-muslumanlar-yanlis-tasvir-edildi-diyerek-sert-tepki-gosterdi-53cdae54
-  - 'img "İngiliz Müslüman politikacı: Müslümanlar yanlış tasvir edildi diyerek sert tepki gösterdi!"'
-- button:
-  - img
-- link "Yeni Akit":
-  - /url: /yeni-akit-g
-- text: 41 dk.
-- 'heading "İngiliz Müslüman politikacı: Müslümanlar yanlış tasvir edildi diyerek sert tepki gösterdi!" [level=3]':
-  - 'link "İngiliz Müslüman politikacı: Müslümanlar yanlış tasvir edildi diyerek sert tepki gösterdi!"':
-    - /url: https://egundem.com/gundem/ingiliz-musluman-politikaci-muslumanlar-yanlis-tasvir-edildi-diyerek-sert-tepki-gosterdi-53cdae54
-- paragraph: İngiltere’de Müslüman bir siyasetçi, siyasetçiler ve medya tarafından yayılan İslamofobik söylemlerin artan eğilimini sert bir dille eleştirdi. Kritik bir dikkat çeken açıklama yaptı İngiliz politikacı Müslümanların yanlış tasvir edildi diyerek sert tepki gösterdi!
-- link "Gündem":
-  - /url: /gundem
-- link "“Ülkücü Mansur” ABB’yi Türk Dünyası Belediyeler Birliği’nden çıkardı!":
-  - /url: https://egundem.com/gundem/ulkucu-mansur-abbyi-turk-dunyasi-belediyeler-birliginden-cikardi-8b29f853
-  - img "“Ülkücü Mansur” ABB’yi Türk Dünyası Belediyeler Birliği’nden çıkardı!"
-- button:
-  - img
-- link "Yeni Akit":
-  - /url: /yeni-akit-g
-- text: 47 dk.
-- heading "“Ülkücü Mansur” ABB’yi Türk Dünyası Belediyeler Birliği’nden çıkardı!" [level=3]:
-  - link "“Ülkücü Mansur” ABB’yi Türk Dünyası Belediyeler Birliği’nden çıkardı!":
-    - /url: https://egundem.com/gundem/ulkucu-mansur-abbyi-turk-dunyasi-belediyeler-birliginden-cikardi-8b29f853
-- paragraph: Yerel seçimlerde Ankara Büyükşehir Belediye (ABB) Başkan adayı olduğu MHP’den seçilemeyince MHP Genel Başkanı Bahçeli'ye mektup yazıp “MHP'yi CHP'lileştirmekle” suçlayan, bir süre sonra da CHP’ye geçerek bu partiden ABB Başkanı seçilen Mansur Yavaş, ABB'yi Türk Dünyası Belediyeler Birliği'nden çıkardı.
-- link "Gündem":
-  - /url: /gundem
-- 'link "Yabancı e-ticaret sitelerine yeni uyarı: Ürün güvenliği sertifikası zorunlu hale getirilecek"':
-  - /url: https://egundem.com/gundem/yabanci-e-ticaret-sitelerine-yeni-uyari-urun-guvenligi-sertifikasi-zorunlu-hale-getirilecek-00dd910a
-  - 'img "Yabancı e-ticaret sitelerine yeni uyarı: Ürün güvenliği sertifikası zorunlu hale getirilecek"'
-- button:
-  - img
-- link "CNN TÜRK":
-  - /url: /cnn-turk-g
-- text: 49 dk.
-- 'heading "Yabancı e-ticaret sitelerine yeni uyarı: Ürün güvenliği sertifikası zorunlu hale getirilecek" [level=3]':
-  - 'link "Yabancı e-ticaret sitelerine yeni uyarı: Ürün güvenliği sertifikası zorunlu hale getirilecek"':
-    - /url: https://egundem.com/gundem/yabanci-e-ticaret-sitelerine-yeni-uyari-urun-guvenligi-sertifikasi-zorunlu-hale-getirilecek-00dd910a
-- paragraph: Ticaret Bakanlığı, Türkiye'de temsilci bulundurma koşulunu yerine getirmeyen e-ticaret platformları ile ilgili harekete geçti. O platformlara, halk sağlığını tehdit etme riski nedeniyle "ürün güvenliği sertifikası" zorunluluğu getirilecek.
-- link "Gündem":
-  - /url: /gundem
-- link "Uzunköprü Belediye Başkanı Ediz Martin’i, tehdit eden şahıs tutuklandı":
-  - /url: https://www.cumhuriyet.com.tr/turkiye/uzunkopru-belediye-baskani-ediz-martin-i-tehdit-eden-sahis-tutuklandi-2406294
-  - img "Uzunköprü Belediye Başkanı Ediz Martin’i, tehdit eden şahıs tutuklandı"
-- button:
-  - img
-- link "Cumhuriyet":
-  - /url: /cumhuriyet-gazetesi
-- text: 52 dk.
-- heading "Uzunköprü Belediye Başkanı Ediz Martin’i, tehdit eden şahıs tutuklandı" [level=3]:
-  - link "Uzunköprü Belediye Başkanı Ediz Martin’i, tehdit eden şahıs tutuklandı":
-    - /url: https://www.cumhuriyet.com.tr/turkiye/uzunkopru-belediye-baskani-ediz-martin-i-tehdit-eden-sahis-tutuklandi-2406294
-- paragraph: Edirne’nin Uzunköprü Belediye Başkanı Ediz Martin’i, bıçaklamakla tehdit eden kişi tutuklandı.
-- link "Gündem":
-  - /url: /gundem
-- link "Cumhurbaşkanı Erdoğan'dan Kabine Toplantısı'nın ardından önemli açıklamalar":
-  - /url: https://egundem.com/gundem/cumhurbaskani-erdogandan-kabine-toplantisinin-ardindan-onemli-aciklamalar-c0895f6e
-  - img "Cumhurbaşkanı Erdoğan'dan Kabine Toplantısı'nın ardından önemli açıklamalar"
-- button:
-  - img
-- link "Hürriyet":
-  - /url: /hurriyet-gundem
-- text: 53 dk.
-- heading "Cumhurbaşkanı Erdoğan'dan Kabine Toplantısı'nın ardından önemli açıklamalar" [level=3]:
-  - link "Cumhurbaşkanı Erdoğan'dan Kabine Toplantısı'nın ardından önemli açıklamalar":
-    - /url: https://egundem.com/gundem/cumhurbaskani-erdogandan-kabine-toplantisinin-ardindan-onemli-aciklamalar-c0895f6e
-- paragraph: Cumhurbaşkanı Recep Tayyip Erdoğan, Cumhurbaşkanlığı Külliyesi'nde gerçekleşen Kabine Toplantısı'nın ardından açıklamalarda bulunuyor.
-- link "Gündem":
-  - /url: /gundem
-- link "İnfial uyandıran görüntülerle ilgili yeni gelişme! Kucağındaki bebeğine şiddet uygulayıp cinnet geçirdi... Akıl sağlığı raporu istendi, bebek babaya verildi":
-  - /url: https://egundem.com/gundem/infial-uyandiran-goruntulerle-ilgili-yeni-gelisme-kucagindaki-bebegine-siddet-uygulayip-cinnet-gecirdi-akil-sagligi-raporu-istendi-bebek-babaya-verildi-48688cc8
-  - img "İnfial uyandıran görüntülerle ilgili yeni gelişme! Kucağındaki bebeğine şiddet uygulayıp cinnet geçirdi... Akıl sağlığı raporu istendi, bebek babaya verildi"
-- button:
-  - img
-- link "Hürriyet":
-  - /url: /hurriyet-gundem
-- text: 54 dk.
-- heading "İnfial uyandıran görüntülerle ilgili yeni gelişme! Kucağındaki bebeğine şiddet uygulayıp cinnet geçirdi... Akıl sağlığı raporu istendi, bebek babaya verildi" [level=3]:
-  - link "İnfial uyandıran görüntülerle ilgili yeni gelişme! Kucağındaki bebeğine şiddet uygulayıp cinnet geçirdi... Akıl sağlığı raporu istendi, bebek babaya verildi":
-    - /url: https://egundem.com/gundem/infial-uyandiran-goruntulerle-ilgili-yeni-gelisme-kucagindaki-bebegine-siddet-uygulayip-cinnet-gecirdi-akil-sagligi-raporu-istendi-bebek-babaya-verildi-48688cc8
-- paragraph: Muğla’nın Bodrum ilçesinde A.U. (34), boşanma aşamasındaki eşi Kırgızistan uyruklu D.O. (29) hakkında bebekleri M.A.U.'ya şiddet uyguladığı iddiasıyla şikayette bulunuldu. Bebeğin geçici velayeti baba A.U.'ya verilirken, D.O. hakkında akıl sağlığı raporu istendi.
-- link "Gündem":
-  - /url: /gundem
-- link "MHP'de bayramlaşma programı açıklandı! CHP ile bayramlaşmayacak":
-  - /url: https://www.sozcu.com.tr/mhp-de-bayramlasma-programi-aciklandi-chp-ile-bayramlasmayacak-p180171
-  - img "MHP'de bayramlaşma programı açıklandı! CHP ile bayramlaşmayacak"
-- button:
-  - img
-- link "Sözcü":
-  - /url: /sozcu-gazetesi
-- text: 55 dk.
-- heading "MHP'de bayramlaşma programı açıklandı! CHP ile bayramlaşmayacak" [level=3]:
-  - link "MHP'de bayramlaşma programı açıklandı! CHP ile bayramlaşmayacak":
-    - /url: https://www.sozcu.com.tr/mhp-de-bayramlasma-programi-aciklandi-chp-ile-bayramlasmayacak-p180171
-- paragraph: Kurban Bayramında partilerin bayramlaşma programı belli oluyor. MHP'nin açıklanan programının detayları ortaya çıktı
-- link "Gündem":
-  - /url: /gundem
-- link "Türkiye bu görüntüleri konuşuyor! Kucağındaki bebeğine şiddet uygulayıp cinnet geçirdi... Akıl sağlığı raporu istendi, bebek babaya verildi":
-  - /url: https://egundem.com/gundem/turkiye-bu-goruntuleri-konusuyor-kucagindaki-bebegine-siddet-uygulayip-cinnet-gecirdi-akil-sagligi-raporu-istendi-bebek-babaya-verildi-f09bd835
-  - img "Türkiye bu görüntüleri konuşuyor! Kucağındaki bebeğine şiddet uygulayıp cinnet geçirdi... Akıl sağlığı raporu istendi, bebek babaya verildi"
-- button:
-  - img
-- link "Hürriyet":
-  - /url: /hurriyet-gundem
-- text: 55 dk.
-- heading "Türkiye bu görüntüleri konuşuyor! Kucağındaki bebeğine şiddet uygulayıp cinnet geçirdi... Akıl sağlığı raporu istendi, bebek babaya verildi" [level=3]:
-  - link "Türkiye bu görüntüleri konuşuyor! Kucağındaki bebeğine şiddet uygulayıp cinnet geçirdi... Akıl sağlığı raporu istendi, bebek babaya verildi":
-    - /url: https://egundem.com/gundem/turkiye-bu-goruntuleri-konusuyor-kucagindaki-bebegine-siddet-uygulayip-cinnet-gecirdi-akil-sagligi-raporu-istendi-bebek-babaya-verildi-f09bd835
-- paragraph: Muğla’nın Bodrum ilçesinde A.U. (34), boşanma aşamasındaki eşi Kırgızistan uyruklu D.O. (29) hakkında bebekleri M.A.U.'ya şiddet uyguladığı iddiasıyla şikayette bulunuldu. Bebeğin geçici velayeti baba A.U.'ya verilirken, D.O. hakkında akıl sağlığı raporu istendi.
-- link "Gündem":
-  - /url: /gundem
-- link "Türkiye'de bir ilk! MEB ve SSB arasında iş birliği protokolü imzalandı":
-  - /url: https://egundem.com/gundem/turkiyede-bir-ilk-meb-ve-ssb-arasinda-is-birligi-protokolu-imzalandi-c5cecfea
-  - img "Türkiye'de bir ilk! MEB ve SSB arasında iş birliği protokolü imzalandı"
-- button:
-  - img
-- link "Hürriyet":
-  - /url: /hurriyet-gundem
-- text: 58 dk.
-- heading "Türkiye'de bir ilk! MEB ve SSB arasında iş birliği protokolü imzalandı" [level=3]:
-  - link "Türkiye'de bir ilk! MEB ve SSB arasında iş birliği protokolü imzalandı":
-    - /url: https://egundem.com/gundem/turkiyede-bir-ilk-meb-ve-ssb-arasinda-is-birligi-protokolu-imzalandi-c5cecfea
-- paragraph: MEB ve SSB arasında hazırlanan 'Mesleki ve Teknik Eğitim İş Birliği Protokolü' imzalandı. Protokole göre, 13 okulda savunma sanayi alanında uygulamalı dersler verilecek.
-- link "Gündem":
-  - /url: /gundem
-- link "MHP’den dikkat çeken CHP ve DEM Parti kararı":
-  - /url: https://egundem.com/gundem/mhpden-dikkat-ceken-chp-ve-dem-parti-karari-4b1f068d
-  - img "MHP’den dikkat çeken CHP ve DEM Parti kararı"
-- button:
-  - img
-- link "Yeni Akit":
-  - /url: /yeni-akit-g
-- text: 1 sa.
-- heading "MHP’den dikkat çeken CHP ve DEM Parti kararı" [level=3]:
-  - link "MHP’den dikkat çeken CHP ve DEM Parti kararı":
-    - /url: https://egundem.com/gundem/mhpden-dikkat-ceken-chp-ve-dem-parti-karari-4b1f068d
-- paragraph: MHP Kurban Bayramı bayramlaşma programına DEM Parti’yi dahil ederken, CHP’yi programa dahil etmedi.
-- link "Gündem":
-  - /url: /gundem
-- link "Su isale hattı patladı, tanker içine düştü":
-  - /url: https://www.sozcu.com.tr/su-isale-hatti-patladi-tanker-icine-dustu-p180166
-  - img "Su isale hattı patladı, tanker içine düştü"
-- button:
-  - img
-- link "Sözcü":
-  - /url: /sozcu-gazetesi
-- text: 1 sa.
-- heading "Su isale hattı patladı, tanker içine düştü" [level=3]:
-  - link "Su isale hattı patladı, tanker içine düştü":
-    - /url: https://www.sozcu.com.tr/su-isale-hatti-patladi-tanker-icine-dustu-p180166
-- paragraph: Muğla’nın Bodrum ilçesinde cadde ortasında patlayan su isale hattı caddeyi göle çevirdi. Yoldan geçen bir su tankeri açılan dev çukurun içine düştü.
-- link "Gündem":
-  - /url: /gundem
-- 'link "Ukrayna ve Rusya savaşı barış görüşmelerinin öncesinde kızıştı… Emekli Büyükelçi Umar: ''Ukrayna açısından çok yanlış bir hareket''"':
-  - /url: https://www.cumhuriyet.com.tr/turkiye/ukrayna-ve-rusya-savasi-baris-gorusmelerinin-oncesinde-kizisti-emekli-buyukelci-umar-ukrayna-acisindan-cok-yanlis-bir-hareket-2406285
-  - 'img "Ukrayna ve Rusya savaşı barış görüşmelerinin öncesinde kızıştı… Emekli Büyükelçi Umar: ''Ukrayna açısından çok yanlış bir hareket''"'
-- button:
-  - img
-- link "Cumhuriyet":
-  - /url: /cumhuriyet-gazetesi
-- text: 1 sa.
-- 'heading "Ukrayna ve Rusya savaşı barış görüşmelerinin öncesinde kızıştı… Emekli Büyükelçi Umar: ''Ukrayna açısından çok yanlış bir hareket''" [level=3]':
-  - 'link "Ukrayna ve Rusya savaşı barış görüşmelerinin öncesinde kızıştı… Emekli Büyükelçi Umar: ''Ukrayna açısından çok yanlış bir hareket''"':
-    - /url: https://www.cumhuriyet.com.tr/turkiye/ukrayna-ve-rusya-savasi-baris-gorusmelerinin-oncesinde-kizisti-emekli-buyukelci-umar-ukrayna-acisindan-cok-yanlis-bir-hareket-2406285
-- paragraph: Ukrayna ve Rusya arasındaki savaş, İstanbul’da gerçekleşen barış görüşmelerinin öncesinde kızıştı. Emekli Büyükelçi, yazarımız Ahmet Süha Umar, saldırıların barış görüşmelerini nasıl etkileyeceğine ilişkin görüşlerini aktardı, Rusya’nın yanıt vereceğinden kimsenin kuşkusu olmamalı diye düşünüyorum” dedi.
-- link "Gündem":
-  - /url: /gundem
-- 'link "Mide bulandıran görüntüler: Kopardığı saçını tostunun içine koydu"':
-  - /url: https://www.cumhuriyet.com.tr/turkiye/mide-bulandiran-goruntuler-kopardigi-sacini-tostunun-icine-koydu-2406284
-  - 'img "Mide bulandıran görüntüler: Kopardığı saçını tostunun içine koydu"'
-- button:
-  - img
-- link "Cumhuriyet":
-  - /url: /cumhuriyet-gazetesi
-- text: 1 sa.
-- 'heading "Mide bulandıran görüntüler: Kopardığı saçını tostunun içine koydu" [level=3]':
-  - 'link "Mide bulandıran görüntüler: Kopardığı saçını tostunun içine koydu"':
-    - /url: https://www.cumhuriyet.com.tr/turkiye/mide-bulandiran-goruntuler-kopardigi-sacini-tostunun-icine-koydu-2406284
-- paragraph: Sakarya'nın Adapazarı ilçesinde çay ocağında bir kadın müşteri, saçını koparıp tostun içine yerleştirdi. O anlar, işyerinin güvenlik kamerasına yansıdı.
-- link "Gündem":
-  - /url: /gundem
-- link "Antalya'da esrarengiz olay! Ormanda ölü bulundu":
-  - /url: https://egundem.com/gundem/antalyada-esrarengiz-olay-ormanda-olu-bulundu-5ca0354f
-  - img "Antalya'da esrarengiz olay! Ormanda ölü bulundu"
-- button:
-  - img
-- link "Hürriyet":
-  - /url: /hurriyet-gundem
-- text: 1 sa.
-- heading "Antalya'da esrarengiz olay! Ormanda ölü bulundu" [level=3]:
-  - link "Antalya'da esrarengiz olay! Ormanda ölü bulundu":
-    - /url: https://egundem.com/gundem/antalyada-esrarengiz-olay-ormanda-olu-bulundu-5ca0354f
-- paragraph: Antalya’nın Alanya ilçesinde Hasan Türk ormanda ölü bulundu.
-- link "Gündem":
-  - /url: /gundem
-- link "Kurban Bayramı öncesi otogarlarda hareketlilik başladı":
-  - /url: https://www.sozcu.com.tr/kurban-bayrami-oncesi-otogarlarda-hareketlilik-basladi-p180167
-  - img "Kurban Bayramı öncesi otogarlarda hareketlilik başladı"
-- button:
-  - img
-- link "Sözcü":
-  - /url: /sozcu-gazetesi
-- text: 1 sa.
-- heading "Kurban Bayramı öncesi otogarlarda hareketlilik başladı" [level=3]:
-  - link "Kurban Bayramı öncesi otogarlarda hareketlilik başladı":
-    - /url: https://www.sozcu.com.tr/kurban-bayrami-oncesi-otogarlarda-hareketlilik-basladi-p180167
-- paragraph: Kurban Bayramı’na günler kala İstanbul Bayrampaşa’daki 15 Temmuz Demokrasi Otogarı’nda bayram hareketliliği başladı. Tatilini memleketinde ya da tatil bölgelerinde geçirmek isteyen vatandaşlar otogarlarda yerlerini alırken, firma yetkilileri asıl yoğunluğun 4 Haziran Çarşamba günü mesai bitiminden sonra yaşanacağını belirtiyor.
-- link "Gündem":
-  - /url: /gundem
-- link "Hatay'da Gölbaşı Gölü'nü kaplayan su sümbülleri temizleniyor":
-  - /url: https://egundem.com/gundem/hatayda-golbasi-golunu-kaplayan-su-sumbulleri-temizleniyor-fdffdbc7
-  - img "Hatay'da Gölbaşı Gölü'nü kaplayan su sümbülleri temizleniyor"
-- button:
-  - img
-- link "Anadolu Ajansı":
-  - /url: /anadolu-ajans
-- text: 1 sa.
-- heading "Hatay'da Gölbaşı Gölü'nü kaplayan su sümbülleri temizleniyor" [level=3]:
-  - link "Hatay'da Gölbaşı Gölü'nü kaplayan su sümbülleri temizleniyor":
-    - /url: https://egundem.com/gundem/hatayda-golbasi-golunu-kaplayan-su-sumbulleri-temizleniyor-fdffdbc7
-- paragraph: Hatay'ın Kırıkhan ilçesindeki Gölbaşı Gölü'nü kaplayan su sümbülleri, belediye ekiplerince temizleniyor.
-- link "Gündem":
-  - /url: /gundem
-- link "İngiltere, tarihindeki en sıcak ilkbaharı yaşadı":
-  - /url: https://egundem.com/gundem/ingiltere-tarihindeki-en-sicak-ilkbahari-yasadi-636480d8
-  - img "İngiltere, tarihindeki en sıcak ilkbaharı yaşadı"
-- button:
-  - img
-- link "Anadolu Ajansı":
-  - /url: /anadolu-ajans
-- text: 1 sa.
-- heading "İngiltere, tarihindeki en sıcak ilkbaharı yaşadı" [level=3]:
-  - link "İngiltere, tarihindeki en sıcak ilkbaharı yaşadı":
-    - /url: https://egundem.com/gundem/ingiltere-tarihindeki-en-sicak-ilkbahari-yasadi-636480d8
-- paragraph: İngiltere'de bu yıl ilkbahar mevsimi, kayıtlardaki en sıcak ve güneşli ilkbahar oldu.
 - img
 - heading "Twitter Gündem" [level=2]
 - button "Türkiye Etiketleri"
 - button "Dünya Etiketleri"
-- link "#KavgaBüyük":
+- link "Kemal Kılıçdaroğlu 6639 gönderi":
+  - /url: https://x.com/search?q=Kemal Kılıçdaroğlu&src=trend_click&vertical=trends
+  - heading "Kemal Kılıçdaroğlu" [level=3]
+  - paragraph: 6639 gönderi
+- button:
+  - img
+- link "#KavgaBüyük 1078 gönderi":
   - /url: https://x.com/search?q=%23KavgaBüyük&src=trend_click&vertical=trends
   - heading "#KavgaBüyük" [level=3]
+  - paragraph: 1078 gönderi
 - button:
   - img
-- link "İlkay 2395 gönderi":
+- link "İlkay 2839 gönderi":
   - /url: https://x.com/search?q=İlkay&src=trend_click&vertical=trends
   - heading "İlkay" [level=3]
-  - paragraph: 2395 gönderi
+  - paragraph: 2839 gönderi
 - button:
   - img
-- link "#RIPMattiaAhmetMinguzzi 1590 gönderi":
+- link "#RIPMattiaAhmetMinguzzi 2296 gönderi":
   - /url: https://x.com/search?q=%23RIPMattiaAhmetMinguzzi&src=trend_click&vertical=trends
   - heading "#RIPMattiaAhmetMinguzzi" [level=3]
-  - paragraph: 1590 gönderi
+  - paragraph: 2296 gönderi
 - button:
   - img
-- link "#grevhaktır 3317 gönderi":
-  - /url: https://x.com/search?q=%23grevhaktır&src=trend_click&vertical=trends
-  - heading "#grevhaktır" [level=3]
-  - paragraph: 3317 gönderi
-- button:
-  - img
-- link "#EmekÇokKademeYok 18828 gönderi":
-  - /url: https://x.com/search?q=%23EmekÇokKademeYok&src=trend_click&vertical=trends
-  - heading "#EmekÇokKademeYok" [level=3]
-  - paragraph: 18828 gönderi
+- link "#eşitsizliğehayır":
+  - /url: https://x.com/search?q=%23eşitsizliğehayır&src=trend_click&vertical=trends
+  - heading "#eşitsizliğehayır" [level=3]
 - button:
   - img
 - button "Geri"

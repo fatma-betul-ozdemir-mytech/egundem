@@ -20,8 +20,8 @@ Call log:
   - /url: /
   - text: E-Gündem Haberleri & Son Dakika Haberleri
   - img "E-Gündem Logo"
-- link "Cumhurbaşkanı Erdoğan'dan Kabine Toplantısı'nın ardından önemli açıklamalar":
-  - /url: /gundem/cumhurbaskani-erdogandan-kabine-toplantisinin-ardindan-onemli-aciklamalar-c0895f6e
+- link "Google Haritalar, Almanya’da trafik kaosu yarattı!":
+  - /url: /bilim-and-teknoloji/google-haritalar-almanyada-trafik-kaosu-yaratti-b9772b4b
 - button "Toggle dark mode"
 - link "eGündem Instagram":
   - /url: https://www.instagram.com/egundemapp/

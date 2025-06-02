@@ -25,8 +25,8 @@ Call log:
   - /url: /
   - text: E-Gündem Haberleri & Son Dakika Haberleri
   - img "E-Gündem Logo"
-- link "Rusya heyeti İstanbul'a geldi":
-  - /url: https://www.trthaber.com/haber/dunya/rusya-heyeti-istanbula-geldi-909180.html
+- link "Cumhurbaşkanı Erdoğan’dan flaş açıklamalar - CANLI -":
+  - /url: /gundem/cumhurbaskani-erdogandan-flas-aciklamalar-canli-4638a220
 - button "Toggle dark mode"
 - link "eGündem Instagram":
   - /url: https://www.instagram.com/egundemapp/

@@ -24,8 +24,8 @@ Call log:
   - /url: /
   - text: E-Gündem Haberleri & Son Dakika Haberleri
   - img "E-Gündem Logo"
-- link "Eşini öldürüp intihar süsü vermiş! Mektupta parmak izi çıkan koca için rekor hapis istemi":
-  - /url: /gundem/esini-oldurup-intihar-susu-vermis-mektupta-parmak-izi-cikan-koca-icin-rekor-hapis-istemi-b1a7242a
+- link "Rusya heyeti İstanbul'a geldi":
+  - /url: https://www.trthaber.com/haber/dunya/rusya-heyeti-istanbula-geldi-909180.html
 - button "Toggle dark mode"
 - link "eGündem Instagram":
   - /url: https://www.instagram.com/egundemapp/

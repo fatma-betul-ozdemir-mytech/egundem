@@ -27,8 +27,8 @@ Call log:
   - /url: /
   - text: E-Gündem Haberleri & Son Dakika Haberleri
   - img "E-Gündem Logo"
-- 'link "Yozgat''ta cenaze töreninden dönenleri taşıyan midibüs devrildi: 2 kişi öldü, 15 kişi yaralandı"':
-  - /url: /gundem/yozgatta-cenaze-toreninden-donenleri-tasiyan-midibus-devrildi-2-kisi-oldu-15-kisi-yaralandi-d1cbfefd
+- link "Cumhurbaşkanı Erdoğan’dan flaş açıklamalar - CANLI -":
+  - /url: /gundem/cumhurbaskani-erdogandan-flas-aciklamalar-canli-4638a220
 - button "Toggle dark mode"
 - link "eGündem Instagram":
   - /url: https://www.instagram.com/egundemapp/
