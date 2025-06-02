@@ -6,17 +6,17 @@ const jiraBaseUrl = process.env.JIRA_BASE_URL;
 const jiraEmail = process.env.JIRA_EMAIL;
 const jiraApiToken = process.env.JIRA_API_TOKEN;
 const jiraProjectKey = process.env.JIRA_PROJECT_KEY || 'EGT';
-const reportUrl = process.env.REPORT_URL;
+const reportUrl = process.env.REPORT_URL || 'https://fatma-betul-ozdemir-mytech.github.io/docs/playwright-report/index.html';
+
 const testResultPath = './playwright-report/results.json';
 const auth = Buffer.from(`${jiraEmail}:${jiraApiToken}`).toString('base64');
 
-// Gerekli bilgiler var mı kontrol et
-if (!jiraBaseUrl || !jiraEmail || !jiraApiToken || !reportUrl) {
-  console.error('❌ .env dosyasında eksik bilgi var. Lütfen kontrol edin!');
+// Gerekli bilgiler kontrol
+if (!jiraBaseUrl || !jiraEmail || !jiraApiToken) {
+  console.error('❌ .env dosyasına JIRA_BASE_URL, JIRA_EMAIL ve JIRA_API_TOKEN bilgilerini giriniz!');
   process.exit(1);
 }
 
-// Test sonuçlarını oku
 let testResults;
 try {
   testResults = JSON.parse(fs.readFileSync(testResultPath, 'utf8'));
@@ -31,7 +31,7 @@ async function postComment(issueKey, message) {
   try {
     await axios.post(
       url,
-      { body: { type: "plain_text", content: message } },
+      { body: message },
       {
         headers: {
           Authorization: `Basic ${auth}`,
@@ -62,15 +62,15 @@ async function postComment(issueKey, message) {
 
         if (match) {
           const issueKey = match[0];
-          const comment = `🔎 *Otomasyon Test Sonucu:*\n📌 *${testTitle}* → **${status.toUpperCase()}**\n\n🧪 [Detaylı rapor için tıklayın](${reportUrl})`;
-          console.log(`➡️ Jira yorum gönderiliyor: ${issueKey} - Durum: ${status}`);
+          const comment = `🔍 Otomasyon Test Sonucu:\n* ${testTitle} → **${status.toUpperCase()}**\n📄 Rapor: ${reportUrl}`;
+          console.log(`➡️ Yorum gönderiliyor: ${issueKey}`);
           await postComment(issueKey, comment);
         } else {
-          console.log(`⚠️ Jira bilet anahtarı bulunamadı: "${testTitle}"`);
+          console.log(`⚠️ Jira anahtarı bulunamadı: "${testTitle}"`);
         }
       }
     }
   }
 
-  console.log('🎉 Tüm test sonuçları işlendi.');
+  console.log('🎉 Tüm yorumlar işlendi.');
 })();
