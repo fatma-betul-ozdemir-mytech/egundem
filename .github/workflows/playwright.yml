@@ -1,4 +1,4 @@
-name: Playwright Tests and Report to Jira
+name: Playwright Tests
 
 on:
   push:
@@ -33,10 +33,9 @@ jobs:
 
       - name: Run Playwright tests
         run: npx playwright test
-        continue-on-error: true
 
       - name: Upload Playwright report artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v2
         with:
           name: playwright-report
           path: playwright-report
