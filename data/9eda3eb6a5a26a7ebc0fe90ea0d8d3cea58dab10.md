@@ -1,23 +1,20 @@
 # Test info
 
-- Name: eGündem - Yazarlar Sayfası Testleri >> EGT-11 - Yazarlar sayfası yüklenmeli
-- Location: /home/runner/work/egundem/egundem/tests/yazarlar.spec.js:8:3
+- Name: eGündem - Haberler Sayfası Testleri >> EGT-31 - Haberler sayfası yüklenmeli
+- Location: /home/runner/work/egundem/egundem/tests/haberleri.spec.js:8:3
 
 # Error details
 
 ```
-Error: Timed out 5000ms waiting for expect(locator).toContainText(expected)
+Error: expect.toContainText: Error: strict mode violation: locator('h1, h2') resolved to 2 elements:
+    1) <h1 class="text-4xl font-bold">404</h1> aka getByRole('heading', { name: '404' })
+    2) <h2 class="text-2xl font-semibold">Not Found</h2> aka getByRole('heading', { name: 'Not Found' })
 
-Locator: locator('h1')
-Expected pattern: /yazar/i
-Received string:  "404"
 Call log:
   - expect.toContainText with timeout 5000ms
-  - waiting for locator('h1')
-    9 × locator resolved to <h1 class="text-4xl font-bold">404</h1>
-      - unexpected value "404"
+  - waiting for locator('h1, h2')
 
-    at /home/runner/work/egundem/egundem/tests/yazarlar.spec.js:11:38
+    at /home/runner/work/egundem/egundem/tests/haberleri.spec.js:11:42
 ```
 
 # Page snapshot
@@ -27,8 +24,6 @@ Call log:
   - /url: /
   - text: E-Gündem Haberleri & Son Dakika Haberleri
   - img "E-Gündem Logo"
-- link "Rusya heyeti İstanbul'a geldi":
-  - /url: https://www.trthaber.com/haber/dunya/rusya-heyeti-istanbula-geldi-909180.html
 - button "Toggle dark mode"
 - link "eGündem Instagram":
   - /url: https://www.instagram.com/egundemapp/
@@ -252,53 +247,51 @@ Call log:
    2 |
    3 | const BASE_URL = 'https://egundem.com';
    4 |
-   5 | test.describe('eGündem - Yazarlar Sayfası Testleri', () => {
+   5 | test.describe('eGündem - Haberler Sayfası Testleri', () => {
    6 |
-   7 |   // EGT-11: Yazarlar sayfası başarılı şekilde yüklenmeli
-   8 |   test('EGT-11 - Yazarlar sayfası yüklenmeli', async ({ page }) => {
-   9 |     await page.goto(`${BASE_URL}/yazarlar`, { timeout: 60000 });
-  10 |     await expect(page).toHaveURL(/\/yazarlar/);
-> 11 |     await expect(page.locator('h1')).toContainText(/yazar/i);
-     |                                      ^ Error: Timed out 5000ms waiting for expect(locator).toContainText(expected)
+   7 |   // EGT-31: Haberler sayfası doğru şekilde yüklenmeli
+   8 |   test('EGT-31 - Haberler sayfası yüklenmeli', async ({ page }) => {
+   9 |     await page.goto(`${BASE_URL}/haberler`, { timeout: 60000 });
+  10 |     await expect(page).toHaveURL(/\/haberler/);
+> 11 |     await expect(page.locator('h1, h2')).toContainText(/haberler/i);
+     |                                          ^ Error: expect.toContainText: Error: strict mode violation: locator('h1, h2') resolved to 2 elements:
   12 |   });
   13 |
-  14 |   // EGT-12: En az 1 yazar kartı görünmeli
-  15 |   test('EGT-12 - Yazar kartları görünmeli', async ({ page }) => {
-  16 |     await page.goto(`${BASE_URL}/yazarlar`);
-  17 |     const authorCards = page.locator('.yazar-card, .author-card, article'); // HTML'e göre güncelle
-  18 |     await expect(authorCards).toHaveCountGreaterThan(0);
+  14 |   // EGT-32: Haber kartları listelenmeli
+  15 |   test('EGT-32 - Haber kartları listelenmeli', async ({ page }) => {
+  16 |     await page.goto(`${BASE_URL}/haberler`);
+  17 |     const cards = page.locator('.news-card, article, .haber-item'); // CSS class'ı sitede neyse ona göre düzelt
+  18 |     await expect(cards).toHaveCountGreaterThan(0);
   19 |   });
   20 |
-  21 |   // EGT-13: Her yazarın detay sayfası linki olmalı
-  22 |   test('EGT-13 - Yazar detay linkleri çalışmalı', async ({ page }) => {
-  23 |     await page.goto(`${BASE_URL}/yazarlar`);
-  24 |     const authorLinks = page.locator('a[href*="/yazar/"]');
-  25 |     const count = await authorLinks.count();
-  26 |
-  27 |     expect(count).toBeGreaterThan(0);
-  28 |     for (let i = 0; i < count; i++) {
-  29 |       const href = await authorLinks.nth(i).getAttribute('href');
-  30 |       expect(href).toMatch(/\/yazar\//);
-  31 |     }
-  32 |   });
-  33 |
-  34 |   // EGT-14: Yazar detay sayfasına erişim sağlanmalı
-  35 |   test('EGT-14 - Yazar detayına gidilebilmeli', async ({ page }) => {
-  36 |     await page.goto(`${BASE_URL}/yazarlar`);
-  37 |     const firstAuthor = page.locator('a[href*="/yazar/"]').first();
-  38 |     await firstAuthor.click();
-  39 |     await expect(page).toHaveURL(/\/yazar\//);
-  40 |     await expect(page.locator('h1')).not.toBeEmpty();
-  41 |   });
-  42 |
-  43 |   // EGT-15: Sayfa boş veya hatalı olmamalı
-  44 |   test('EGT-15 - Sayfa boş içerik veya hata içermemeli', async ({ page }) => {
-  45 |     await page.goto(`${BASE_URL}/yazarlar`);
-  46 |     const errorText = await page.locator('text=404').count();
-  47 |     const emptyText = await page.locator('text=İçerik bulunamadı').count();
-  48 |     expect(errorText + emptyText).toBe(0);
-  49 |   });
+  21 |   // EGT-33: Her haberde resim, başlık ve özet olmalı
+  22 |   test('EGT-33 - Haberlerde resim, başlık, özet olmalı', async ({ page }) => {
+  23 |     await page.goto(`${BASE_URL}/haberler`);
+  24 |     const image = page.locator('.news-card img');
+  25 |     const title = page.locator('.news-card h2');
+  26 |     const summary = page.locator('.news-card .summary, p');
+  27 |     await expect(image.first()).toBeVisible();
+  28 |     await expect(title.first()).not.toBeEmpty();
+  29 |     await expect(summary.first()).not.toBeEmpty();
+  30 |   });
+  31 |
+  32 |   // EGT-34: Haber detayına tıklanarak geçiş yapılabilmeli
+  33 |   test('EGT-34 - Haber detayına gidilebilmeli', async ({ page }) => {
+  34 |     await page.goto(`${BASE_URL}/haberler`);
+  35 |     const firstLink = page.locator('a[href*="/haber/"]').first();
+  36 |     await firstLink.click();
+  37 |     await expect(page).toHaveURL(/\/haber\//);
+  38 |     await expect(page.locator('article')).toBeVisible();
+  39 |   });
+  40 |
+  41 |   // EGT-35: Sayfada 404 veya içerik bulunamadı mesajı olmamalı
+  42 |   test('EGT-35 - Sayfa 404 ya da boş içerik göstermemeli', async ({ page }) => {
+  43 |     await page.goto(`${BASE_URL}/haberler`);
+  44 |     const notFound = await page.locator('text=404').count();
+  45 |     const emptyText = await page.locator('text=İçerik bulunamadı').count();
+  46 |     expect(notFound + emptyText).toBe(0);
+  47 |   });
+  48 |
+  49 | });
   50 |
-  51 | });
-  52 |
 ```
