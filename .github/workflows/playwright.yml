@@ -27,3 +27,25 @@ jobs:
 
       - name: Run Playwright tests
         run: npx playwright test
+
+      - name: Deploy Playwright HTML Report to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./playwright-report/html-report
+          publish_branch: gh-pages
+
+      - name: Add comment to Jira issue with report URL
+        if: success()
+        env:
+          JIRA_BASE_URL: ${{ secrets.JIRA_BASE_URL }}
+          JIRA_EMAIL: ${{ secrets.JIRA_EMAIL }}
+          JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
+          ISSUE_KEY: EGT  # Burayı ihtiyacına göre dinamik yapabilirsin
+          REPORT_URL: https://fatma-betul-ozdemir-mytech.github.io/egundem/
+        run: |
+          curl -X POST \
+            -u $JIRA_EMAIL:$JIRA_API_TOKEN \
+            -H "Content-Type: application/json" \
+            --data "{\"body\": \"Otomasyon test raporu: $REPORT_URL\"}" \
+            $JIRA_BASE_URL/rest/api/3/issue/$ISSUE_KEY/comment
