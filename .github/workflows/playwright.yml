@@ -27,10 +27,10 @@ jobs:
 
       - name: Run Playwright tests
         run: npx playwright test
-        continue-on-error: true  # Testler hata verse bile devam et
+        continue-on-error: true  # Testler başarısız olsa bile devam et
 
       - name: Upload Playwright report artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v3.1.2
         with:
           name: playwright-report
           path: playwright-report
@@ -39,7 +39,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./playwright-report
+          publish_dir: ./playwright-report/html-report
 
       - name: Add Jira comment with report link
         env:
