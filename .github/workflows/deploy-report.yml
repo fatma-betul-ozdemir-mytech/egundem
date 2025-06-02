@@ -1,0 +1,28 @@
+name: Deploy Playwright Report to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # Senin ana branşın neyse onu yaz
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Repoyu checkout et
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'  # Uygun node versiyonunu yazabilirsin
+
+      - name: Playwright testleri çalıştır
+        run: npm test  # Veya senin test komutun neyse
+
+      - name: GitHub Pages'a deploy et
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./playwright-report
