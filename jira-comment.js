@@ -1,89 +1,82 @@
-const axios = require('axios');
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import fetch from 'node-fetch';
 
-// Env değişkenleri
 const jiraBaseUrl = process.env.JIRA_BASE_URL;
 const jiraEmail = process.env.JIRA_EMAIL;
 const jiraApiToken = process.env.JIRA_API_TOKEN;
-const jiraProjectKey = process.env.JIRA_PROJECT_KEY || 'EGT';
+const jiraProjectKey = process.env.JIRA_PROJECT_KEY;
 const reportUrl = process.env.REPORT_URL || 'Rapor linki belirtilmedi';
 
-console.log('🌟 Ortam Değişkenleri Durumu:', {
-  jiraBaseUrl: jiraBaseUrl ? 'OK' : 'MISSING!',
-  jiraEmail: jiraEmail ? 'OK' : 'MISSING!',
-  jiraApiToken: jiraApiToken ? 'OK' : 'MISSING!',
-  jiraProjectKey,
-  reportUrl,
-});
-
-const testResultPath = path.resolve('./playwright-report/results.json');
-const auth = Buffer.from(`${jiraEmail}:${jiraApiToken}`).toString('base64');
-
-// Test sonucu dosyasını oku
-let testResults;
-try {
-  testResults = JSON.parse(fs.readFileSync(testResultPath, 'utf8'));
-  console.log('📂 Test sonuç dosyası başarıyla okundu:', testResultPath);
-} catch (err) {
-  console.error('❌ Test sonucu dosyası okunamadı:', err.message);
+if (!jiraBaseUrl || !jiraEmail || !jiraApiToken || !jiraProjectKey) {
+  console.error('❌ Ortam değişkenleri eksik.');
   process.exit(1);
 }
 
-async function postComment(issueKey, message) {
-  const url = `${jiraBaseUrl}/rest/api/3/issue/${issueKey}/comment`;
-  console.log(`➡️ Yorum URL'si: ${url}`);
+const auth = Buffer.from(`${jiraEmail}:${jiraApiToken}`).toString('base64');
 
-  try {
-    const response = await axios.post(
-      url,
-      { body: message },
-      {
-        headers: {
-          Authorization: `Basic ${auth}`,
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-      }
-    );
-    console.log(`✅ ${issueKey} için yorum eklendi. Response status: ${response.status}`);
-  } catch (error) {
-    console.error(`❌ ${issueKey} için yorum eklenemedi:`, error.response ? error.response.data : error.message);
-  }
+function jiraAddComment(issueKey, comment) {
+  const url = `${jiraBaseUrl}/rest/api/3/issue/${issueKey}/comment`;
+  return fetch(url, {
+    method: 'POST',
+    headers: {
+      'Authorization': `Basic ${auth}`,
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ body: comment })
+  }).then(res => {
+    if (!res.ok) {
+      throw new Error(`Jira API hata: ${res.status} ${res.statusText}`);
+    }
+    return res.json();
+  });
 }
 
 (async () => {
-  if (!testResults.suites || testResults.suites.length === 0) {
-    console.warn('⚠️ Test sonuçlarında "suites" bulunamadı.');
-    return;
-  }
+  try {
+    const raw = fs.readFileSync('./playwright-report/results.json', 'utf-8');
+    const data = JSON.parse(raw);
 
-  for (const suite of testResults.suites) {
-    if (!suite.specs) continue;
+    let commentCount = 0;
 
-    for (const spec of suite.specs) {
-      if (!spec.tests) continue;
+    const regex = new RegExp(`\\b${jiraProjectKey}-\\d+\\b`);
 
-      for (const test of spec.tests) {
-        const testTitle = Array.isArray(test.title) ? test.title.join(' ') : test.title || '';
-        const status = test.results?.[0]?.status || 'unknown';
+    // data.suites içinde dolaş, test başlıklarını bul
+    for (const suite of data.suites) {
+      if (!suite.suites) continue;
+      for (const subsuite of suite.suites) {
+        if (!subsuite.specs) continue;
+        for (const spec of subsuite.specs) {
+          const title = spec.title;
+          const match = title.match(regex);
+          if (match) {
+            const issueKey = match[0];
+            console.log(`➡️ Jira bilet bulundu: ${issueKey} için yorum gönderiliyor...`);
 
-        console.log('🔎 Test başlığı:', testTitle);
+            // Başarılı mı başarısız mı? spec.tests[0].results[0].status var mı?
+            let testStatus = 'Bilinmiyor';
+            if (spec.tests && spec.tests.length > 0) {
+              const results = spec.tests[0].results;
+              if (results && results.length > 0) {
+                testStatus = results[0].status;  // passed / failed / skipped / ...
+              }
+            }
 
-        const match = testTitle.match(new RegExp(`\\b${jiraProjectKey}-\\d+\\b`));
-        if (!match) {
-          console.log(`⚠️ Jira bileti bulunamadı test başlığında: "${testTitle}"`);
-          continue;
+            const comment = `Otomasyon testi sonucu: **${testStatus}**\n\nTest raporu için: [Tıklayınız](${reportUrl})`;
+
+            await jiraAddComment(issueKey, comment);
+            console.log(`✅ ${issueKey} için yorum eklendi.`);
+            commentCount++;
+          } else {
+            console.log(`❗ Jira anahtarı bulunamadı: ${title}`);
+          }
         }
-
-        const issueKey = match[0];
-        const comment = `🔍 **Test Sonucu**\n\n- Başlık: *${testTitle}*\n- Durum: **${status.toUpperCase()}**\n- [📄 Raporu Görüntüle](${reportUrl})`;
-
-        console.log(`💬 Yorum gönderiliyor: ${issueKey}`);
-        await postComment(issueKey, comment);
       }
     }
-  }
 
-  console.log('✅ Tüm Jira yorumları tamamlandı.');
+    console.log(`✅ Toplam ${commentCount} Jira bileti için yorum gönderildi.`);
+
+  } catch (err) {
+    console.error('❌ Hata:', err.message);
+  }
 })();
