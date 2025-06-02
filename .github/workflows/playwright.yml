@@ -27,7 +27,7 @@ jobs:
 
       - name: Run Playwright tests
         run: npx playwright test
-        continue-on-error: true   # Testler başarısız olsa bile devam et
+        continue-on-error: true  # Testler başarısız olsa bile devam et
 
       - name: Deploy Playwright report to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
