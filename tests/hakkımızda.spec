@@ -1,3 +1,6 @@
+import { test, expect } from '@playwright/test';
+
+const BASE_URL = 'https://egundem.com';
 test.describe('eGündem Test Suite - Hakkımızda Sayfası', () => {
 
   // EGT-46: Hakkımızda sayfası başarıyla yüklenmeli
