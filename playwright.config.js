@@ -1,3 +1,4 @@
+// playwright.config.js
 const { defineConfig } = require('@playwright/test');
 
 module.exports = defineConfig({
@@ -14,7 +15,7 @@ module.exports = defineConfig({
   },
   reporter: [
     ['list'],
+    ['html', { outputFolder: 'playwright-report', open: 'never' }],
     ['json', { outputFile: 'playwright-report/results.json' }],
-    ['html', { outputFolder: 'playwright-report/html-report', open: 'never' }]
   ],
 });
