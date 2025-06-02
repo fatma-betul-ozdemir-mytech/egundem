@@ -1,4 +1,4 @@
-const { test, expect } = require('@playwright/test');
+import { test, expect } from '@playwright/test';
 
 const BASE_URL = 'https://egundem.com';
 
@@ -48,4 +48,4 @@ test.describe('eGündem Test Suite - Video Sayfası', () => {
   });
 
 });
-"// test tetikleme amac�yla" 
+"// test tetikleme amac yla" 
