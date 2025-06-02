@@ -48,3 +48,4 @@ test.describe('eGündem Test Suite - Video Sayfası', () => {
   });
 
 });
+"// test tetikleme amac�yla" 
