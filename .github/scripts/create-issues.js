@@ -42,8 +42,8 @@ if (failedTests.length === 0) {
 const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN });
 
 // Hedef repo (başka repo olabilir!)
-const owner = "ekip-org";           // 🔁 buraya hedef GitHub organizasyon/hesap adı
-const repo = "ekip-repo";           // 🔁 buraya hedef repo adı
+const owner = "mytech-technology";           // 🔁 buraya hedef GitHub organizasyon/hesap adı
+const repo = "pardoon-backend";           // 🔁 buraya hedef repo adı
 
 (async () => {
   for (const test of failedTests) {
