@@ -28,4 +28,5 @@ jobs:
       - name: Parse failed tests and create issues
         run: node .github/scripts/create-issues.js
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PAT_ISSUE_CREATION }}
+
