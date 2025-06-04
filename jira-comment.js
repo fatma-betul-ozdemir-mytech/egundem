@@ -66,15 +66,13 @@ async function jiraAddComment(issueKey, comment) {
 
 (async () => {
   try {
-    // Playwright sonuçlarını oku
-    const raw = fs.readFileSync('./playwright-report/results.json', 'utf-8');
+    // ✔️ Doğru yol: Playwright sonuçlarını oku
+    const raw = fs.readFileSync('./docs/playwright-report/results.json', 'utf-8');
     const data = JSON.parse(raw);
 
     let commentCount = 0;
-    // Jira issue key pattern: örn. EGT-1, EGT-23
     const regex = new RegExp(`\\b${jiraProjectKey}-\\d+\\b`);
 
-    // Hiyerarşik olarak test sonuçları içinde gezin
     for (const suite of data.suites) {
       if (!suite.suites) continue;
 
@@ -89,21 +87,18 @@ async function jiraAddComment(issueKey, comment) {
             const issueKey = match[0];
             console.log(`➡️ Jira bilet bulundu: ${issueKey} için yorum hazırlanıyor...`);
 
-            // Test sonucu durumu
             let testStatus = 'Bilinmiyor';
             if (spec.tests && spec.tests.length > 0) {
               const results = spec.tests[0].results;
               if (results && results.length > 0) {
-                testStatus = results[0].status;  // passed / failed / skipped ...
+                testStatus = results[0].status;
               }
             }
 
-            // Yorum metni - burada reportUrl kullanılacak, dikkat!
             const comment = `Otomasyon testi sonucu: **${testStatus}**\n\nTest raporu için: [Tıklayınız](${reportUrl})`;
 
             console.log('Yorum içeriği:', comment);
 
-            // Jira'ya yorum ekle
             await jiraAddComment(issueKey, comment);
 
             console.log(`✅ ${issueKey} için yorum başarıyla eklendi.`);
