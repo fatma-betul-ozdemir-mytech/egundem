@@ -1,29 +1,63 @@
 const { Octokit } = require("@octokit/rest");
 const fs = require("fs");
+const path = require("path");
 
-const report = JSON.parse(fs.readFileSync("playwright-report/results.json", "utf8"));
+// Rapor yolu: test çıktısı bu dosyada
+const reportPath = path.resolve(process.cwd(), "test-results.json");
+if (!fs.existsSync(reportPath)) {
+  console.error("❗️ Rapor dosyası bulunamadı:", reportPath);
+  process.exit(1);
+}
 
-const failedTests = report.suites.flatMap(suite =>
-  suite.specs.flatMap(spec =>
-    spec.tests.filter(test => test.status === "failed").map(test => ({
-      name: spec.title,
-      error: test.results[0].error?.message || "Unknown error",
-    }))
-  )
-);
+const report = JSON.parse(fs.readFileSync(reportPath, "utf8"));
+
+const failedTests = [];
+
+function extractFailedTests(suites) {
+  if (!suites || !Array.isArray(suites)) return;
+
+  suites.forEach(suite => {
+    if (suite.tests) {
+      suite.tests.forEach(test => {
+        if (test.status === "failed") {
+          failedTests.push({
+            name: test.title,
+            file: suite.file || "Bilinmeyen dosya",
+            error: test.results?.[0]?.error?.message || "Hata mesajı yok",
+          });
+        }
+      });
+    }
+    if (suite.suites) extractFailedTests(suite.suites);
+  });
+}
+
+extractFailedTests(report.suites);
+
+if (failedTests.length === 0) {
+  console.log("✅ Başarısız test yok.");
+  process.exit(0);
+}
 
 const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN });
 
-const [owner, repo] = process.env.GITHUB_REPOSITORY.split("/");
+// Hedef repo (başka repo olabilir!)
+const owner = "ekip-org";           // 🔁 buraya hedef GitHub organizasyon/hesap adı
+const repo = "ekip-repo";           // 🔁 buraya hedef repo adı
 
 (async () => {
   for (const test of failedTests) {
-    await octokit.issues.create({
-      owner,
-      repo,
-      title: `❌ Test Failed: ${test.name}`,
-      body: `Hata mesajı:\n\`\`\`\n${test.error}\n\`\`\``,
-    });
-    console.log(`Issue created for failed test: ${test.name}`);
+    try {
+      await octokit.issues.create({
+        owner,
+        repo,
+        title: `❌ Test Hatası: ${test.name}`,
+        body: `**Dosya:** ${test.file}\n\n**Hata mesajı:**\n\`\`\`\n${test.error}\n\`\`\``,
+        labels: ["otomatik", "test-failure"],
+      });
+      console.log(`✅ Issue oluşturuldu: ${test.name}`);
+    } catch (err) {
+      console.error(`❗️ Issue oluşturulurken hata: ${test.name}`, err.message);
+    }
   }
 })();
