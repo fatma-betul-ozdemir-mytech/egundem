@@ -23,7 +23,13 @@ jobs:
     - name: Run Playwright tests and generate HTML report
       run: npx playwright test --reporter=html
 
-    - name: Copy report to docs folder
+    - name: Upload Playwright HTML report as artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: playwright-html-report
+        path: playwright-report/
+
+    - name: Copy HTML report to docs folder
       run: |
         rm -rf docs/playwright-report
         mkdir -p docs
