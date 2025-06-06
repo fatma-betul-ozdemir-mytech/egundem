@@ -2,7 +2,7 @@ name: Create GitHub Issues on Test Failures
 
 on:
   workflow_run:
-    workflows: ["Run Playwright Tests"]
+    workflows: ["Playwright Tests"] # Test çalıştırma workflow adını doğru yaz
     types:
       - completed
 
@@ -10,9 +10,16 @@ jobs:
   create-issues:
     if: ${{ github.event.workflow_run.conclusion == 'failure' }}
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout repo
+      - name: Checkout current repo
         uses: actions/checkout@v3
+
+      - name: Download test result artifact from Playwright workflow
+        uses: actions/download-artifact@v3
+        with:
+          name: test-results
+          path: ./ # JSON buraya gelecek
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -22,11 +29,7 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run Playwright tests with JSON reporter
-        run: npx playwright test --reporter=json
-
-      - name: Parse failed tests and create issues
+      - name: Run script to parse test failures and open GitHub issues
         run: node .github/scripts/create-issues.js
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_ISSUE_CREATION }}
-
