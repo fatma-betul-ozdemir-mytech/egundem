@@ -15,8 +15,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Install GitHub CLI via snap
-        run: sudo snap install gh --classic
+      - name: Install GitHub CLI manually
+        run: |
+          curl -fsSL -o gh.deb https://github.com/cli/cli/releases/latest/download/gh_2.50.0_linux_amd64.deb
+          sudo dpkg -i gh.deb || sudo apt-get install -f -y
+          rm gh.deb
 
       - name: Retry downloading artifact until available
         run: |
