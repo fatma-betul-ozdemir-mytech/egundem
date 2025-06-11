@@ -2,7 +2,7 @@ name: Run Playwright Tests and Publish Report
 
 on:
   push:
-    branches: [main]
+    branches: [main]  # veya master ise 'main' yerine 'master' yaz
 
 jobs:
   test-and-deploy:
@@ -23,16 +23,17 @@ jobs:
     - name: Run Playwright tests and generate HTML + JSON reports
       run: |
         npx playwright test --reporter=json,html
+        mkdir -p test-results
         mv playwright-report/report.json test-results/playwright-report.json
 
     - name: Upload Playwright JSON report as artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: test-results
         path: test-results/playwright-report.json
 
     - name: Upload Playwright HTML report as artifact (optional)
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: playwright-html-report
         path: playwright-report/
