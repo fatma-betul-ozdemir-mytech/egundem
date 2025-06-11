@@ -27,8 +27,8 @@ jobs:
           for i in {1..10}; do
             echo "Attempt $i to download artifact..."
             gh run download ${{ github.event.workflow_run.id }} --name playwright-report && break
-            echo "Artifact not found yet. Waiting 2 minutes..."
-            sleep 120
+            echo "Artifact not found yet. Waiting 30 seconds..."
+            sleep 30
           done
           if [ ! -d "playwright-report" ]; then
             echo "Artifact not found after 10 retries."
