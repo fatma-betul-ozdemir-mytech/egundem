@@ -3,7 +3,7 @@ name: Deploy Playwright Report to GitHub Pages
 on:
   push:
     branches:
-      - main  # Senin ana branşın neyse onu yaz
+      - master  # Eğer ana dalın 'master' ise, 'main' değilse bunu düzelt
 
 jobs:
   deploy:
@@ -16,10 +16,16 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16'  # Uygun node versiyonunu yazabilirsin
+          node-version: '18'  # BURAYI 18 yaptık
+
+      - name: Install dependencies
+        run: npm ci  # Eğer package-lock.json varsa bu daha güvenli
+
+      - name: Playwright browserları kur
+        run: npx playwright install
 
       - name: Playwright testleri çalıştır
-        run: npm test  # Veya senin test komutun neyse
+        run: npm test
 
       - name: GitHub Pages'a deploy et
         uses: peaceiris/actions-gh-pages@v3
