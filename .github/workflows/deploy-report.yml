@@ -15,31 +15,28 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Install GitHub CLI manually (v2.49.0)
+      - name: Install GitHub CLI (gh)
         run: |
-          curl -fsSL -o gh.deb https://github.com/cli/cli/releases/download/v2.49.0/gh_2.49.0_linux_amd64.deb
-          sudo dpkg -i gh.deb || sudo apt-get install -f -y
-          rm gh.deb
+          sudo apt-get update
+          sudo apt-get install -y gh
 
       - name: Retry downloading artifact until available
         run: |
           for i in {1..10}; do
             echo "Attempt $i to download artifact..."
-            rm -rf tmp-report
+            rm -rf tmp-report playwright-report
             mkdir tmp-report
-            cd tmp-report
-            if gh run download ${{ github.event.workflow_run.id }} --name playwright-report; then
+            if gh run download ${{ github.event.workflow_run.id }} --name playwright-report --dir tmp-report; then
               echo "Download successful."
-              mv playwright-report ../playwright-report
-              cd ..
+              mv tmp-report/playwright-report ./playwright-report
               rm -rf tmp-report
               break
             else
-              cd ..
               echo "Download failed or artifact not ready. Waiting 30 seconds..."
               sleep 30
             fi
           done
+
           if [ ! -d "playwright-report" ]; then
             echo "Artifact not found after 10 retries."
             exit 1
