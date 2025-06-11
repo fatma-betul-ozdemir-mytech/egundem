@@ -2,14 +2,14 @@ name: Create Issues for Failed Tests
 
 on:
   workflow_run:
-    workflows: ["Run Tests"]
+    workflows: ["Run Tests"]   # Testleri çalıştıran workflow adı
     types:
       - completed
 
 jobs:
   create_issues:
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+    if: ${{ github.event.workflow_run.conclusion == 'failure' }}  # Sadece test başarısızsa çalışır
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -17,8 +17,8 @@ jobs:
       - name: Download test artifacts
         uses: actions/download-artifact@v4
         with:
-          name: playwright-report
-          path: test-results
+          name: playwright-report    # Test artifact adı
+          path: test-results         # Artifact buraya indirilecek
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -30,6 +30,6 @@ jobs:
 
       - name: Create issues for failed tests
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PAT_ISSUE_CREATION }}  # Kendi PAT token’ını buraya ekle (repo secrets)
           REPORT_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: node .github/scripts/create-issues.js
