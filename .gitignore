@@ -1,5 +1,18 @@
-# Node.js
+# Node.js bağımlılıkları
 node_modules/
+
+# Ortam dosyaları
 .env
+.env.*  # örneğin .env.local, .env.production gibi
+
+# Test çıktıları
+test-results/
 test-results.json
 playwright-report/
+*.zip
+*.log
+
+# Sistem dosyaları (opsiyonel)
+.DS_Store
+Thumbs.db
+
