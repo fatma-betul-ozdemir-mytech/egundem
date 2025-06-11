@@ -9,15 +9,15 @@ on:
 jobs:
   deploy-report:
     if: ${{ github.event.workflow_run.conclusion == 'success' || github.event.workflow_run.conclusion == 'failure' }}
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Install GitHub CLI manually
+      - name: Install GitHub CLI manually (v2.49.0)
         run: |
-          curl -fsSL -o gh.deb https://github.com/cli/cli/releases/latest/download/gh_2.50.0_linux_amd64.deb
+          curl -fsSL -o gh.deb https://github.com/cli/cli/releases/download/v2.49.0/gh_2.49.0_linux_amd64.deb
           sudo dpkg -i gh.deb || sudo apt-get install -f -y
           rm gh.deb
 
