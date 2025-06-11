@@ -9,7 +9,7 @@ on:
 jobs:
   deploy-report:
     if: ${{ github.event.workflow_run.conclusion == 'success' || github.event.workflow_run.conclusion == 'failure' }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04      # burayı ubuntu-22.04 yaptım
 
     steps:
       - name: Checkout repository
