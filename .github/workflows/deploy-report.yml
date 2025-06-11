@@ -15,13 +15,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup GitHub CLI
-        uses: actions/setup-gh@v2
+      - name: Install GitHub CLI
+        uses: dawidd6/action-install-gh-cli@v1
 
       - name: Retry downloading artifact until available
         run: |
           for i in {1..10}; do
-            gh run download ${{ github.event.workflow_run.id }} --name playwright-report && exit 0
+            gh run download ${{ github.event.workflow_run.id }} --name test-results --dir ./playwright-report && exit 0
             echo "Artifact not found yet. Waiting 10 seconds..."
             sleep 10
           done
@@ -33,7 +33,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 18
 
       - name: Install dependencies
         run: npm ci
@@ -42,4 +42,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: playwright-report
+          publish_dir: ./playwright-report
