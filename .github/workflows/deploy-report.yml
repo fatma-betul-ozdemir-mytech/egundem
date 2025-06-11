@@ -23,13 +23,17 @@ jobs:
 
       - name: Retry downloading artifact until available
         run: |
+          rm -rf playwright-report
           for i in {1..10}; do
-            gh run download ${{ github.event.workflow_run.id }} --name playwright-report && exit 0
-            echo "Artifact not found yet. Waiting 10 seconds..."
-            sleep 10
+            echo "Attempt $i to download artifact..."
+            gh run download ${{ github.event.workflow_run.id }} --name playwright-report && break
+            echo "Artifact not found yet. Waiting 2 minutes..."
+            sleep 120
           done
-          echo "Artifact not found after 10 retries."
-          exit 1
+          if [ ! -d "playwright-report" ]; then
+            echo "Artifact not found after 10 retries."
+            exit 1
+          fi
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
