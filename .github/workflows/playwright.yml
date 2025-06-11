@@ -35,8 +35,10 @@ jobs:
         run: npx playwright test --reporter=json
         continue-on-error: true
 
+      # Eğer rapor dosyasının yeri 'docs/playwright-report/results.json' ise:
       - name: Rename JSON report
-        run: mv playwright-report/test-results.json ./test-results.json
+        run: mv docs/playwright-report/results.json ./test-results.json
+        # Eğer dosya başka yerdeyse veya farklı isimdeyse, burayı değiştir.
 
       - name: Upload test result artifact
         uses: actions/upload-artifact@v4
@@ -48,4 +50,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./playwright-report/html-report
+          publish_dir: ./docs/playwright-report
