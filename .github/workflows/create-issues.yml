@@ -1,35 +1,78 @@
-name: Create GitHub Issues on Test Failures
+const fs = require('fs');
+const path = require('path');
+const { Octokit } = require('@octokit/rest');
 
-on:
-  workflow_run:
-    workflows: ["Playwright Tests"] # Test çalıştırma workflow adını doğru yaz
-    types:
-      - completed
+// GITHUB_TOKEN env olarak workflow'da tanımlanmalı
+const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN });
 
-jobs:
-  create-issues:
-    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
-    runs-on: ubuntu-latest
+const OWNER = process.env.GITHUB_REPOSITORY?.split('/')[0];
+const REPO = process.env.GITHUB_REPOSITORY?.split('/')[1];
+const REPORT_PATH = path.join(__dirname, '../../test-results/playwright-report.json');
 
-    steps:
-      - name: Checkout current repo
-        uses: actions/checkout@v3
+(async () => {
+  if (!fs.existsSync(REPORT_PATH)) {
+    console.error('JSON test raporu bulunamadı:', REPORT_PATH);
+    process.exit(1);
+  }
 
-      - name: Download test result artifact from Playwright workflow
-        uses: actions/download-artifact@v3
-        with:
-          name: test-results
-          path: ./ # JSON buraya gelecek
+  const report = JSON.parse(fs.readFileSync(REPORT_PATH, 'utf-8'));
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
+  const failedTests = report.suites
+    .flatMap(suite => suite.specs)
+    .flatMap(spec => spec.tests)
+    .filter(test => test.results.some(result => result.status === 'failed'));
 
-      - name: Install dependencies
-        run: npm install
+  if (failedTests.length === 0) {
+    console.log('Hatalı test bulunamadı, issue açılmayacak.');
+    return;
+  }
 
-      - name: Run script to parse test failures and open GitHub issues
-        run: node .github/scripts/create-issues.js
-        env:
-          GITHUB_TOKEN: ${{ secrets.PAT_ISSUE_CREATION }}
+  for (const test of failedTests) {
+    const testTitle = test.title.join(' > ');
+    const firstFailure = test.results.find(r => r.status === 'failed');
+    const errorMsg = firstFailure?.error?.message || 'Bilinmeyen hata';
+    const stack = firstFailure?.error?.stack || '';
+
+    const issueTitle = `🔴 Test Failed: ${testTitle}`;
+    const issueBody = `
+### Hatalı Test: ${testTitle}
+
+**Hata Mesajı:**
+\`\`\`
+${errorMsg}
+\`\`\`
+
+**Stack Trace:**
+\`\`\`
+${stack}
+\`\`\`
+
+Rapor: [HTML Raporu Görüntüle](${process.env.REPORT_URL})
+`;
+
+    // Aynı başlıkta açık issue varsa tekrar oluşturma
+    const existingIssues = await octokit.rest.issues.listForRepo({
+      owner: OWNER,
+      repo: REPO,
+      state: 'open',
+      labels: 'automated-test',
+    });
+
+    const alreadyExists = existingIssues.data.some(issue => issue.title === issueTitle);
+    if (alreadyExists) {
+      console.log(`Issue zaten mevcut: ${issueTitle}`);
+      continue;
+    }
+
+    // Yeni issue oluştur
+    await octokit.rest.issues.create({
+      owner: OWNER,
+      repo: REPO,
+      title: issueTitle,
+      body: issueBody,
+      labels: ['automated-test', 'bug'],
+    });
+
+    console.log(`Yeni issue oluşturuldu: ${issueTitle}`);
+  }
+})();
