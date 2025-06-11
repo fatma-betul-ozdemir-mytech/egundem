@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Setup GitHub CLI
-        uses: cli/gh-action@v2
+        uses: actions/setup-gh@v2
 
       - name: Retry downloading artifact until available
         run: |
