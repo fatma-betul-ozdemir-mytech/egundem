@@ -1,0 +1,126 @@
+# Test info
+
+- Name: eGündem İletişim Sayfası Testleri >> EGT-41 - Sayfadaki önemli linkler doğru sayfaya yönlendiriyor
+- Location: /home/runner/work/egundem/egundem/tests/iletisim.spec.js:21:3
+
+# Error details
+
+```
+Error: browserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1169/chrome-linux/headless_shell
+╔═════════════════════════════════════════════════════════════════════════╗
+║ Looks like Playwright Test or Playwright was just installed or updated. ║
+║ Please run the following command to download new browsers:              ║
+║                                                                         ║
+║     npx playwright install                                              ║
+║                                                                         ║
+║ <3 Playwright Team                                                      ║
+╚═════════════════════════════════════════════════════════════════════════╝
+```
+
+# Test source
+
+```ts
+   1 | import { test, expect } from '@playwright/test';
+   2 |
+   3 | const BASE_URL = 'https://egundem.com/iletisim';
+   4 |
+   5 | test.describe('eGündem İletişim Sayfası Testleri', () => {
+   6 |
+   7 |   test.beforeEach(async ({ page }) => {
+   8 |     await page.goto(BASE_URL, { timeout: 60000, waitUntil: 'domcontentloaded' });
+   9 |   });
+   10 |
+   11 |   // EGT-40: Sayfadaki tüm butonlar görünür ve tıklanabilir olmalı
+   12 |   test('EGT-40 - Sayfadaki tüm butonlar tıklanabilir olmalı', async ({ page }) => {
+   13 |     const buttons = await page.locator('button, input[type="submit"]').elementHandles();
+   14 |     for (const btn of buttons) {
+   15 |       await expect(btn).toBeVisible();
+   16 |       await expect(btn).toBeEnabled();
+   17 |     }
+   18 |   });
+   19 |
+   20 |   // EGT-41: İletişim sayfasındaki linkler doğru hedefe gitmeli
+>  21 |   test('EGT-41 - Sayfadaki önemli linkler doğru sayfaya yönlendiriyor', async ({ page }) => {
+      |   ^ Error: browserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1169/chrome-linux/headless_shell
+   22 |     const linkSelectors = [
+   23 |       'a[href="/"]',       // Ana sayfa linki örneği
+   24 |       'a[href="/hakkimizda"]', // Hakkımızda linki varsa
+   25 |       'a[href^="mailto:"]' // Mailto linkleri
+   26 |     ];
+   27 |
+   28 |     for (const selector of linkSelectors) {
+   29 |       const links = await page.locator(selector);
+   30 |       if (await links.count() > 0) {
+   31 |         const firstLink = links.first();
+   32 |         const href = await firstLink.getAttribute('href');
+   33 |
+   34 |         // Yeni sayfada açılan mailto linkleri hariç
+   35 |         if (href && !href.startsWith('mailto:')) {
+   36 |           await Promise.all([
+   37 |             page.waitForNavigation(),
+   38 |             firstLink.click(),
+   39 |           ]);
+   40 |           await expect(page).toHaveURL(new RegExp(href));
+   41 |           // Sayfayı tekrar iletişim sayfasına getir
+   42 |           await page.goto(BASE_URL, { timeout: 60000, waitUntil: 'domcontentloaded' });
+   43 |         }
+   44 |       }
+   45 |     }
+   46 |   });
+   47 |
+   48 |   // EGT-42: Formdaki input alanları doğru tipte olmalı
+   49 |   test('EGT-42 - Formdaki input alanları doğru tipte olmalı', async ({ page }) => {
+   50 |     const emailInput = page.locator('input[type="email"][name="email"]');
+   51 |     const textInputs = await page.locator('input[type="text"], textarea').elementHandles();
+   52 |
+   53 |     await expect(emailInput).toHaveCount(1);
+   54 |     for (const input of textInputs) {
+   55 |       await expect(input).toBeVisible();
+   56 |       await expect(input).toBeEnabled();
+   57 |     }
+   58 |   });
+   59 |
+   60 |   // EGT-43: Formdaki textarea alanı yeterli büyüklükte olmalı
+   61 |   test('EGT-43 - Formdaki mesaj alanı yeterli büyüklükte olmalı', async ({ page }) => {
+   62 |     const textarea = page.locator('textarea[name="mesaj"]');
+   63 |     await expect(textarea).toBeVisible();
+   64 |     const box = await textarea.boundingBox();
+   65 |     expect(box.height).toBeGreaterThan(50);
+   66 |     expect(box.width).toBeGreaterThan(200);
+   67 |   });
+   68 |
+   69 |   // EGT-44: Formu gönderirken yüklenme göstergesi görünmeli
+   70 |   test('EGT-44 - Form gönderilirken yüklenme göstergesi görünmeli', async ({ page }) => {
+   71 |     await page.fill('input[name="isim"]', 'Test Kullanıcı');
+   72 |     await page.fill('input[name="email"]', 'test@example.com');
+   73 |     await page.fill('textarea[name="mesaj"]', 'Bu bir test mesajıdır.');
+   74 |
+   75 |     const submitButton = page.locator('button[type="submit"]');
+   76 |
+   77 |     await Promise.all([
+   78 |       page.waitForResponse(response => response.url().includes('/iletisim') && response.status() === 200),
+   79 |       submitButton.click(),
+   80 |     ]);
+   81 |
+   82 |     // Yüklenme göstergesini sayfada kontrol et (örnek: spinner, loading class, vs.)
+   83 |     const loader = page.locator('.loading, .spinner, .loading-indicator');
+   84 |     if (await loader.count() > 0) {
+   85 |       await expect(loader).toBeVisible();
+   86 |       await loader.waitFor({ state: 'hidden', timeout: 10000 });
+   87 |     }
+   88 |   });
+   89 |
+   90 |   // EGT-45: Form gönderiminden sonra sayfa doğru mesaj göstermeli
+   91 |   test('EGT-45 - Form gönderiminden sonra başarı mesajı görünmeli', async ({ page }) => {
+   92 |     await page.fill('input[name="isim"]', 'Test Kullanıcı');
+   93 |     await page.fill('input[name="email"]', 'test@example.com');
+   94 |     await page.fill('textarea[name="mesaj"]', 'Bu bir test mesajıdır.');
+   95 |     await page.click('button[type="submit"]');
+   96 |
+   97 |     const successMessage = page.locator('text=Mesajınız başarıyla gönderildi');
+   98 |     await expect(successMessage).toBeVisible({ timeout: 10000 });
+   99 |   });
+  100 |
+  101 | });
+  102 |
+```
