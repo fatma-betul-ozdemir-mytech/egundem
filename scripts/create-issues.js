@@ -2,8 +2,8 @@ const { Octokit } = require("@octokit/rest");
 const fs = require("fs");
 const path = require("path");
 
-// Rapor yolu: test çıktısı bu dosyada
-const reportPath = path.resolve(process.cwd(), "test-results.json");
+// ✅ Güncellenmiş dosya yolu
+const reportPath = path.resolve(process.cwd(), "test-results", "test-results.json");
 if (!fs.existsSync(reportPath)) {
   console.error("❗️ Rapor dosyası bulunamadı:", reportPath);
   process.exit(1);
@@ -41,9 +41,9 @@ if (failedTests.length === 0) {
 
 const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN });
 
-// Hedef repo (başka repo olabilir!)
-const owner = "mytech-technology";           // 🔁 buraya hedef GitHub organizasyon/hesap adı
-const repo = "pardoon-backend";           // 🔁 buraya hedef repo adı
+// Hedef repo bilgileri
+const owner = "mytech-technology";      // 🔁 GitHub organizasyon/hesap adı
+const repo = "pardoon-backend";         // 🔁 Hedef repo adı
 
 (async () => {
   for (const test of failedTests) {
