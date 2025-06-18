@@ -22,5 +22,12 @@ jobs:
           sudo apt update
           sudo apt install -y k6
 
-      - name: Run k6 load test
-        run: k6 run load-test.js
+      - name: Run k6 load test and save report
+        run: |
+          k6 run load-test.js > k6-report.txt
+
+      - name: Upload k6 report
+        uses: actions/upload-artifact@v4
+        with:
+          name: k6-load-test-report
+          path: k6-report.txt
