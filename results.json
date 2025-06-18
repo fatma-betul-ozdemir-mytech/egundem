@@ -12,24 +12,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/fatma-betul-ozdemir-mytech/egundem/commit/cb4f1e71211d62378d5a6cd21d39ff9e2887af0e",
-        "commitHash": "cb4f1e71211d62378d5a6cd21d39ff9e2887af0e",
-        "buildHref": "https://github.com/fatma-betul-ozdemir-mytech/egundem/actions/runs/15734330864"
+        "commitHref": "https://github.com/fatma-betul-ozdemir-mytech/egundem/commit/6589c3a11b9a7d266ac78fda3d29ccc37b409f61",
+        "commitHash": "6589c3a11b9a7d266ac78fda3d29ccc37b409f61",
+        "buildHref": "https://github.com/fatma-betul-ozdemir-mytech/egundem/actions/runs/15734286676"
       },
       "gitCommit": {
-        "shortHash": "cb4f1e7",
-        "hash": "cb4f1e71211d62378d5a6cd21d39ff9e2887af0e",
-        "subject": "Merge branch 'master' of https://github.com/fatma-betul-ozdemir-mytech/egundem",
-        "body": "Merge branch 'master' of https://github.com/fatma-betul-ozdemir-mytech/egundem\n",
+        "shortHash": "6589c3a",
+        "hash": "6589c3a11b9a7d266ac78fda3d29ccc37b409f61",
+        "subject": "Update security-zap.yml",
+        "body": "Update security-zap.yml",
         "author": {
           "name": "fatma-betul-ozdemir-mytech",
           "email": "fbetul23@marun.edu.tr",
-          "time": 1750253631000
+          "time": 1750253537000
         },
         "committer": {
-          "name": "fatma-betul-ozdemir-mytech",
-          "email": "fbetul23@marun.edu.tr",
-          "time": 1750253631000
+          "name": "GitHub",
+          "email": "noreply@github.com",
+          "time": 1750253537000
         },
         "branch": "master"
       },
@@ -67,24 +67,24 @@
         "retries": 0,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/fatma-betul-ozdemir-mytech/egundem/commit/cb4f1e71211d62378d5a6cd21d39ff9e2887af0e",
-            "commitHash": "cb4f1e71211d62378d5a6cd21d39ff9e2887af0e",
-            "buildHref": "https://github.com/fatma-betul-ozdemir-mytech/egundem/actions/runs/15734330864"
+            "commitHref": "https://github.com/fatma-betul-ozdemir-mytech/egundem/commit/6589c3a11b9a7d266ac78fda3d29ccc37b409f61",
+            "commitHash": "6589c3a11b9a7d266ac78fda3d29ccc37b409f61",
+            "buildHref": "https://github.com/fatma-betul-ozdemir-mytech/egundem/actions/runs/15734286676"
           },
           "gitCommit": {
-            "shortHash": "cb4f1e7",
-            "hash": "cb4f1e71211d62378d5a6cd21d39ff9e2887af0e",
-            "subject": "Merge branch 'master' of https://github.com/fatma-betul-ozdemir-mytech/egundem",
-            "body": "Merge branch 'master' of https://github.com/fatma-betul-ozdemir-mytech/egundem\n",
+            "shortHash": "6589c3a",
+            "hash": "6589c3a11b9a7d266ac78fda3d29ccc37b409f61",
+            "subject": "Update security-zap.yml",
+            "body": "Update security-zap.yml",
             "author": {
               "name": "fatma-betul-ozdemir-mytech",
               "email": "fbetul23@marun.edu.tr",
-              "time": 1750253631000
+              "time": 1750253537000
             },
             "committer": {
-              "name": "fatma-betul-ozdemir-mytech",
-              "email": "fbetul23@marun.edu.tr",
-              "time": 1750253631000
+              "name": "GitHub",
+              "email": "noreply@github.com",
+              "time": 1750253537000
             },
             "branch": "master"
           },
@@ -137,10 +137,10 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 14198,
+                      "duration": 3750,
                       "error": {
-                        "message": "Error: expect.toContainText: Error: strict mode violation: locator('h1, h2') resolved to 3 elements:\n    1) <h2 class=\"text-xl leading-6 tracking-[-0.5px] font-interBold text-primary-black dark:text-white\">Popüler Gündem Haberleri</h2> aka getByRole('heading', { name: 'Popüler Gündem Haberleri' })\n    2) <h1 class=\"text-xl leading-6 tracking-[-0.5px] font-interBold text-primary-black dark:text-white\">Gündem</h1> aka getByRole('heading', { name: 'Gündem', exact: true })\n    3) <h2 class=\"text-lg font-interBold text-primary-black font-bold dark:text-white\">Twitter Gündem</h2> aka getByRole('heading', { name: 'Twitter Gündem' })\n\nCall log:\n\u001b[2m  - expect.toContainText with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1, h2')\u001b[22m\n",
-                        "stack": "Error: expect.toContainText: Error: strict mode violation: locator('h1, h2') resolved to 3 elements:\n    1) <h2 class=\"text-xl leading-6 tracking-[-0.5px] font-interBold text-primary-black dark:text-white\">Popüler Gündem Haberleri</h2> aka getByRole('heading', { name: 'Popüler Gündem Haberleri' })\n    2) <h1 class=\"text-xl leading-6 tracking-[-0.5px] font-interBold text-primary-black dark:text-white\">Gündem</h1> aka getByRole('heading', { name: 'Gündem', exact: true })\n    3) <h2 class=\"text-lg font-interBold text-primary-black font-bold dark:text-white\">Twitter Gündem</h2> aka getByRole('heading', { name: 'Twitter Gündem' })\n\nCall log:\n\u001b[2m  - expect.toContainText with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1, h2')\u001b[22m\n\n    at /home/runner/work/egundem/egundem/tests/gundem.spec.js:11:42",
+                        "message": "Error: expect.toContainText: Error: strict mode violation: locator('h1, h2') resolved to 2 elements:\n    1) <h2 class=\"text-xl leading-6 tracking-[-0.5px] font-interBold text-primary-black dark:text-white\">Popüler Gündem Haberleri</h2> aka getByRole('heading', { name: 'Popüler Gündem Haberleri' })\n    2) <h1 class=\"text-xl leading-6 tracking-[-0.5px] font-interBold text-primary-black dark:text-white\">Gündem</h1> aka getByRole('heading', { name: 'Gündem', exact: true })\n\nCall log:\n\u001b[2m  - expect.toContainText with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1, h2')\u001b[22m\n",
+                        "stack": "Error: expect.toContainText: Error: strict mode violation: locator('h1, h2') resolved to 2 elements:\n    1) <h2 class=\"text-xl leading-6 tracking-[-0.5px] font-interBold text-primary-black dark:text-white\">Popüler Gündem Haberleri</h2> aka getByRole('heading', { name: 'Popüler Gündem Haberleri' })\n    2) <h1 class=\"text-xl leading-6 tracking-[-0.5px] font-interBold text-primary-black dark:text-white\">Gündem</h1> aka getByRole('heading', { name: 'Gündem', exact: true })\n\nCall log:\n\u001b[2m  - expect.toContainText with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1, h2')\u001b[22m\n\n    at /home/runner/work/egundem/egundem/tests/gundem.spec.js:11:42",
                         "location": {
                           "file": "/home/runner/work/egundem/egundem/tests/gundem.spec.js",
                           "column": 42,
@@ -155,13 +155,13 @@
                             "column": 42,
                             "line": 11
                           },
-                          "message": "Error: expect.toContainText: Error: strict mode violation: locator('h1, h2') resolved to 3 elements:\n    1) <h2 class=\"text-xl leading-6 tracking-[-0.5px] font-interBold text-primary-black dark:text-white\">Popüler Gündem Haberleri</h2> aka getByRole('heading', { name: 'Popüler Gündem Haberleri' })\n    2) <h1 class=\"text-xl leading-6 tracking-[-0.5px] font-interBold text-primary-black dark:text-white\">Gündem</h1> aka getByRole('heading', { name: 'Gündem', exact: true })\n    3) <h2 class=\"text-lg font-interBold text-primary-black font-bold dark:text-white\">Twitter Gündem</h2> aka getByRole('heading', { name: 'Twitter Gündem' })\n\nCall log:\n\u001b[2m  - expect.toContainText with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1, h2')\u001b[22m\n\n\n   9 |     await page.goto(`${BASE_URL}/gundem`, { timeout: 60000 });\n  10 |     await expect(page).toHaveURL(/\\/gundem/);\n> 11 |     await expect(page.locator('h1, h2')).toContainText(/gündem/i);\n     |                                          ^\n  12 |   });\n  13 |\n  14 |   // EGT-22: Gündem haberleri listelenmeli\n    at /home/runner/work/egundem/egundem/tests/gundem.spec.js:11:42"
+                          "message": "Error: expect.toContainText: Error: strict mode violation: locator('h1, h2') resolved to 2 elements:\n    1) <h2 class=\"text-xl leading-6 tracking-[-0.5px] font-interBold text-primary-black dark:text-white\">Popüler Gündem Haberleri</h2> aka getByRole('heading', { name: 'Popüler Gündem Haberleri' })\n    2) <h1 class=\"text-xl leading-6 tracking-[-0.5px] font-interBold text-primary-black dark:text-white\">Gündem</h1> aka getByRole('heading', { name: 'Gündem', exact: true })\n\nCall log:\n\u001b[2m  - expect.toContainText with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1, h2')\u001b[22m\n\n\n   9 |     await page.goto(`${BASE_URL}/gundem`, { timeout: 60000 });\n  10 |     await expect(page).toHaveURL(/\\/gundem/);\n> 11 |     await expect(page.locator('h1, h2')).toContainText(/gündem/i);\n     |                                          ^\n  12 |   });\n  13 |\n  14 |   // EGT-22: Gündem haberleri listelenmeli\n    at /home/runner/work/egundem/egundem/tests/gundem.spec.js:11:42"
                         }
                       ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-06-18T13:34:41.053Z",
+                      "startTime": "2025-06-18T13:33:13.589Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -208,10 +208,10 @@
                   "projectName": "",
                   "results": [
                     {
-                      "workerIndex": 3,
+                      "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 9594,
+                      "duration": 3007,
                       "error": {
                         "message": "Error: expect: Property 'toHaveCountGreaterThan' not found.",
                         "stack": "Error: expect: Property 'toHaveCountGreaterThan' not found.\n    at /home/runner/work/egundem/egundem/tests/gundem.spec.js:18:28",
@@ -235,7 +235,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-06-18T13:34:58.805Z",
+                      "startTime": "2025-06-18T13:33:30.446Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -277,10 +277,10 @@
                   "projectName": "",
                   "results": [
                     {
-                      "workerIndex": 5,
+                      "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 10508,
+                      "duration": 8305,
                       "error": {
                         "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mnot\u001b[2m.\u001b[22mtoBeEmpty\u001b[2m()\u001b[22m\n\nLocator: locator('.news-card h2, article h2').first()\nExpected: not empty\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - expect.not.toBeEmpty with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.news-card h2, article h2').first()\u001b[22m\n",
                         "stack": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mnot\u001b[2m.\u001b[22mtoBeEmpty\u001b[2m()\u001b[22m\n\nLocator: locator('.news-card h2, article h2').first()\nExpected: not empty\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - expect.not.toBeEmpty with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.news-card h2, article h2').first()\u001b[22m\n\n    at /home/runner/work/egundem/egundem/tests/gundem.spec.js:26:37",
@@ -304,7 +304,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-06-18T13:35:09.547Z",
+                      "startTime": "2025-06-18T13:33:34.592Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -354,7 +354,7 @@
                       "workerIndex": 7,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 9355,
+                      "duration": 9881,
                       "error": {
                         "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: locator('article')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('article')\u001b[22m\n",
                         "stack": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: locator('article')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('article')\u001b[22m\n\n    at /home/runner/work/egundem/egundem/tests/gundem.spec.js:36:43",
@@ -378,7 +378,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-06-18T13:35:21.749Z",
+                      "startTime": "2025-06-18T13:33:44.357Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -425,15 +425,15 @@
                   "projectName": "",
                   "results": [
                     {
-                      "workerIndex": 10,
+                      "workerIndex": 8,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2526,
+                      "duration": 3215,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-06-18T13:35:32.947Z",
+                      "startTime": "2025-06-18T13:33:56.084Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -479,7 +479,7 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "failed",
-                      "duration": 9930,
+                      "duration": 9040,
                       "error": {
                         "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nLocator: locator('h1')\nExpected pattern: \u001b[32m/haber/i\u001b[39m\nReceived string:  \u001b[31m\"404\"\u001b[39m\nCall log:\n\u001b[2m  - expect.toContainText with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1')\u001b[22m\n\u001b[2m    9 × locator resolved to <h1 class=\"text-4xl font-bold\">404</h1>\u001b[22m\n\u001b[2m      - unexpected value \"404\"\u001b[22m\n",
                         "stack": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nLocator: locator('h1')\nExpected pattern: \u001b[32m/haber/i\u001b[39m\nReceived string:  \u001b[31m\"404\"\u001b[39m\nCall log:\n\u001b[2m  - expect.toContainText with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1')\u001b[22m\n\u001b[2m    9 × locator resolved to <h1 class=\"text-4xl font-bold\">404</h1>\u001b[22m\n\u001b[2m      - unexpected value \"404\"\u001b[22m\n\n    at /home/runner/work/egundem/egundem/tests/haberler.spec.js:11:38",
@@ -503,7 +503,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-06-18T13:34:41.076Z",
+                      "startTime": "2025-06-18T13:33:13.595Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -550,10 +550,10 @@
                   "projectName": "",
                   "results": [
                     {
-                      "workerIndex": 2,
+                      "workerIndex": 4,
                       "parallelIndex": 1,
                       "status": "failed",
-                      "duration": 12700,
+                      "duration": 3567,
                       "error": {
                         "message": "Error: expect: Property 'toHaveCountGreaterThan' not found.",
                         "stack": "Error: expect: Property 'toHaveCountGreaterThan' not found.\n    at /home/runner/work/egundem/egundem/tests/haberler.spec.js:18:28",
@@ -577,7 +577,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-06-18T13:34:54.423Z",
+                      "startTime": "2025-06-18T13:33:35.203Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -619,10 +619,10 @@
                   "projectName": "",
                   "results": [
                     {
-                      "workerIndex": 4,
+                      "workerIndex": 5,
                       "parallelIndex": 1,
                       "status": "failed",
-                      "duration": 2426,
+                      "duration": 3484,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0\u001b[39m\nReceived:   \u001b[31m0\u001b[39m",
                         "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0\u001b[39m\nReceived:   \u001b[31m0\u001b[39m\n    at /home/runner/work/egundem/egundem/tests/haberler.spec.js:27:19",
@@ -646,7 +646,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-06-18T13:35:08.462Z",
+                      "startTime": "2025-06-18T13:33:39.686Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -696,7 +696,7 @@
                       "workerIndex": 6,
                       "parallelIndex": 1,
                       "status": "failed",
-                      "duration": 13173,
+                      "duration": 12881,
                       "error": {
                         "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nLocator: locator(':root')\nExpected pattern: \u001b[32m/\\/haber\\//\u001b[39m\nReceived string:  \u001b[31m\"https://egundem.com/haberler\"\u001b[39m\nCall log:\n\u001b[2m  - expect.toHaveURL with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator(':root')\u001b[22m\n\u001b[2m    9 × locator resolved to <html lang=\"tr\" class=\"text-sm md:text-base\">…</html>\u001b[22m\n\u001b[2m      - unexpected value \"https://egundem.com/haberler\"\u001b[22m\n",
                         "stack": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nLocator: locator(':root')\nExpected pattern: \u001b[32m/\\/haber\\//\u001b[39m\nReceived string:  \u001b[31m\"https://egundem.com/haberler\"\u001b[39m\nCall log:\n\u001b[2m  - expect.toHaveURL with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator(':root')\u001b[22m\n\u001b[2m    9 × locator resolved to <html lang=\"tr\" class=\"text-sm md:text-base\">…</html>\u001b[22m\n\u001b[2m      - unexpected value \"https://egundem.com/haberler\"\u001b[22m\n\n    at /home/runner/work/egundem/egundem/tests/haberler.spec.js:39:24",
@@ -720,7 +720,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-06-18T13:35:11.821Z",
+                      "startTime": "2025-06-18T13:33:44.228Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -772,10 +772,10 @@
                   "projectName": "",
                   "results": [
                     {
-                      "workerIndex": 8,
+                      "workerIndex": 9,
                       "parallelIndex": 1,
                       "status": "failed",
-                      "duration": 2997,
+                      "duration": 2825,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m",
                         "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\n    at /home/runner/work/egundem/egundem/tests/haberler.spec.js:48:35",
@@ -799,7 +799,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-06-18T13:35:26.488Z",
+                      "startTime": "2025-06-18T13:33:58.602Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -863,10 +863,10 @@
                   "projectName": "",
                   "results": [
                     {
-                      "workerIndex": 9,
-                      "parallelIndex": 1,
+                      "workerIndex": 8,
+                      "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 2258,
+                      "duration": 2621,
                       "error": {
                         "message": "Error: expect.toContainText: Error: strict mode violation: locator('h1, h2') resolved to 2 elements:\n    1) <h1 class=\"text-4xl font-bold\">404</h1> aka getByRole('heading', { name: '404' })\n    2) <h2 class=\"text-2xl font-semibold\">Not Found</h2> aka getByRole('heading', { name: 'Not Found' })\n\nCall log:\n\u001b[2m  - expect.toContainText with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1, h2')\u001b[22m\n",
                         "stack": "Error: expect.toContainText: Error: strict mode violation: locator('h1, h2') resolved to 2 elements:\n    1) <h1 class=\"text-4xl font-bold\">404</h1> aka getByRole('heading', { name: '404' })\n    2) <h2 class=\"text-2xl font-semibold\">Not Found</h2> aka getByRole('heading', { name: 'Not Found' })\n\nCall log:\n\u001b[2m  - expect.toContainText with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1, h2')\u001b[22m\n\n    at /home/runner/work/egundem/egundem/tests/haberleri.spec.js:11:42",
@@ -890,7 +890,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-06-18T13:35:30.459Z",
+                      "startTime": "2025-06-18T13:33:59.409Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -938,9 +938,9 @@
                   "results": [
                     {
                       "workerIndex": 11,
-                      "parallelIndex": 1,
+                      "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 2481,
+                      "duration": 3702,
                       "error": {
                         "message": "Error: expect: Property 'toHaveCountGreaterThan' not found.",
                         "stack": "Error: expect: Property 'toHaveCountGreaterThan' not found.\n    at /home/runner/work/egundem/egundem/tests/haberleri.spec.js:18:24",
@@ -964,7 +964,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-06-18T13:35:33.813Z",
+                      "startTime": "2025-06-18T13:34:02.952Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -1006,10 +1006,10 @@
                   "projectName": "",
                   "results": [
                     {
-                      "workerIndex": 12,
-                      "parallelIndex": 1,
+                      "workerIndex": 13,
+                      "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 7524,
+                      "duration": 7631,
                       "error": {
                         "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: locator('.news-card img').first()\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.news-card img').first()\u001b[22m\n",
                         "stack": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: locator('.news-card img').first()\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.news-card img').first()\u001b[22m\n\n    at /home/runner/work/egundem/egundem/tests/haberleri.spec.js:27:33",
@@ -1033,7 +1033,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-06-18T13:35:37.218Z",
+                      "startTime": "2025-06-18T13:34:07.566Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -1081,9 +1081,9 @@
                   "results": [
                     {
                       "workerIndex": 15,
-                      "parallelIndex": 1,
+                      "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 13049,
+                      "duration": 13333,
                       "error": {
                         "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nLocator: locator(':root')\nExpected pattern: \u001b[32m/\\/haber\\//\u001b[39m\nReceived string:  \u001b[31m\"https://egundem.com/haberler\"\u001b[39m\nCall log:\n\u001b[2m  - expect.toHaveURL with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator(':root')\u001b[22m\n\u001b[2m    9 × locator resolved to <html lang=\"tr\" class=\"text-sm md:text-base\">…</html>\u001b[22m\n\u001b[2m      - unexpected value \"https://egundem.com/haberler\"\u001b[22m\n",
                         "stack": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nLocator: locator(':root')\nExpected pattern: \u001b[32m/\\/haber\\//\u001b[39m\nReceived string:  \u001b[31m\"https://egundem.com/haberler\"\u001b[39m\nCall log:\n\u001b[2m  - expect.toHaveURL with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator(':root')\u001b[22m\n\u001b[2m    9 × locator resolved to <html lang=\"tr\" class=\"text-sm md:text-base\">…</html>\u001b[22m\n\u001b[2m      - unexpected value \"https://egundem.com/haberler\"\u001b[22m\n\n    at /home/runner/work/egundem/egundem/tests/haberleri.spec.js:37:24",
@@ -1107,7 +1107,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-06-18T13:35:45.897Z",
+                      "startTime": "2025-06-18T13:34:16.129Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -1160,9 +1160,9 @@
                   "results": [
                     {
                       "workerIndex": 18,
-                      "parallelIndex": 1,
+                      "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 3622,
+                      "duration": 6039,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m",
                         "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\n    at /home/runner/work/egundem/egundem/tests/haberleri.spec.js:46:34",
@@ -1186,7 +1186,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-06-18T13:36:00.206Z",
+                      "startTime": "2025-06-18T13:34:30.639Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -1251,9 +1251,9 @@
                   "results": [
                     {
                       "workerIndex": 10,
-                      "parallelIndex": 0,
+                      "parallelIndex": 1,
                       "status": "failed",
-                      "duration": 2860,
+                      "duration": 2927,
                       "error": {
                         "message": "Error: expect.toContainText: Error: strict mode violation: locator('h1, h2') resolved to 2 elements:\n    1) <h1 class=\"text-4xl font-bold\">404</h1> aka getByRole('heading', { name: '404' })\n    2) <h2 class=\"text-2xl font-semibold\">Not Found</h2> aka getByRole('heading', { name: 'Not Found' })\n\nCall log:\n\u001b[2m  - expect.toContainText with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1, h2')\u001b[22m\n",
                         "stack": "Error: expect.toContainText: Error: strict mode violation: locator('h1, h2') resolved to 2 elements:\n    1) <h1 class=\"text-4xl font-bold\">404</h1> aka getByRole('heading', { name: '404' })\n    2) <h2 class=\"text-2xl font-semibold\">Not Found</h2> aka getByRole('heading', { name: 'Not Found' })\n\nCall log:\n\u001b[2m  - expect.toContainText with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1, h2')\u001b[22m\n\n    at /home/runner/work/egundem/egundem/tests/hakkımızda.spec.js:10:42",
@@ -1277,7 +1277,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-06-18T13:35:35.611Z",
+                      "startTime": "2025-06-18T13:34:02.481Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -1324,10 +1324,10 @@
                   "projectName": "",
                   "results": [
                     {
-                      "workerIndex": 13,
-                      "parallelIndex": 0,
+                      "workerIndex": 12,
+                      "parallelIndex": 1,
                       "status": "failed",
-                      "duration": 2994,
+                      "duration": 3531,
                       "error": {
                         "message": "Error: expect.toContainText: Error: strict mode violation: locator('section, article, p') resolved to 3 elements:\n    1) <p class=\"font-inter font-normal md:font-bold text-sm text-primary-black dark:text-white\">© 2024 e-Gündem. Her hakkı saklıdır</p> aka getByText('© 2024 e-Gündem. Her hakkı')\n    2) <p>…</p> aka getByText('Websitemiz, haber alma')\n    3) <p>…</p> aka getByText('Kabul Et butonuna tıklayarak')\n\nCall log:\n\u001b[2m  - expect.toContainText with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('section, article, p')\u001b[22m\n",
                         "stack": "Error: expect.toContainText: Error: strict mode violation: locator('section, article, p') resolved to 3 elements:\n    1) <p class=\"font-inter font-normal md:font-bold text-sm text-primary-black dark:text-white\">© 2024 e-Gündem. Her hakkı saklıdır</p> aka getByText('© 2024 e-Gündem. Her hakkı')\n    2) <p>…</p> aka getByText('Websitemiz, haber alma')\n    3) <p>…</p> aka getByText('Kabul Et butonuna tıklayarak')\n\nCall log:\n\u001b[2m  - expect.toContainText with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('section, article, p')\u001b[22m\n\n    at /home/runner/work/egundem/egundem/tests/hakkımızda.spec.js:17:27",
@@ -1351,7 +1351,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-06-18T13:35:39.419Z",
+                      "startTime": "2025-06-18T13:34:06.399Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -1399,33 +1399,33 @@
                   "results": [
                     {
                       "workerIndex": 14,
-                      "parallelIndex": 0,
+                      "parallelIndex": 1,
                       "status": "failed",
-                      "duration": 2674,
+                      "duration": 7586,
                       "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0\u001b[39m\nReceived:   \u001b[31m0\u001b[39m",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0\u001b[39m\nReceived:   \u001b[31m0\u001b[39m\n    at /home/runner/work/egundem/egundem/tests/hakkımızda.spec.js:31:28",
+                        "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: locator('img').nth(4)\nExpected: visible\nReceived: hidden\nCall log:\n\u001b[2m  - expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('img').nth(4)\u001b[22m\n\u001b[2m    9 × locator resolved to <img sizes=\"100vw\" decoding=\"async\" data-nimg=\"fill\" alt=\"E-Gündem Logo\" fetchpriority=\"high\" class=\"object-contain\" src=\"/_next/image?url=%2Fimages%2Flogo.png&w=3840&q=75\" srcset=\"/_next/image?url=%2Fimages%2Flogo.png&w=640&q=75 640w, /_next/image?url=%2Fimages%2Flogo.png&w=750&q=75 750w, /_next/image?url=%2Fimages%2Flogo.png&w=828&q=75 828w, /_next/image?url=%2Fimages%2Flogo.png&w=1080&q=75 1080w, /_next/image?url=%2Fimages%2Flogo.png&w=1200&q=75 1200w, /_next/image?url=%2Fimages%2Flogo.png&w=192…/>\u001b[22m\n\u001b[2m      - unexpected value \"hidden\"\u001b[22m\n",
+                        "stack": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: locator('img').nth(4)\nExpected: visible\nReceived: hidden\nCall log:\n\u001b[2m  - expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('img').nth(4)\u001b[22m\n\u001b[2m    9 × locator resolved to <img sizes=\"100vw\" decoding=\"async\" data-nimg=\"fill\" alt=\"E-Gündem Logo\" fetchpriority=\"high\" class=\"object-contain\" src=\"/_next/image?url=%2Fimages%2Flogo.png&w=3840&q=75\" srcset=\"/_next/image?url=%2Fimages%2Flogo.png&w=640&q=75 640w, /_next/image?url=%2Fimages%2Flogo.png&w=750&q=75 750w, /_next/image?url=%2Fimages%2Flogo.png&w=828&q=75 828w, /_next/image?url=%2Fimages%2Flogo.png&w=1080&q=75 1080w, /_next/image?url=%2Fimages%2Flogo.png&w=1200&q=75 1200w, /_next/image?url=%2Fimages%2Flogo.png&w=192…/>\u001b[22m\n\u001b[2m      - unexpected value \"hidden\"\u001b[22m\n\n    at /home/runner/work/egundem/egundem/tests/hakkımızda.spec.js:29:25",
                         "location": {
                           "file": "/home/runner/work/egundem/egundem/tests/hakkımızda.spec.js",
-                          "column": 28,
-                          "line": 31
+                          "column": 25,
+                          "line": 29
                         },
-                        "snippet": "\u001b[0m \u001b[90m 29 |\u001b[39m       \u001b[36mawait\u001b[39m expect(img)\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m 30 |\u001b[39m       \u001b[36mconst\u001b[39m naturalWidth \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m img\u001b[33m.\u001b[39mevaluate((node) \u001b[33m=>\u001b[39m node\u001b[33m.\u001b[39mnaturalWidth)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 31 |\u001b[39m       expect(naturalWidth)\u001b[33m.\u001b[39mtoBeGreaterThan(\u001b[35m0\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                            \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 32 |\u001b[39m     }\n \u001b[90m 33 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 34 |\u001b[39m\u001b[0m"
+                        "snippet": "\u001b[0m \u001b[90m 27 |\u001b[39m     \u001b[36mfor\u001b[39m (\u001b[36mlet\u001b[39m i \u001b[33m=\u001b[39m \u001b[35m0\u001b[39m\u001b[33m;\u001b[39m i \u001b[33m<\u001b[39m count\u001b[33m;\u001b[39m i\u001b[33m++\u001b[39m) {\n \u001b[90m 28 |\u001b[39m       \u001b[36mconst\u001b[39m img \u001b[33m=\u001b[39m images\u001b[33m.\u001b[39mnth(i)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 29 |\u001b[39m       \u001b[36mawait\u001b[39m expect(img)\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                         \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 30 |\u001b[39m       \u001b[36mconst\u001b[39m naturalWidth \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m img\u001b[33m.\u001b[39mevaluate((node) \u001b[33m=>\u001b[39m node\u001b[33m.\u001b[39mnaturalWidth)\u001b[33m;\u001b[39m\n \u001b[90m 31 |\u001b[39m       expect(naturalWidth)\u001b[33m.\u001b[39mtoBeGreaterThan(\u001b[35m0\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 32 |\u001b[39m     }\u001b[0m"
                       },
                       "errors": [
                         {
                           "location": {
                             "file": "/home/runner/work/egundem/egundem/tests/hakkımızda.spec.js",
-                            "column": 28,
-                            "line": 31
+                            "column": 25,
+                            "line": 29
                           },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0\u001b[39m\nReceived:   \u001b[31m0\u001b[39m\n\n  29 |       await expect(img).toBeVisible();\n  30 |       const naturalWidth = await img.evaluate((node) => node.naturalWidth);\n> 31 |       expect(naturalWidth).toBeGreaterThan(0);\n     |                            ^\n  32 |     }\n  33 |   });\n  34 |\n    at /home/runner/work/egundem/egundem/tests/hakkımızda.spec.js:31:28"
+                          "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: locator('img').nth(4)\nExpected: visible\nReceived: hidden\nCall log:\n\u001b[2m  - expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('img').nth(4)\u001b[22m\n\u001b[2m    9 × locator resolved to <img sizes=\"100vw\" decoding=\"async\" data-nimg=\"fill\" alt=\"E-Gündem Logo\" fetchpriority=\"high\" class=\"object-contain\" src=\"/_next/image?url=%2Fimages%2Flogo.png&w=3840&q=75\" srcset=\"/_next/image?url=%2Fimages%2Flogo.png&w=640&q=75 640w, /_next/image?url=%2Fimages%2Flogo.png&w=750&q=75 750w, /_next/image?url=%2Fimages%2Flogo.png&w=828&q=75 828w, /_next/image?url=%2Fimages%2Flogo.png&w=1080&q=75 1080w, /_next/image?url=%2Fimages%2Flogo.png&w=1200&q=75 1200w, /_next/image?url=%2Fimages%2Flogo.png&w=192…/>\u001b[22m\n\u001b[2m      - unexpected value \"hidden\"\u001b[22m\n\n\n  27 |     for (let i = 0; i < count; i++) {\n  28 |       const img = images.nth(i);\n> 29 |       await expect(img).toBeVisible();\n     |                         ^\n  30 |       const naturalWidth = await img.evaluate((node) => node.naturalWidth);\n  31 |       expect(naturalWidth).toBeGreaterThan(0);\n  32 |     }\n    at /home/runner/work/egundem/egundem/tests/hakkımızda.spec.js:29:25"
                         }
                       ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-06-18T13:35:43.434Z",
+                      "startTime": "2025-06-18T13:34:10.937Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -1446,8 +1446,8 @@
                       ],
                       "errorLocation": {
                         "file": "/home/runner/work/egundem/egundem/tests/hakkımızda.spec.js",
-                        "column": 28,
-                        "line": 31
+                        "column": 25,
+                        "line": 29
                       }
                     }
                   ],
@@ -1473,9 +1473,9 @@
                   "results": [
                     {
                       "workerIndex": 16,
-                      "parallelIndex": 0,
+                      "parallelIndex": 1,
                       "status": "failed",
-                      "duration": 7201,
+                      "duration": 8125,
                       "error": {
                         "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: locator('text=ekip, yönetim, takım, personel')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('text=ekip, yönetim, takım, personel')\u001b[22m\n",
                         "stack": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: locator('text=ekip, yönetim, takım, personel')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('text=ekip, yönetim, takım, personel')\u001b[22m\n\n    at /home/runner/work/egundem/egundem/tests/hakkımızda.spec.js:39:30",
@@ -1499,7 +1499,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-06-18T13:35:47.052Z",
+                      "startTime": "2025-06-18T13:34:19.574Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -1564,14 +1564,14 @@
                   "results": [
                     {
                       "workerIndex": 17,
-                      "parallelIndex": 0,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 3594,
+                      "duration": 2960,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-06-18T13:35:55.452Z",
+                      "startTime": "2025-06-18T13:34:28.665Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1598,14 +1598,14 @@
                   "results": [
                     {
                       "workerIndex": 17,
-                      "parallelIndex": 0,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 4776,
+                      "duration": 7521,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-06-18T13:35:59.159Z",
+                      "startTime": "2025-06-18T13:34:31.728Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1632,9 +1632,9 @@
                   "results": [
                     {
                       "workerIndex": 17,
-                      "parallelIndex": 0,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 5178,
+                      "duration": 3938,
                       "errors": [],
                       "stdout": [],
                       "stderr": [
@@ -1643,7 +1643,7 @@
                         }
                       ],
                       "retry": 0,
-                      "startTime": "2025-06-18T13:36:03.947Z",
+                      "startTime": "2025-06-18T13:34:39.254Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1670,27 +1670,27 @@
                   "results": [
                     {
                       "workerIndex": 17,
-                      "parallelIndex": 0,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 5306,
+                      "duration": 7788,
                       "errors": [],
                       "stdout": [
                         {
-                          "text": "Page Load Time: 4263 ms\n"
+                          "text": "Page Load Time: 6627 ms\n"
                         },
                         {
-                          "text": "First Byte: 1864 ms\n"
+                          "text": "First Byte: 4184 ms\n"
                         },
                         {
-                          "text": "DOM Content Loaded: 2690 ms\n"
+                          "text": "DOM Content Loaded: 5032 ms\n"
                         },
                         {
-                          "text": "Full Load: 4114 ms\n"
+                          "text": "Full Load: 6459 ms\n"
                         }
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-06-18T13:36:09.133Z",
+                      "startTime": "2025-06-18T13:34:43.205Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1717,14 +1717,14 @@
                   "results": [
                     {
                       "workerIndex": 17,
-                      "parallelIndex": 0,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 2647,
+                      "duration": 6622,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-06-18T13:36:14.445Z",
+                      "startTime": "2025-06-18T13:34:50.998Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1768,14 +1768,14 @@
                   "results": [
                     {
                       "workerIndex": 19,
-                      "parallelIndex": 1,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3909,
+                      "duration": 5126,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-06-18T13:36:04.791Z",
+                      "startTime": "2025-06-18T13:34:37.663Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1802,14 +1802,14 @@
                   "results": [
                     {
                       "workerIndex": 19,
-                      "parallelIndex": 1,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2967,
+                      "duration": 5132,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-06-18T13:36:08.806Z",
+                      "startTime": "2025-06-18T13:34:42.890Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1836,9 +1836,9 @@
                   "results": [
                     {
                       "workerIndex": 19,
-                      "parallelIndex": 1,
+                      "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 6300,
+                      "duration": 7408,
                       "error": {
                         "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nLocator: locator('input[type=\"email\"][name=\"email\"]')\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m0\u001b[39m\nCall log:\n\u001b[2m  - expect.toHaveCount with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('input[type=\"email\"][name=\"email\"]')\u001b[22m\n\u001b[2m    9 × locator resolved to 0 elements\u001b[22m\n\u001b[2m      - unexpected value \"0\"\u001b[22m\n",
                         "stack": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nLocator: locator('input[type=\"email\"][name=\"email\"]')\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m0\u001b[39m\nCall log:\n\u001b[2m  - expect.toHaveCount with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('input[type=\"email\"][name=\"email\"]')\u001b[22m\n\u001b[2m    9 × locator resolved to 0 elements\u001b[22m\n\u001b[2m      - unexpected value \"0\"\u001b[22m\n\n    at /home/runner/work/egundem/egundem/tests/iletisim.spec.js:53:30",
@@ -1862,7 +1862,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-06-18T13:36:11.780Z",
+                      "startTime": "2025-06-18T13:34:48.031Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -1910,9 +1910,9 @@
                   "results": [
                     {
                       "workerIndex": 20,
-                      "parallelIndex": 1,
+                      "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 5988,
+                      "duration": 9630,
                       "error": {
                         "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: locator('textarea[name=\"mesaj\"]')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('textarea[name=\"mesaj\"]')\u001b[22m\n",
                         "stack": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: locator('textarea[name=\"mesaj\"]')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('textarea[name=\"mesaj\"]')\u001b[22m\n\n    at /home/runner/work/egundem/egundem/tests/iletisim.spec.js:63:28",
@@ -1936,7 +1936,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-06-18T13:36:19.064Z",
+                      "startTime": "2025-06-18T13:34:56.253Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -1983,10 +1983,10 @@
                   "projectName": "",
                   "results": [
                     {
-                      "workerIndex": 22,
-                      "parallelIndex": 1,
+                      "workerIndex": 21,
+                      "parallelIndex": 0,
                       "status": "timedOut",
-                      "duration": 60597,
+                      "duration": 60596,
                       "error": {
                         "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m",
                         "stack": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
@@ -2007,7 +2007,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-06-18T13:36:26.047Z",
+                      "startTime": "2025-06-18T13:35:06.789Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -2050,9 +2050,9 @@
                   "results": [
                     {
                       "workerIndex": 25,
-                      "parallelIndex": 1,
+                      "parallelIndex": 0,
                       "status": "timedOut",
-                      "duration": 60620,
+                      "duration": 60609,
                       "error": {
                         "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m",
                         "stack": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
@@ -2073,7 +2073,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-06-18T13:37:27.955Z",
+                      "startTime": "2025-06-18T13:36:08.709Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -2133,9 +2133,9 @@
                   "results": [
                     {
                       "workerIndex": 17,
-                      "parallelIndex": 0,
+                      "parallelIndex": 1,
                       "status": "failed",
-                      "duration": 6734,
+                      "duration": 14853,
                       "error": {
                         "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nLocator: locator('h1')\nExpected pattern: \u001b[32m/köşe yazıları/i\u001b[39m\nReceived string:  \u001b[31m\"404\"\u001b[39m\nCall log:\n\u001b[2m  - expect.toContainText with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1')\u001b[22m\n\u001b[2m    9 × locator resolved to <h1 class=\"text-4xl font-bold\">404</h1>\u001b[22m\n\u001b[2m      - unexpected value \"404\"\u001b[22m\n",
                         "stack": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nLocator: locator('h1')\nExpected pattern: \u001b[32m/köşe yazıları/i\u001b[39m\nReceived string:  \u001b[31m\"404\"\u001b[39m\nCall log:\n\u001b[2m  - expect.toContainText with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1')\u001b[22m\n\u001b[2m    9 × locator resolved to <h1 class=\"text-4xl font-bold\">404</h1>\u001b[22m\n\u001b[2m      - unexpected value \"404\"\u001b[22m\n\n    at /home/runner/work/egundem/egundem/tests/koseyazilari.spec.js:11:38",
@@ -2159,7 +2159,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-06-18T13:36:17.107Z",
+                      "startTime": "2025-06-18T13:34:57.637Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -2206,10 +2206,10 @@
                   "projectName": "",
                   "results": [
                     {
-                      "workerIndex": 21,
-                      "parallelIndex": 0,
+                      "workerIndex": 22,
+                      "parallelIndex": 1,
                       "status": "failed",
-                      "duration": 2033,
+                      "duration": 2811,
                       "error": {
                         "message": "Error: expect: Property 'toHaveCountGreaterThan' not found.",
                         "stack": "Error: expect: Property 'toHaveCountGreaterThan' not found.\n    at /home/runner/work/egundem/egundem/tests/koseyazilari.spec.js:18:27",
@@ -2233,7 +2233,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-06-18T13:36:24.744Z",
+                      "startTime": "2025-06-18T13:35:13.357Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -2276,9 +2276,9 @@
                   "results": [
                     {
                       "workerIndex": 23,
-                      "parallelIndex": 0,
+                      "parallelIndex": 1,
                       "status": "failed",
-                      "duration": 7058,
+                      "duration": 7054,
                       "error": {
                         "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mnot\u001b[2m.\u001b[22mtoBeEmpty\u001b[2m()\u001b[22m\n\nLocator: locator('.article-card h2, article h2').first()\nExpected: not empty\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - expect.not.toBeEmpty with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.article-card h2, article h2').first()\u001b[22m\n",
                         "stack": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mnot\u001b[2m.\u001b[22mtoBeEmpty\u001b[2m()\u001b[22m\n\nLocator: locator('.article-card h2, article h2').first()\nExpected: not empty\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - expect.not.toBeEmpty with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.article-card h2, article h2').first()\u001b[22m\n\n    at /home/runner/work/egundem/egundem/tests/koseyazilari.spec.js:26:37",
@@ -2302,7 +2302,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-06-18T13:36:27.817Z",
+                      "startTime": "2025-06-18T13:35:17.100Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -2350,9 +2350,9 @@
                   "results": [
                     {
                       "workerIndex": 24,
-                      "parallelIndex": 0,
+                      "parallelIndex": 1,
                       "status": "timedOut",
-                      "duration": 60601,
+                      "duration": 60559,
                       "error": {
                         "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m",
                         "stack": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
@@ -2373,7 +2373,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-06-18T13:36:35.878Z",
+                      "startTime": "2025-06-18T13:35:25.126Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -2416,9 +2416,9 @@
                   "results": [
                     {
                       "workerIndex": 26,
-                      "parallelIndex": 0,
+                      "parallelIndex": 1,
                       "status": "failed",
-                      "duration": 2085,
+                      "duration": 2199,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m",
                         "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\n    at /home/runner/work/egundem/egundem/tests/koseyazilari.spec.js:44:34",
@@ -2442,7 +2442,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-06-18T13:37:37.813Z",
+                      "startTime": "2025-06-18T13:36:26.964Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -2507,14 +2507,14 @@
                   "results": [
                     {
                       "workerIndex": 27,
-                      "parallelIndex": 0,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1773,
+                      "duration": 1801,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-06-18T13:37:40.830Z",
+                      "startTime": "2025-06-18T13:36:30.082Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2541,9 +2541,9 @@
                   "results": [
                     {
                       "workerIndex": 27,
-                      "parallelIndex": 0,
+                      "parallelIndex": 1,
                       "status": "failed",
-                      "duration": 1681,
+                      "duration": 2369,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0\u001b[39m\nReceived:   \u001b[31m0\u001b[39m",
                         "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0\u001b[39m\nReceived:   \u001b[31m0\u001b[39m\n    at /home/runner/work/egundem/egundem/tests/video.spec.js:27:19",
@@ -2571,7 +2571,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-06-18T13:37:42.701Z",
+                      "startTime": "2025-06-18T13:36:31.980Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -2619,9 +2619,9 @@
                   "results": [
                     {
                       "workerIndex": 28,
-                      "parallelIndex": 0,
+                      "parallelIndex": 1,
                       "status": "failed",
-                      "duration": 12852,
+                      "duration": 12932,
                       "error": {
                         "message": "Error: \u001b[31mTimed out 10000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: locator('a[href*=\"/video/\"], .video-card a, article a').first()\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - expect.toBeVisible with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('a[href*=\"/video/\"], .video-card a, article a').first()\u001b[22m\n",
                         "stack": "Error: \u001b[31mTimed out 10000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: locator('a[href*=\"/video/\"], .video-card a, article a').first()\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - expect.toBeVisible with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('a[href*=\"/video/\"], .video-card a, article a').first()\u001b[22m\n\n    at /home/runner/work/egundem/egundem/tests/video.spec.js:35:30",
@@ -2645,7 +2645,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-06-18T13:37:45.218Z",
+                      "startTime": "2025-06-18T13:36:35.198Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -2693,9 +2693,9 @@
                   "results": [
                     {
                       "workerIndex": 29,
-                      "parallelIndex": 0,
+                      "parallelIndex": 1,
                       "status": "failed",
-                      "duration": 7991,
+                      "duration": 8007,
                       "error": {
                         "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: locator('main, section, .container').first()\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('main, section, .container').first()\u001b[22m\n",
                         "stack": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: locator('main, section, .container').first()\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('main, section, .container').first()\u001b[22m\n\n    at /home/runner/work/egundem/egundem/tests/video.spec.js:47:39",
@@ -2719,7 +2719,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-06-18T13:37:59.252Z",
+                      "startTime": "2025-06-18T13:36:49.405Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -2784,9 +2784,9 @@
                   "results": [
                     {
                       "workerIndex": 30,
-                      "parallelIndex": 0,
+                      "parallelIndex": 1,
                       "status": "failed",
-                      "duration": 7099,
+                      "duration": 6983,
                       "error": {
                         "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nLocator: locator('h1')\nExpected pattern: \u001b[32m/yazar/i\u001b[39m\nReceived string:  \u001b[31m\"404\"\u001b[39m\nCall log:\n\u001b[2m  - expect.toContainText with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1')\u001b[22m\n\u001b[2m    9 × locator resolved to <h1 class=\"text-4xl font-bold\">404</h1>\u001b[22m\n\u001b[2m      - unexpected value \"404\"\u001b[22m\n",
                         "stack": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nLocator: locator('h1')\nExpected pattern: \u001b[32m/yazar/i\u001b[39m\nReceived string:  \u001b[31m\"404\"\u001b[39m\nCall log:\n\u001b[2m  - expect.toContainText with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1')\u001b[22m\n\u001b[2m    9 × locator resolved to <h1 class=\"text-4xl font-bold\">404</h1>\u001b[22m\n\u001b[2m      - unexpected value \"404\"\u001b[22m\n\n    at /home/runner/work/egundem/egundem/tests/yazarlar.spec.js:11:38",
@@ -2810,7 +2810,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-06-18T13:38:08.448Z",
+                      "startTime": "2025-06-18T13:36:58.707Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -2858,9 +2858,9 @@
                   "results": [
                     {
                       "workerIndex": 31,
-                      "parallelIndex": 0,
+                      "parallelIndex": 1,
                       "status": "failed",
-                      "duration": 2032,
+                      "duration": 2220,
                       "error": {
                         "message": "Error: expect: Property 'toHaveCountGreaterThan' not found.",
                         "stack": "Error: expect: Property 'toHaveCountGreaterThan' not found.\n    at /home/runner/work/egundem/egundem/tests/yazarlar.spec.js:18:30",
@@ -2884,7 +2884,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-06-18T13:38:16.580Z",
+                      "startTime": "2025-06-18T13:37:06.669Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -2927,9 +2927,9 @@
                   "results": [
                     {
                       "workerIndex": 32,
-                      "parallelIndex": 0,
+                      "parallelIndex": 1,
                       "status": "failed",
-                      "duration": 2012,
+                      "duration": 2157,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0\u001b[39m\nReceived:   \u001b[31m0\u001b[39m",
                         "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0\u001b[39m\nReceived:   \u001b[31m0\u001b[39m\n    at /home/runner/work/egundem/egundem/tests/yazarlar.spec.js:27:19",
@@ -2953,7 +2953,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-06-18T13:38:19.560Z",
+                      "startTime": "2025-06-18T13:37:10.027Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -3003,7 +3003,7 @@
                       "workerIndex": 33,
                       "parallelIndex": 0,
                       "status": "timedOut",
-                      "duration": 60578,
+                      "duration": 60564,
                       "error": {
                         "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m",
                         "stack": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
@@ -3024,7 +3024,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-06-18T13:38:22.543Z",
+                      "startTime": "2025-06-18T13:37:13.102Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -3069,7 +3069,7 @@
                       "workerIndex": 34,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 2015,
+                      "duration": 2112,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m",
                         "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\n    at /home/runner/work/egundem/egundem/tests/yazarlar.spec.js:48:35",
@@ -3093,7 +3093,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-06-18T13:39:24.387Z",
+                      "startTime": "2025-06-18T13:38:14.962Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -3134,8 +3134,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2025-06-18T13:34:40.053Z",
-    "duration": 286570.769,
+    "startTime": "2025-06-18T13:33:12.617Z",
+    "duration": 304682.783,
     "expected": 9,
     "skipped": 0,
     "unexpected": 35,
