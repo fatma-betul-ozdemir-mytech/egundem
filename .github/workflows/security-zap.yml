@@ -23,5 +23,5 @@ jobs:
       - name: Upload ZAP report artifact
         uses: actions/upload-artifact@v4
         with:
-          name: zapscanreport      # Sade, geçerli artifact adı
-          path: ./zap_report.html  # ZAP raporunun dosya yolu (dokümantasyona göre ayarla)
+          name: zapscan
+          path: ./zap_report.html
