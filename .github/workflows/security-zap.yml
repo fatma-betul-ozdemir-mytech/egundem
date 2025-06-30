@@ -25,3 +25,5 @@ jobs:
         with:
           name: zapscan
           path: ./zap_report.html
+          # artifact_name parametresi kaldırıldı – güncel versiyon
+
