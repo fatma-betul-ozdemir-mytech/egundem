@@ -1,4 +1,4 @@
-name: Playwright Tests
+name: Playwright Tests and Report
 
 on:
   push:
@@ -36,5 +36,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_ISSUE_CREATION }}  # Kendi PAT token’ını buraya ekle (repo secrets)
           REPORT_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
-        run: node .github/scripts/create-issues.js
+        run: node .github/scripts/create-issues.cjs
       
