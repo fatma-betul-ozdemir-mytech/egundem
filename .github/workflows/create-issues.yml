@@ -1,15 +1,12 @@
 name: Create Issues for Failed Tests
 
 on:
-  workflow_run:
-    workflows: ["Run Tests"]   # Testleri çalıştıran workflow adı
-    types:
-      - completed
+  push:
+    branches: [ "master" ]
 
 jobs:
   create_issues:
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'failure' }}  # Sadece test başarısızsa çalışır
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
