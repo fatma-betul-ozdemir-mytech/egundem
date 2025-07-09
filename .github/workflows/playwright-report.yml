@@ -32,8 +32,9 @@ jobs:
           mv playwright-report/report.json playwright-report/report.json || echo "No JSON report found"
         continue-on-error: true   # testler hata verse bile devam et
 
-      - name: Upload Playwright HTML report artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: playwright-report
-          path: playwright-report
+      - name: Create issues for failed tests
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_ISSUE_CREATION }}  # Kendi PAT token’ını buraya ekle (repo secrets)
+          REPORT_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: node .github/scripts/create-issues.js
+      
