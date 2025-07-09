@@ -14,8 +14,6 @@ export default defineConfig({
     baseURL: 'https://egundem.com',
   },
   reporter: [
-    ['list'],
-    ['html', { outputFolder: 'playwright-report', open: 'never' }],
     ['json', { outputFile: 'playwright-report/results.json' }],
   ],
 });

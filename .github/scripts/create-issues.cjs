@@ -3,7 +3,7 @@ const fs = require("fs");
 const path = require("path");
 
 // 1. Rapor dosyasını bul
-const reportPath = path.join(process.cwd(), "test-results", "test-results.json");
+const reportPath = path.join(process.cwd(), "playwright-report", "results.json");
 
 if (!fs.existsSync(reportPath)) {
   console.error("❌ Rapor dosyası bulunamadı:", reportPath);
