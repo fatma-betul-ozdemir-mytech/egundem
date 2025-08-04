@@ -2,7 +2,7 @@ import http from 'k6/http';
 import { check, sleep } from 'k6';
 
 export let options = {
-  vus: 50,           // 50 eşzamanlı kullanıcı
+  vus: 100,           // 50 eşzamanlı kullanıcı
   duration: '30s',   // 30 saniye boyunca yük uygula
 };
 
