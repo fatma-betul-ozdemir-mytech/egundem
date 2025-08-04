@@ -1,0 +1,10 @@
+config:
+  target: "https://egundem.com"
+  phases:
+    - duration: 60
+      arrivalRate: 5
+
+scenarios:
+  - flow:
+      - get:
+          url: "/gundem"

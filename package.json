@@ -11,7 +11,8 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
-    "@playwright/test": "^1.52.0"
+    "@playwright/test": "^1.52.0",
+    "artillery": "^2.0.21"
   },
   "dependencies": {
     "@octokit/rest": "^21.1.1",
