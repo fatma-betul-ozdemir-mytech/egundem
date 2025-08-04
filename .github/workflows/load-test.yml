@@ -3,7 +3,8 @@ name: Load Test with Artillery
 on:
   workflow_dispatch:
   push:
-    branches: [master]
+    branches:
+      - master
 
 jobs:
   load_test:
@@ -13,8 +14,22 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
       - name: Install dependencies
         run: npm ci
 
-      - name: Run Artillery test
-        run: npx artillery run load-test.yml
+      - name: Run Artillery test and save report
+        run: npx artillery run load-test.yml --output load-report.json
+        continue-on-error: true  # Başarısızlık durumunda bile devam et
+
+      - name: Create issue if Artillery test fails
+        if: failure()
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_ISSUE_CREATION }}
+          REPORT_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          node .github/scripts/create-artillery-issue.cjs
