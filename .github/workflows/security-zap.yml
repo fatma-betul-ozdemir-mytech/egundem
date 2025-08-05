@@ -1,0 +1,21 @@
+name: OWASP ZAP Güvenlik Taraması
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [master]
+
+jobs:
+  zap_scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Run OWASP ZAP Baseline Scan
+        uses: zaproxy/action-baseline@v0.10.0
+        with:
+          target: 'https://egundem.com/gundem'
+          fail_action: false
+          cmd_options: '-a'
