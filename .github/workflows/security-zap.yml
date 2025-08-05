@@ -1,9 +1,9 @@
 name: OWASP ZAP Güvenlik Taraması
 
 on:
-  workflow_dispatch:
   push:
     branches: [master]
+  workflow_dispatch:
 
 jobs:
   zap_scan:
@@ -13,9 +13,15 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Run OWASP ZAP Baseline Scan
+      - name: Run ZAP baseline scan
         uses: zaproxy/action-baseline@v0.10.0
         with:
           target: 'https://egundem.com/gundem'
           fail_action: false
-          cmd_options: '-a'
+          docker_name: 'ghcr.io/zaproxy/zaproxy'
+
+      - name: Upload ZAP report artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: zap               # ✅ Geçerli artifact adı
+          path: ./zap_report.html
