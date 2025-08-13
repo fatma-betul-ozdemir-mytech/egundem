@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Run Trivy FS Scan
-        uses: aquasecurity/trivy-action@v0.29.0
+        uses: aquasecurity/trivy-action@v0.31.0
         with:
           scan-type: 'fs'
           scan-ref: '.'
@@ -58,7 +58,7 @@ jobs:
 
       - name: Install Nuclei
         run: |
-          curl -sL https://github.com/projectdiscovery/nuclei/releases/latest/download/nuclei_3.4.7_linux_64bit.tar.gz -o nuclei.tar.gz
+          curl -sL https://github.com/projectdiscovery/nuclei/releases/download/v3.4.7/nuclei_3.4.7_linux_64bit.tar.gz -o nuclei.tar.gz
           tar -xzf nuclei.tar.gz
           sudo mv nuclei /usr/local/bin/
           nuclei -version
