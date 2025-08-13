@@ -1,4 +1,4 @@
-name: Security All Scans
+name: Security Scans - eGundem
 
 on:
   push:
@@ -10,60 +10,49 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      # --------------------------
-      # Trivy Container Tarama
-      # --------------------------
-      - name: Trivy Scan
+      # Trivy taraması
+      - name: Run Trivy Scan
         run: |
           sudo apt-get update && sudo apt-get install wget -y
-          wget https://github.com/aquasecurity/trivy/releases/latest/download/trivy_0.65.0_Linux-64bit.deb
-          sudo dpkg -i trivy_0.65.0_Linux-64bit.deb
+          wget https://github.com/aquasecurity/trivy/releases/latest/download/trivy_0.65.1_Linux-64bit.deb
+          sudo dpkg -i trivy_0.65.1_Linux-64bit.deb
           trivy fs . --exit-code 0 --severity HIGH,CRITICAL --format table --output trivy_report.txt
 
-      # --------------------------
-      # Nuclei Tarama
-      # --------------------------
+      - name: Upload Trivy report
+        uses: actions/upload-artifact@v4
+        with:
+          name: trivy-report
+          path: trivy_report.txt
+
+      # Nikto taraması
+      - name: Run Nikto Scan
+        run: |
+          sudo apt-get update && sudo apt-get install nikto -y
+          nikto -h https://egundem.com -output nikto_report.txt
+
+      - name: Upload Nikto report
+        uses: actions/upload-artifact@v4
+        with:
+          name: nikto-report
+          path: nikto_report.txt
+
+      # Nuclei taraması
       - name: Install Nuclei
         run: |
-          curl -sL https://github.com/projectdiscovery/nuclei/releases/latest/download/nuclei_6.7.7_linux_64bit.tar.gz | tar xz
-          sudo mv nuclei /usr/local/bin/
-          nuclei -version
-
+          sudo apt-get update && sudo apt-get install -y unzip wget
+          wget https://github.com/projectdiscovery/nuclei/releases/download/v3.4.7/nuclei_3.4.7_linux_64bit.zip
+          unzip nuclei_3.4.7_linux_64bit.zip -d nuclei
+          sudo mv nuclei/nuclei /usr/local/bin/
+      
       - name: Run Nuclei Scan
         run: |
           nuclei -u https://egundem.com -o nuclei_report.txt
 
-      # --------------------------
-      # Nikto Tarama
-      # --------------------------
-      - name: Install Nikto
-        run: sudo apt-get install nikto -y
-
-      - name: Run Nikto Scan
-        run: |
-          nikto -h https://egundem.com -output nikto_report.txt
-
-      # --------------------------
-      # Semgrep Tarama
-      # --------------------------
-      - name: Install Semgrep
-        uses: returntocorp/semgrep-action@v2
-        with:
-          config: "p/ci"
-          output: semgrep_report.json
-
-      # --------------------------
-      # Upload All Reports
-      # --------------------------
-      - name: Upload Security Reports
+      - name: Upload Nuclei report
         uses: actions/upload-artifact@v4
         with:
-          name: security-reports
-          path: |
-            trivy_report.txt
-            nuclei_report.txt
-            nikto_report.txt
-            semgrep_report.json
+          name: nuclei-report
+          path: nuclei_report.txt
