@@ -2,78 +2,92 @@ name: Security All Scans
 
 on:
   push:
-    branches: [master]
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
-  security_scans:
+  trivy_scan:
+    name: Trivy File System Scan
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
-      # Semgrep
-      - name: Run Semgrep Scan
-        uses: returntocorp/semgrep-action@v3
+      - name: Run Trivy FS Scan
+        uses: aquasecurity/trivy-action@v0.28.0
         with:
-          config: "p/ci"
-          output: semgrep_report.json
-          format: json
+          scan-type: 'fs'
+          scan-ref: '.'
+          severity: 'CRITICAL,HIGH'
+          exit-code: 1
+          format: 'table'
+          output: 'trivy_report.txt'
 
-      - name: Upload Semgrep report
-        uses: actions/upload-artifact@v4
-        with:
-          name: semgrep-report
-          path: semgrep_report.json
-
-      # Nikto
-      - name: Run Nikto Scan
-        run: |
-          sudo apt-get update && sudo apt-get install nikto -y
-          nikto -h https://egundem.com -output nikto_report.txt
-
-      - name: Upload Nikto report
-        uses: actions/upload-artifact@v4
-        with:
-          name: nikto-report
-          path: nikto_report.txt
-
-      # Nuclei
-      - name: Install Nuclei
-        run: |
-          curl -sL https://github.com/projectdiscovery/nuclei/releases/latest/download/nuclei_3.4.7_linux_64bit.tar.gz | tar xz
-          sudo mv nuclei /usr/local/bin/
-
-      - name: Run Nuclei Scan
-        run: nuclei -u https://egundem.com -o nuclei_report.txt
-
-      - name: Upload Nuclei report
-        uses: actions/upload-artifact@v4
-        with:
-          name: nuclei-report
-          path: nuclei_report.txt
-
-      # Trivy
-      - name: Run Trivy Scan
-        uses: aquasecurity/trivy-action@v2
-        with:
-          scan-type: fs
-          format: table
-          output: trivy_report.txt
-          severity: HIGH,CRITICAL
-
-      - name: Upload Trivy report
+      - name: Upload Trivy Report
         uses: actions/upload-artifact@v4
         with:
           name: trivy-report
           path: trivy_report.txt
 
-      # Example: Create GitHub Issue if alerts exist
-      - name: Create Security Issue
-        uses: peter-evans/create-issue-from-file@v4
-        if: always()
+  semgrep_scan:
+    name: Semgrep Static Analysis
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Run Semgrep Scan
+        uses: returntocorp/semgrep-action@v1
         with:
-          title: "Security Scan Alerts"
-          content-file: trivy_report.txt
-          labels: security, automated
+          config: auto
+          output: semgrep-results.json
+
+      - name: Upload Semgrep Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: semgrep-report
+          path: semgrep-results.json
+
+  nuclei_scan:
+    name: Nuclei Vulnerability Scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Install Nuclei
+        run: |
+          curl -sL https://github.com/projectdiscovery/nuclei/releases/latest/download/nuclei_3.4.7_linux_64bit.tar.gz -o nuclei.tar.gz
+          tar -xzf nuclei.tar.gz
+          sudo mv nuclei /usr/local/bin/
+          nuclei -version
+
+      - name: Run Nuclei Scan
+        run: |
+          nuclei -t cves/ -o nuclei_report.txt -severity critical,high
+          
+      - name: Upload Nuclei Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: nuclei-report
+          path: nuclei_report.txt
+
+  nikto_scan:
+    name: Nikto Web Scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Install Nikto
+        run: sudo apt-get update && sudo apt-get install nikto -y
+
+      - name: Run Nikto Scan
+        run: nikto -h https://egundem.com -output nikto_report.txt
+
+      - name: Upload Nikto Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: nikto-report
+          path: nikto_report.txt
