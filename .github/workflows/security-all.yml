@@ -1,4 +1,4 @@
-name: Security Scans - eGundem
+name: Security All Scans
 
 on:
   push:
@@ -13,21 +13,21 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Trivy taraması
-      - name: Run Trivy Scan
-        run: |
-          sudo apt-get update && sudo apt-get install wget -y
-          wget https://github.com/aquasecurity/trivy/releases/latest/download/trivy_0.65.1_Linux-64bit.deb
-          sudo dpkg -i trivy_0.65.1_Linux-64bit.deb
-          trivy fs . --exit-code 0 --severity HIGH,CRITICAL --format table --output trivy_report.txt
+      # Semgrep
+      - name: Run Semgrep Scan
+        uses: returntocorp/semgrep-action@v3
+        with:
+          config: "p/ci"
+          output: semgrep_report.json
+          format: json
 
-      - name: Upload Trivy report
+      - name: Upload Semgrep report
         uses: actions/upload-artifact@v4
         with:
-          name: trivy-report
-          path: trivy_report.txt
+          name: semgrep-report
+          path: semgrep_report.json
 
-      # Nikto taraması
+      # Nikto
       - name: Run Nikto Scan
         run: |
           sudo apt-get update && sudo apt-get install nikto -y
@@ -39,20 +39,41 @@ jobs:
           name: nikto-report
           path: nikto_report.txt
 
-      # Nuclei taraması
+      # Nuclei
       - name: Install Nuclei
         run: |
-          sudo apt-get update && sudo apt-get install -y unzip wget
-          wget https://github.com/projectdiscovery/nuclei/releases/download/v3.4.7/nuclei_3.4.7_linux_64bit.zip
-          unzip nuclei_3.4.7_linux_64bit.zip -d nuclei
-          sudo mv nuclei/nuclei /usr/local/bin/
-      
+          curl -sL https://github.com/projectdiscovery/nuclei/releases/latest/download/nuclei_3.4.7_linux_64bit.tar.gz | tar xz
+          sudo mv nuclei /usr/local/bin/
+
       - name: Run Nuclei Scan
-        run: |
-          nuclei -u https://egundem.com -o nuclei_report.txt
+        run: nuclei -u https://egundem.com -o nuclei_report.txt
 
       - name: Upload Nuclei report
         uses: actions/upload-artifact@v4
         with:
           name: nuclei-report
           path: nuclei_report.txt
+
+      # Trivy
+      - name: Run Trivy Scan
+        uses: aquasecurity/trivy-action@v2
+        with:
+          scan-type: fs
+          format: table
+          output: trivy_report.txt
+          severity: HIGH,CRITICAL
+
+      - name: Upload Trivy report
+        uses: actions/upload-artifact@v4
+        with:
+          name: trivy-report
+          path: trivy_report.txt
+
+      # Example: Create GitHub Issue if alerts exist
+      - name: Create Security Issue
+        uses: peter-evans/create-issue-from-file@v4
+        if: always()
+        with:
+          title: "Security Scan Alerts"
+          content-file: trivy_report.txt
+          labels: security, automated
