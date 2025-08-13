@@ -14,15 +14,14 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
+      - name: Install Trivy CLI
+        run: |
+          wget https://github.com/aquasecurity/trivy/releases/download/v0.65.1/trivy_0.65.1_Linux-64bit.deb
+          sudo dpkg -i trivy_0.65.1_Linux-64bit.deb
+          trivy --version
+
       - name: Run Trivy FS Scan
-        uses: aquasecurity/trivy-action@v0.31.0
-        with:
-          scan-type: 'fs'
-          scan-ref: '.'
-          severity: 'CRITICAL,HIGH'
-          exit-code: 1
-          format: 'table'
-          output: 'trivy_report.txt'
+        run: trivy fs . --severity HIGH,CRITICAL --exit-code 1 --format table --output trivy_report.txt
 
       - name: Upload Trivy Report
         uses: actions/upload-artifact@v4
@@ -56,7 +55,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Install Nuclei
+      - name: Install Nuclei CLI
         run: |
           curl -sL https://github.com/projectdiscovery/nuclei/releases/download/v3.4.7/nuclei_3.4.7_linux_64bit.tar.gz -o nuclei.tar.gz
           tar -xzf nuclei.tar.gz
@@ -64,8 +63,7 @@ jobs:
           nuclei -version
 
       - name: Run Nuclei Scan
-        run: |
-          nuclei -t cves/ -o nuclei_report.txt -severity critical,high
+        run: nuclei -t cves/ -o nuclei_report.txt -severity critical,high
 
       - name: Upload Nuclei Report
         uses: actions/upload-artifact@v4
