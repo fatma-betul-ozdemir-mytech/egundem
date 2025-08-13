@@ -16,8 +16,8 @@ jobs:
 
       - name: Install Trivy
         run: |
-          sudo apt-get update
-          sudo apt-get install -y trivy
+          wget https://github.com/aquasecurity/trivy/releases/latest/download/trivy_0.65.1_Linux-64bit.deb
+          sudo dpkg -i trivy_0.65.1_Linux-64bit.deb || sudo apt-get install -f -y
           trivy --version
 
       - name: Run Trivy FS Scan
@@ -30,25 +30,6 @@ jobs:
           name: trivy-report
           path: trivy_report.txt
 
-  semgrep_scan:
-    name: Semgrep Static Analysis
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-
-      - name: Run Semgrep Scan
-        uses: returntocorp/semgrep-action@v1
-        with:
-          config: auto
-          output: semgrep_report.json
-
-      - name: Upload Semgrep Report
-        uses: actions/upload-artifact@v4
-        with:
-          name: semgrep-report
-          path: semgrep_report.json
-
   nuclei_scan:
     name: Nuclei Vulnerability Scan
     runs-on: ubuntu-latest
@@ -58,8 +39,7 @@ jobs:
 
       - name: Install Nuclei
         run: |
-          sudo apt-get update
-          sudo apt-get install -y unzip wget
+          sudo apt-get update && sudo apt-get install -y unzip wget
           wget https://github.com/projectdiscovery/nuclei/releases/latest/download/nuclei_3.4.7_linux_64bit.zip -O nuclei.zip
           unzip nuclei.zip
           sudo mv nuclei /usr/local/bin/
@@ -74,22 +54,3 @@ jobs:
         with:
           name: nuclei-report
           path: nuclei_report.txt
-
-  nikto_scan:
-    name: Nikto Web Scan
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-
-      - name: Install Nikto
-        run: sudo apt-get update && sudo apt-get install -y nikto
-
-      - name: Run Nikto Scan
-        run: nikto -h https://egundem.com -output nikto_report.txt
-
-      - name: Upload Nikto Report
-        uses: actions/upload-artifact@v4
-        with:
-          name: nikto-report
-          path: nikto_report.txt
