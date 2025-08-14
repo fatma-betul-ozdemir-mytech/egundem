@@ -14,11 +14,12 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Install Trivy (Latest)
+      - name: Install Trivy
         run: |
-          TRIVY_VERSION=$(curl -s https://api.github.com/repos/aquasecurity/trivy/releases/latest | grep tag_name | cut -d '"' -f 4)
-          wget https://github.com/aquasecurity/trivy/releases/download/${TRIVY_VERSION}/trivy_${TRIVY_VERSION#v}_Linux-64bit.deb
-          sudo dpkg -i trivy_${TRIVY_VERSION#v}_Linux-64bit.deb || sudo apt-get install -f -y
+          sudo apt-get update
+          sudo apt-get install -y wget
+          wget https://github.com/aquasecurity/trivy/releases/latest/download/trivy_0.55.0_Linux-64bit.deb
+          sudo dpkg -i trivy_0.55.0_Linux-64bit.deb || sudo apt-get install -f -y
           trivy --version
 
       - name: Run Trivy FS Scan
@@ -38,22 +39,65 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Install Nuclei (Latest)
+      - name: Install Nuclei
         run: |
           sudo apt-get update && sudo apt-get install -y unzip wget
-          NUCLEI_VERSION=$(curl -s https://api.github.com/repos/projectdiscovery/nuclei/releases/latest | grep tag_name | cut -d '"' -f 4)
-          wget https://github.com/projectdiscovery/nuclei/releases/download/${NUCLEI_VERSION}/nuclei_${NUCLEI_VERSION#v}_linux_amd64.zip -O nuclei.zip
+          wget https://github.com/projectdiscovery/nuclei/releases/latest/download/nuclei_3.4.7_linux_64bit.zip -O nuclei.zip
           unzip -o nuclei.zip
           sudo mv nuclei /usr/local/bin/
           nuclei -version
 
       - name: Run Nuclei Scan
         run: |
-          touch nuclei_report.txt
-          nuclei -u https://egundem.com -t cves/ -o nuclei_report.txt -severity critical,high || true
+          nuclei -u https://egundem.com -severity critical,high -o nuclei_report.txt || true
 
       - name: Upload Nuclei Report
         uses: actions/upload-artifact@v4
         with:
           name: nuclei-report
           path: nuclei_report.txt
+
+  semgrep_scan:
+    name: Semgrep Code Scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Install Semgrep
+        run: |
+          pip install semgrep
+          semgrep --version
+
+      - name: Run Semgrep Scan
+        run: |
+          semgrep --config=auto --error --json > semgrep_report.json || true
+
+      - name: Upload Semgrep Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: semgrep-report
+          path: semgrep_report.json
+
+  nikto_scan:
+    name: Nikto Web Server Scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Install Nikto
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y nikto
+          nikto -Version
+
+      - name: Run Nikto Scan
+        run: |
+          nikto -h https://egundem.com > nikto_report.txt || true
+
+      - name: Upload Nikto Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: nikto-report
+          path: nikto_report.txt
