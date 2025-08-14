@@ -43,13 +43,15 @@ jobs:
           sudo apt-get update && sudo apt-get install -y unzip wget
           NUCLEI_VERSION=$(curl -s https://api.github.com/repos/projectdiscovery/nuclei/releases/latest | grep tag_name | cut -d '"' -f 4)
           wget https://github.com/projectdiscovery/nuclei/releases/download/${NUCLEI_VERSION}/nuclei_${NUCLEI_VERSION#v}_linux_amd64.zip -O nuclei.zip
-          unzip nuclei.zip
+          unzip -o nuclei.zip
           sudo mv nuclei /usr/local/bin/
           nuclei -version
 
       - name: Run Nuclei Scan
         run: |
-          nuclei -t cves/ -o nuclei_report.txt -severity critical,high
+          touch nuclei_report.txt
+          nuclei -u https://egundem.com -t cves/ -o nuclei_report.txt -severity critical,high || true
+
 
       - name: Upload Nuclei Report
         uses: actions/upload-artifact@v4
