@@ -14,12 +14,11 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Install Trivy
+      - name: Install Trivy (Latest)
         run: |
-          sudo apt-get update
-          sudo apt-get install -y wget
-          wget https://github.com/aquasecurity/trivy/releases/latest/download/trivy_0.55.0_Linux-64bit.deb
-          sudo dpkg -i trivy_0.55.0_Linux-64bit.deb || sudo apt-get install -f -y
+          TRIVY_VERSION=$(curl -s https://api.github.com/repos/aquasecurity/trivy/releases/latest | grep tag_name | cut -d '"' -f 4)
+          wget https://github.com/aquasecurity/trivy/releases/download/${TRIVY_VERSION}/trivy_${TRIVY_VERSION#v}_Linux-64bit.deb
+          sudo dpkg -i trivy_${TRIVY_VERSION#v}_Linux-64bit.deb || sudo apt-get install -f -y
           trivy --version
 
       - name: Run Trivy FS Scan
@@ -39,24 +38,25 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Install Nuclei
+      - name: Install Nuclei (Latest)
         run: |
           sudo apt-get update && sudo apt-get install -y unzip wget
-          wget https://github.com/projectdiscovery/nuclei/releases/latest/download/nuclei_3.4.7_linux_64bit.zip -O nuclei.zip
-          unzip -o nuclei.zip
+          NUCLEI_VERSION=$(curl -s https://api.github.com/repos/projectdiscovery/nuclei/releases/latest | grep tag_name | cut -d '"' -f 4)
+          wget https://github.com/projectdiscovery/nuclei/releases/download/${NUCLEI_VERSION}/nuclei_${NUCLEI_VERSION#v}_linux_amd64.zip -O nuclei.zip
+          unzip nuclei.zip
           sudo mv nuclei /usr/local/bin/
           nuclei -version
 
       - name: Run Nuclei Scan
         run: |
-          nuclei -u https://egundem.com -severity critical,high -o nuclei_report.txt || true
+          nuclei -t cves/ -o nuclei_report.txt -severity critical,high
 
       - name: Upload Nuclei Report
         uses: actions/upload-artifact@v4
         with:
           name: nuclei-report
           path: nuclei_report.txt
-
+          
   semgrep_scan:
     name: Semgrep Code Scan
     runs-on: ubuntu-latest
