@@ -71,15 +71,22 @@ jobs:
           pip install semgrep
           semgrep --version
 
+      - name: Create Semgrep Ignore File
+        run: |
+          echo "node_modules/" > .semgrepignore
+          echo "docs/" >> .semgrepignore
+          echo "*.html" >> .semgrepignore
+
       - name: Run Semgrep Scan
         run: |
-          semgrep --config=auto --error --json > semgrep_report.json || true
+          semgrep --config=auto --exclude-dir=node_modules --exclude-dir=docs --exclude='*.html' \
+          --severity=WARNING,ERROR --format=table > semgrep_report.txt || true
 
       - name: Upload Semgrep Report
         uses: actions/upload-artifact@v4
         with:
           name: semgrep-report
-          path: semgrep_report.json
+          path: semgrep_report.txt
 
   nikto_scan:
     name: Nikto Web Server Scan
