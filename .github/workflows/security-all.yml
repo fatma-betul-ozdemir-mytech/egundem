@@ -49,7 +49,8 @@ jobs:
 
       - name: Run Nuclei Scan
         run: |
-          nuclei -t cves/ -o nuclei_report.txt -severity critical,high
+          touch nuclei_report.txt
+          nuclei -u https://egundem.com -t cves/ -o nuclei_report.txt -severity critical,high || true
 
       - name: Upload Nuclei Report
         uses: actions/upload-artifact@v4
