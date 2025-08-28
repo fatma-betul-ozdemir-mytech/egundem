@@ -24,7 +24,13 @@ jobs:
 
       - name: Run Artillery test and save report
         run: npx artillery run load-test.yml --output load-report.json
-        continue-on-error: true  # Başarısızlık durumunda bile devam et
+        continue-on-error: true  # Başarısızlık olsa bile devam et
+
+      - name: Upload Artillery Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: artillery-report
+          path: load-report.json
 
       - name: Create issue if Artillery test fails
         if: failure()
