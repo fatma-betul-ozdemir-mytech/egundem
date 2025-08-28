@@ -22,18 +22,23 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run Artillery test and save JSON report
-        run: npx artillery run load-test.yml --output load-report.json
-        continue-on-error: true
+      - name: Run Artillery test and generate HTML report
+        run: |
+          npx artillery run load-test.yml --output load-report.json
+          npx artillery report load-report.json --output artillery-report.html
+        continue-on-error: true  # Test hatası olsa da devam et
 
-      - name: Generate HTML report
-        run: npx artillery report load-report.json -o load-report.html
-
-      - name: Upload Artillery HTML report
-        uses: actions/upload-artifact@v3
+      - name: Upload JSON report as artifact
+        uses: actions/upload-artifact@v4
         with:
-          name: artillery-report
-          path: load-report.html
+          name: artillery-json-report
+          path: load-report.json
+
+      - name: Upload HTML report as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: artillery-html-report
+          path: artillery-report.html
 
       - name: Create issue if Artillery test fails
         if: failure()
