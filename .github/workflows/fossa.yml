@@ -10,17 +10,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Run FOSSA Scan
         uses: fossas/fossa-action@v1
         with:
           api-key: ${{ secrets.FOSSA_API_KEY }}
 
-      - name: Download FOSSA Report
+      - name: Download FOSSA Issues
         run: |
-          curl -H "Authorization: token ${{ secrets.FOSSA_API_KEY }}" \
-          -s https://app.fossa.com/api/revisions/${{ github.repository }}/latest \
+          curl -H "Authorization: Bearer ${{ secrets.FOSSA_API_KEY }}" \
+          -s "https://app.fossa.com/api/revisions?project=${{ github.repository }}&limit=1" \
           -o fossa-report.json
 
       - name: Upload FOSSA Report
