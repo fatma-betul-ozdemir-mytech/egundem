@@ -2,111 +2,139 @@ name: Security All Scans
 
 on:
   push:
-    branches:
-      - master
+    branches: [ master ]
+  pull_request:
   workflow_dispatch:
 
 jobs:
+  fossa_scan:
+    name: FOSSA Scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Run FOSSA Scan
+        uses: fossas/fossa-action@v1
+        with:
+          api-key: ${{ secrets.FOSSA_API_KEY }}
+
+      - name: Download FOSSA Report
+        run: |
+          curl -H "Authorization: token ${{ secrets.FOSSA_API_KEY }}" \
+          -s https://app.fossa.com/api/revisions/${{ github.repository }}/latest \
+          -o fossa-report.json
+
+      - name: Upload FOSSA Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: fossa-report
+          path: fossa-report.json
+
+      - name: Create FOSSA Issues
+        run: node ${{ github.workspace }}/.github/scripts/create-fossa-issues.cjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  semgrep_scan:
+    name: Semgrep Scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Run Semgrep
+        run: |
+          pip install semgrep
+          semgrep --config=p/ci --json --output semgrep_report.json
+
+      - name: Upload Semgrep Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: semgrep-report
+          path: semgrep_report.json
+
+      - name: Create Semgrep Issues
+        run: node ${{ github.workspace }}/.github/scripts/create-semgrep-issues.cjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
   trivy_scan:
     name: Trivy File System Scan
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
-      - name: Install Trivy (Latest)
+      - name: Install Trivy
         run: |
-          TRIVY_VERSION=$(curl -s https://api.github.com/repos/aquasecurity/trivy/releases/latest | grep tag_name | cut -d '"' -f 4)
-          wget https://github.com/aquasecurity/trivy/releases/download/${TRIVY_VERSION}/trivy_${TRIVY_VERSION#v}_Linux-64bit.deb
-          sudo dpkg -i trivy_${TRIVY_VERSION#v}_Linux-64bit.deb || sudo apt-get install -f -y
+          wget https://github.com/aquasecurity/trivy/releases/latest/download/trivy_0.65.1_Linux-64bit.deb
+          sudo dpkg -i trivy_0.65.1_Linux-64bit.deb || sudo apt-get install -f -y
           trivy --version
 
       - name: Run Trivy FS Scan
-        run: |
-          trivy fs . --exit-code 0 --severity HIGH,CRITICAL --format table --output trivy_report.txt
+        run: trivy fs . --exit-code 0 --severity HIGH,CRITICAL --format json --output trivy_report.json
 
       - name: Upload Trivy Report
         uses: actions/upload-artifact@v4
         with:
           name: trivy-report
-          path: trivy_report.txt
+          path: trivy_report.json
+
+      - name: Create Trivy Issues
+        run: node ${{ github.workspace }}/.github/scripts/create-trivy-issues.cjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   nuclei_scan:
     name: Nuclei Vulnerability Scan
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
-      - name: Install Nuclei (Latest)
+      - name: Install Nuclei
         run: |
           sudo apt-get update && sudo apt-get install -y unzip wget
-          NUCLEI_VERSION=$(curl -s https://api.github.com/repos/projectdiscovery/nuclei/releases/latest | grep tag_name | cut -d '"' -f 4)
-          wget https://github.com/projectdiscovery/nuclei/releases/download/${NUCLEI_VERSION}/nuclei_${NUCLEI_VERSION#v}_linux_amd64.zip -O nuclei.zip
+          wget https://github.com/projectdiscovery/nuclei/releases/latest/download/nuclei_3.4.7_linux_64bit.zip -O nuclei.zip
           unzip -o nuclei.zip
           sudo mv nuclei /usr/local/bin/
           nuclei -version
 
       - name: Run Nuclei Scan
-        run: |
-          touch nuclei_report.txt
-          nuclei -u https://egundem.com -t cves/ -o nuclei_report.txt -severity critical,high || true
-
+        run: nuclei -t cves/ -o nuclei_report.txt -severity critical,high
 
       - name: Upload Nuclei Report
         uses: actions/upload-artifact@v4
         with:
           name: nuclei-report
           path: nuclei_report.txt
-          
-  semgrep_scan:
-    name: Semgrep Code Scan
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
 
-      - name: Install Semgrep
-        run: |
-          pip install semgrep
-          semgrep --version
-
-      - name: Create Semgrep Ignore File
-        run: |
-          echo "node_modules/" > .semgrepignore
-          echo "docs/" >> .semgrepignore
-          echo "*.html" >> .semgrepignore
-
-      - name: Run Semgrep Scan
-        run: |
-          semgrep --config=auto --exclude-dir=node_modules --exclude-dir=docs --exclude='*.html' \
-          --severity=WARNING,ERROR --format=table > semgrep_report.txt || echo "No issues found or scan failed" > semgrep_report.txt
-
-      - name: Upload Semgrep Report
-        uses: actions/upload-artifact@v4
-        with:
-          name: semgrep-report
-          path: semgrep_report.txt
+      - name: Create Nuclei Issues
+        run: node ${{ github.workspace }}/.github/scripts/create-nuclei-issues.cjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   nikto_scan:
-    name: Nikto Web Server Scan
+    name: Nikto Web Scan
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
       - name: Install Nikto
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y nikto
-          nikto -Version
+        run: sudo apt-get update && sudo apt-get install -y nikto
 
       - name: Run Nikto Scan
-        run: |
-          nikto -h https://egundem.com > nikto_report.txt || true
+        run: nikto -h https://egundem.com -o nikto_report.txt
 
       - name: Upload Nikto Report
         uses: actions/upload-artifact@v4
         with:
           name: nikto-report
           path: nikto_report.txt
+
+      - name: Create Nikto Issues
+        run: node ${{ github.workspace }}/.github/scripts/create-nikto-issues.cjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
