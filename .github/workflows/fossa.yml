@@ -8,9 +8,10 @@ on:
 jobs:
   fossa:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
       - name: Run FOSSA Scan
         uses: fossas/fossa-action@v1
@@ -20,7 +21,7 @@ jobs:
       - name: Download FOSSA Report
         run: |
           curl -H "Authorization: token ${{ secrets.FOSSA_API_KEY }}" \
-          -s "https://app.fossa.com/api/revisions/${{ github.repository }}/latest" \
+          -s https://app.fossa.com/api/revisions/${{ github.repository }}/latest \
           -o fossa-report.json
 
       - name: Upload FOSSA Report
@@ -30,6 +31,6 @@ jobs:
           path: fossa-report.json
 
       - name: Create Issues if Problems Found
-        run: node .github/scripts/create-fossa-issues.js
+        run: node .github/scripts/create-fossa-issues.cjs
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
