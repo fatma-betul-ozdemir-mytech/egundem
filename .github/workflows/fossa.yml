@@ -17,10 +17,10 @@ jobs:
         with:
           api-key: ${{ secrets.FOSSA_API_KEY }}
 
-      - name: Download FOSSA Issues
+      - name: Download FOSSA Report
         run: |
-          curl -H "Authorization: Bearer ${{ secrets.FOSSA_API_KEY }}" \
-          -s "https://app.fossa.com/api/revisions?project=${{ github.repository }}&limit=1" \
+          curl -H "Authorization: token ${{ secrets.FOSSA_API_KEY }}" \
+          -s "https://app.fossa.com/api/revisions/${{ github.repository }}/latest" \
           -o fossa-report.json
 
       - name: Upload FOSSA Report
