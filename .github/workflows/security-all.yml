@@ -1,128 +1,110 @@
-name: Security All Scans
+name: Security All Tests
 
 on:
-  workflow_dispatch:
   push:
-    branches:
-      - master
+    branches: [master]
+  pull_request:
+    branches: [master]
 
 jobs:
-  trivy_scan:
-    name: Trivy File System Scan
+  security-tests:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-      - name: Install Trivy
-        run: |
-          wget https://github.com/aquasecurity/trivy/releases/download/v0.64.2/trivy_0.64.2_Linux-64bit.deb
-          sudo dpkg -i trivy_0.64.2_Linux-64bit.deb || sudo apt-get install -f -y
-          trivy --version
-
-      - name: Run Trivy FS Scan
-        run: |
-          trivy fs . --exit-code 0 --severity HIGH,CRITICAL --format table --output trivy_report.txt
-
-      - name: Upload Trivy Report
-        uses: actions/upload-artifact@v4
+      # ---------------- SEMGREP ----------------
+      - name: Run Semgrep
+        uses: returntocorp/semgrep-action@v1
         with:
-          name: trivy-report
-          path: trivy_report.txt
+          config: "auto"
+          output: semgrep-report.json
+        continue-on-error: true
 
-  nuclei_scan:
-    name: Nuclei Vulnerability Scan
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+      # ---------------- TRIVY ----------------
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'fs'
+          scan-ref: '.'
+          format: 'json'
+          output: 'trivy-report.json'
+        continue-on-error: true
 
+      # ---------------- NIKTO ----------------
+      - name: Install Nikto
+        run: sudo apt-get update && sudo apt-get install -y nikto
+      - name: Run Nikto
+        run: nikto -h https://egundem.com -output nikto-report.txt || true
+
+      # ---------------- NUCLEI ----------------
       - name: Install Nuclei
         run: |
-          sudo apt-get update && sudo apt-get install -y unzip wget
-          wget https://github.com/projectdiscovery/nuclei/releases/download/v3.4.7/nuclei_3.4.7_linux_64bit.zip -O nuclei.zip
-          unzip -o nuclei.zip
+          curl -s https://api.github.com/repos/projectdiscovery/nuclei/releases/latest \
+          | grep "browser_download_url.*linux_amd64.zip" \
+          | cut -d '"' -f 4 \
+          | wget -qi -
+          unzip nuclei-*-linux_amd64.zip
           sudo mv nuclei /usr/local/bin/
           nuclei -version
-
       - name: Run Nuclei Scan
+        run: nuclei -u https://egundem.com -json -o nuclei-report.json || true
+
+      # ---------------- BANDIT ----------------
+      - name: Install Bandit
+        run: pip install bandit
+      - name: Run Bandit
+        run: bandit -r . -f json -o bandit-report.json || true
+
+      # ---------------- FOSSA ----------------
+      - name: Run FOSSA scan
         run: |
-          nuclei -t cves/ -o nuclei_report.txt -severity critical,high
+          curl -H "Cache-Control: no-cache" https://raw.githubusercontent.com/fossas/fossa-cli/master/install.sh | bash
+          fossa analyze
+          fossa test || true
+        env:
+          FOSSA_API_KEY: ${{ secrets.FOSSA_API_KEY }}
 
-      - name: Upload Nuclei Report
-        uses: actions/upload-artifact@v4
-        with:
-          name: nuclei-report
-          path: nuclei_report.txt
+      # ---------------- RAPORLAMA (Issues oluşturma) ----------------
+      - name: Create Semgrep Issues
+        if: always()
+        run: node .github/scripts/create-semgrep-issues.cjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
 
-  semgrep_scan:
-    name: Semgrep Scan
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+      - name: Create Trivy Issues
+        if: always()
+        run: node .github/scripts/create-trivy-issues.cjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
 
-      - name: Install Semgrep
-        run: |
-          pip install semgrep
+      - name: Create Nikto Issues
+        if: always()
+        run: node .github/scripts/create-nikto-issues.cjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
 
-      - name: Run Semgrep
-        run: |
-          semgrep --config=p/ci --json > semgrep_report.json || true
+      - name: Create Nuclei Issues
+        if: always()
+        run: node .github/scripts/create-nuclei-issues.cjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
 
-      - name: Upload Semgrep Report
-        uses: actions/upload-artifact@v4
-        with:
-          name: semgrep-report
-          path: semgrep_report.json
+      - name: Create Bandit Issues
+        if: always()
+        run: node .github/scripts/create-bandit-issues.cjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
 
-  nikto_scan:
-    name: Nikto Web Scan
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-
-      - name: Install Nikto
-        run: |
-          sudo apt-get update && sudo apt-get install -y nikto perl
-
-      - name: Run Nikto Scan
-        run: |
-          nikto -h https://egundem.com -o nikto_report.txt -Format txt
-
-      - name: Upload Nikto Report
-        uses: actions/upload-artifact@v4
-        with:
-          name: nikto-report
-          path: nikto_report.txt
-
-  fossa_scan:
-    name: FOSSA License & Security Scan
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-
-      - name: Run FOSSA Scan
-        uses: fossas/fossa-action@v1
-        with:
-          api-key: ${{ secrets.FOSSA_API_KEY }}
-
-      - name: Download FOSSA Report
-        run: |
-          curl -H "Authorization: token ${{ secrets.FOSSA_API_KEY }}" \
-          -s https://app.fossa.com/api/revisions/${{ github.repository }}/latest \
-          -o fossa-report.json
-
-      - name: Upload FOSSA Report
-        uses: actions/upload-artifact@v4
-        with:
-          name: fossa-report
-          path: fossa-report.json
-
-      # Eğer FOSSA issue oluşturulacaksa:
-      # - name: Create Issues if Problems Found
-      #   run: node .github/scripts/create-fossa-issues.cjs
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Create FOSSA Issues
+        if: always()
+        run: node .github/scripts/create-fossa-issues.cjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
